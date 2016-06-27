@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
 
 	MovePosition playerState = MovePosition.Stay;
 
-
 	public float MoveSpeed = 0f;
 	public float bounceSpeed = -1f;
 
@@ -26,15 +25,15 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetMouseButton(0)) {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				if (Physics.Raycast (ray, out hit)) {
+					if (hit.collider.gameObject.CompareTag ("left")) {
+						playerState = MovePosition.Left;
+					}
+					if (hit.collider.gameObject.CompareTag ("right")) {
+						playerState = MovePosition.Right;
+					}
+				}
 
-			if (Physics.Raycast (ray, out hit)) {
-				if (hit.collider.gameObject.CompareTag ("left")) {
-					playerState = MovePosition.Left;
-				}
-				if (hit.collider.gameObject.CompareTag ("right")) {
-					playerState = MovePosition.Right;
-				}
-			}
 		} else {
 			playerState = MovePosition.Stay;
 		}

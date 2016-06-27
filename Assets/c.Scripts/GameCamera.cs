@@ -10,6 +10,6 @@ public class GameCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3 (playerPosition.transform.position.x + 7f, transform.position.y, transform.position.z);
+		transform.position = new Vector3 (Mathf.Lerp(transform.position.x,playerPosition.transform.position.x + 7f,0.1f), transform.position.y, transform.position.z);
 	}
 }
