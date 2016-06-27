@@ -5,23 +5,26 @@ public class PlayerController : MonoBehaviour {
 
 
 
-
+	// status use
 	MovePosition playerState = MovePosition.Stay;
+	GameSet gameset = GameSet.play;
 
+	// move, bounce speeds
 	public float MoveSpeed = 0f;
 	public float bounceSpeed = -1f;
 
 
-	// Use this for initialization
+
 	void Start () {
 		
 
 	}
-	
-	// Update is called once per frame
+
+
 	void Update () {
 		//Debug.Log (MoveSpeed);
 
+		// raycast hit to gameObject in click point. change to MovePosition(status)
 		if (Input.GetMouseButton(0)) {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour {
 			playerState = MovePosition.Stay;
 		}
 
+		// status equal change speed
 		switch (playerState) {
 		case MovePosition.Stay:
 			MoveSpeed = 0f;
@@ -50,9 +54,29 @@ public class PlayerController : MonoBehaviour {
 			break;
 		}
 
+		// only run playing
+		if (gameset == GameSet.play) {
+			Debug.Log (gameset);
+			transform.position = new Vector3 (transform.position.x + MoveSpeed * 0.1f, transform.position.y, transform.position.z);
+		}
+	}
 
-		transform.position = new Vector3 (transform.position.x + MoveSpeed*0.1f, transform.position.y, transform.position.z);
-	
+	// onTrigger Grounds ?
+	void OnTriggerEnter(Collider Ground) {
+		if (Ground.tag == "ground") {
+			bounceSpeed = -2f;
+			bounceSpeed = bounceSpeed * -1f;
+		}
+
+		if (Ground.tag == "dead") {
+			GameManager.gameset = true;
+			gameset = GameSet.lose;
+		}
+
+		if (Ground.tag == "clear") {
+			GameManager.gameset = true;
+			gameset = GameSet.win;
+		}
 	}
 
 

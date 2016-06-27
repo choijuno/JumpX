@@ -3,13 +3,15 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	
+	// end game Check
+	public static bool gameset;
 
-	// Use this for initialization
+
 	void Start () {
-	
+		gameset=false;
 	}
-	
-	// Update is called once per frame
+
+
 	void Update () {
 	
 	}
