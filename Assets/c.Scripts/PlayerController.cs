@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour {
 
 	// move, bounce speeds
 	public float MoveSpeed = 0f;
-	public float bounceSpeed = -1f;
 
 
 
@@ -56,17 +55,12 @@ public class PlayerController : MonoBehaviour {
 
 		// only run playing
 		if (gameset == GameSet.play) {
-			Debug.Log (gameset);
 			transform.position = new Vector3 (transform.position.x + MoveSpeed * 0.1f, transform.position.y, transform.position.z);
 		}
 	}
 
 	// onTrigger Grounds ?
 	void OnTriggerEnter(Collider Ground) {
-		if (Ground.tag == "ground") {
-			bounceSpeed = -2f;
-			bounceSpeed = bounceSpeed * -1f;
-		}
 
 		if (Ground.tag == "dead") {
 			GameManager.gameset = true;

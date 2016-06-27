@@ -8,7 +8,8 @@ public enum MovePosition {
 
 // bounce status
 public enum Bouncy {
-	bounce =0,
+	Down =0,
+	Up,
 	not
 }
 
