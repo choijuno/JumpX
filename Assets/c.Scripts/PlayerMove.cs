@@ -2,116 +2,136 @@
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
-	
+
 	// ui win, lose texts
-	public GameObject gameover;
-	public GameObject gameclear;
+	//public GameObject gameover;
+	//public GameObject gameclear;
 
 	// status use
 	Bouncy bounce = Bouncy.Down;
 
+
+
+	//MaxHeight
 	public float MaxHeight;
-	float height;
+	float MaxHeight_in;
 
-	public float HeightSpeed;
-	float lerpSpeed;
+	//up
+	public float UpKey = 1111111;
 
-	public float bounceSpeed;
-	float bouncySpeed;
+	public float UpLerp;
+	float UpLerp_in;
+	public float UpBounceSpeed;
+	float UpBounceSpeed_in;
+
+	//down
+	public float DownKey = 1111111;
+
+	public float DownLerp;
+	float DownLerp_in;
+	//public float DownBounceSpeed;
+	//float DownBounceSpeed_in;
 
 
 	void Start () {
-		height = transform.position.y + MaxHeight;
-		lerpSpeed = HeightSpeed;
-		bouncySpeed = bounceSpeed;
-		bouncySpeed *= -1f;
+		//RESET height
+		MaxHeight_in = transform.position.y + MaxHeight;
+
+		//up
+		UpLerp_in = UpLerp * 0.1f;
+		UpBounceSpeed_in = UpBounceSpeed;
+
+		//down
+		DownLerp_in = DownLerp * 0.1f;
+		//DownBounceSpeed_in = -DownBounceSpeed;
+
+
+
 	}
 
 
 	void Update () {
 		// status equal to bounce
-		if (bounce != Bouncy.not) {
+		if (bounce != Bouncy.Not) {
 			
-
-
 			switch (bounce) {
+
 			case Bouncy.Down:
-				Debug.Log ("Down : " + lerpSpeed);
-				//lerpSpeed = lerpSpeed + lerpSpeed * 0.3f;
-				lerpSpeed = Mathf.Lerp (lerpSpeed, HeightSpeed, 0.1f);
-
-				if (lerpSpeed >= HeightSpeed) {
-					lerpSpeed = HeightSpeed;
-				}
-
-				transform.position = new Vector3 (transform.position.x, transform.position.y + (bouncySpeed * Time.deltaTime) - lerpSpeed, transform.position.z);
+				BDown ();
 				break;
+
 			case Bouncy.Up:
-				Debug.Log ("Up : " + lerpSpeed);
-				//lerpSpeed = lerpSpeed - lerpSpeed * 0.3f;
-				lerpSpeed = Mathf.Lerp (lerpSpeed, 0, 0.1f);
-				if (lerpSpeed <= 0) {
-					lerpSpeed = 0;
-				}
-
-				transform.position = new Vector3 (transform.position.x, transform.position.y + (bouncySpeed * Time.deltaTime) + lerpSpeed, transform.position.z);
+				BUp ();
 				break;
+
 			}
-
-
-
-			//transform.position = new Vector3 (transform.position.x, transform.position.y + (bouncySpeed * Time.deltaTime) + (lerpSpeed * Time.deltaTime), transform.position.z);
-
-
-			if (transform.position.y >= height) {
+				
+			if (transform.position.y >= MaxHeight_in) {
+				DownLerp_in = 0;
 				bounce = Bouncy.Down;
-				transform.position = new Vector3 (transform.position.x, height, transform.position.z);
-				bouncySpeed *= -1f;
-				lerpSpeed = 0;
+				transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
 			} 
 
-
-			/*if (transform.position.y <= height) {
-				bounceSpeed -= 0.1f ;
-				transform.position = new Vector3 (transform.position.x, transform.position.y + bounceSpeed * Time.deltaTime, transform.position.z);
-			} else {
-				bounceSpeed = -1f;
-				bounceSpeed -= 0.1f * Time.deltaTime;
-				transform.position = new Vector3 (transform.position.x, transform.position.y + bounceSpeed * Time.deltaTime, transform.position.z);
-			}*/
+		} else {
+			BNot ();
 		}
 
+	}
+
+	void BDown(){
+		//Debug.Log ("Down : " + DownLerp_in);
+
+		DownLerp_in = Mathf.Lerp (DownLerp_in, DownLerp * 0.5f, 0.1f);
+
+		if (DownLerp_in >= DownLerp * 0.1f) {
+			DownLerp_in = DownLerp * 0.1f;
+		}
+
+		transform.position = new Vector3 (transform.position.x, transform.position.y - DownLerp_in * 0.1f, transform.position.z);
+	}
+
+	void BUp(){
+		//Debug.Log ("Up : " + lerpSpeed);
+		UpLerp_in = Mathf.Lerp (UpLerp_in, 0, 0.1f);
+
+
+		if (UpLerp_in <= 0) {
+			UpLerp_in = 0;
+		}
+
+		transform.position = new Vector3 (transform.position.x, transform.position.y + (UpBounceSpeed_in * Time.deltaTime) + UpLerp_in, transform.position.z);
+	}
+
+	void BNot(){
+		transform.position = new Vector3 (transform.position.x, transform.position.y - 0.1f * Time.deltaTime, transform.position.z);
 	}
 
 	// onTrigger Grounds ?
 	void OnTriggerEnter(Collider Ground) {
-		
-		if (Ground.tag == "ground") {
-			bounce = Bouncy.Up;
-			bouncySpeed *= -1f;
-			height = transform.position.y + MaxHeight;
 
-			lerpSpeed = HeightSpeed;
+		if (Ground.CompareTag("ground")) {
+			UpLerp_in = UpLerp *0.1f;
+				bounce = Bouncy.Up;
 
-			/*
-			height = transform.position.y + MaxHeight;
-			bounceSpeed = HeightSpeed;
-			*/
+			//bouncySpeed *= -1f;
+			MaxHeight_in = transform.position.y + MaxHeight;
+
 		}
 
-		if (Ground.tag == "dead") {
-			gameover.SetActive (true);
+		if (Ground.CompareTag("dead")) {
+			//gameover.SetActive (true);
 			Invoke ("resetgame", 2f);
-			bounce = Bouncy.not;
+			bounce = Bouncy.Not;
 		}
 
-		if (Ground.tag == "clear") {
-			gameclear.SetActive (true);
+		if (Ground.CompareTag("clear")) {
+			//gameclear.SetActive (true);
 			Invoke ("resetgame", 2f);
-			bounce = Bouncy.not;
+			bounce = Bouncy.Not;
 		}
 
 	}
+
 
 	//resetGame
 	void resetgame(){

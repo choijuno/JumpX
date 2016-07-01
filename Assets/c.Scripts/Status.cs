@@ -10,7 +10,9 @@ public enum MovePosition {
 public enum Bouncy {
 	Down =0,
 	Up,
-	not
+	Not,
+	Wait,
+	Twin
 }
 
 // game status
@@ -18,4 +20,18 @@ public enum GameSet {
 	play =0,
 	win,
 	lose
+}
+
+// fish
+public enum fishMove {
+	wait=0,
+	up,
+	down,
+	bite
+}
+
+//crocodile
+public enum crocodileMove {
+	normal=0,
+	angly
 }

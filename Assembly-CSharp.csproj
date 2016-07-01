@@ -48,10 +48,14 @@
      <Compile Include="Assets\c.Scenes\testscript.cs" />
      <Compile Include="Assets\c.Scripts\GameCamera.cs" />
      <Compile Include="Assets\c.Scripts\GameManager.cs" />
+     <Compile Include="Assets\c.Scripts\Ground.cs" />
      <Compile Include="Assets\c.Scripts\PlayerController.cs" />
      <Compile Include="Assets\c.Scripts\PlayerMove.cs" />
+     <Compile Include="Assets\c.Scripts\PlayerMove2.cs" />
      <Compile Include="Assets\c.Scripts\Status.cs" />
-     <Compile Include="Assets\c.Scripts\enemy.cs" />
+     <Compile Include="Assets\c.Scripts\enemy\enemy.cs" />
+     <Compile Include="Assets\c.Scripts\enemy\enemy_crocodile.cs" />
+     <Compile Include="Assets\c.Scripts\enemy\enemy_fish.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/PC03/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -1,14 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\c.Scripts\PlayerMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\c.Scripts\enemy\enemy_crocodile.cs">
     <Files>
-      <File FileName="Assets\c.Scripts\Status.cs" Line="13" Column="5" />
-      <File FileName="Assets\c.Scripts\GameManager.cs" Line="5" Column="2" />
-      <File FileName="Assets\c.Scripts\PlayerController.cs" Line="40" Column="36" />
-      <File FileName="Assets\c.Scripts\PlayerMove.cs" Line="52" Column="49" />
-      <File FileName="Assets\c.Scripts\GameCamera.cs" Line="15" Column="3" />
-      <File FileName="Assets\c.Scripts\enemy.cs" Line="14" Column="18" />
-      <File FileName="Assets\c.Scenes\testscript.cs" Line="14" Column="2" />
+      <File FileName="Assets\c.Scripts\enemy\enemy_crocodile.cs" Line="52" Column="10" />
+      <File FileName="Assets\c.Scripts\Ground.cs" Line="4" Column="38" />
+      <File FileName="Assets\c.Scripts\enemy\enemy_fish.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\PlayerMove.cs" Line="116" Column="25" />
+      <File FileName="Assets\c.Scripts\GameCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\Status.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scenes\testscript.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\PlayerMove2.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

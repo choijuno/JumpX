@@ -8,9 +8,10 @@ public class PlayerController : MonoBehaviour {
 	// status use
 	MovePosition playerState = MovePosition.Stay;
 	GameSet gameset = GameSet.play;
-
+	PlayerMove playerMove;
 	// move, bounce speeds
 	public float MoveSpeed = 0f;
+	float movespeed;
 
 
 
@@ -28,13 +29,15 @@ public class PlayerController : MonoBehaviour {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				if (Physics.Raycast (ray, out hit)) {
+					
 					if (hit.collider.gameObject.CompareTag ("left")) {
 						playerState = MovePosition.Left;
 					}
 					if (hit.collider.gameObject.CompareTag ("right")) {
 						playerState = MovePosition.Right;
 					}
-				}
+
+			}
 
 		} else {
 			playerState = MovePosition.Stay;
@@ -43,31 +46,33 @@ public class PlayerController : MonoBehaviour {
 		// status equal change speed
 		switch (playerState) {
 		case MovePosition.Stay:
-			MoveSpeed = 0f;
+			movespeed = 0;
 			break;
 		case MovePosition.Left:
-			MoveSpeed = -1f;
+			transform.rotation = new Quaternion (0, 180, 0, 0);
+			movespeed = -MoveSpeed;
 			break;
 		case MovePosition.Right:
-			MoveSpeed = 1f;
+			transform.rotation = new Quaternion (0, 0, 0, 0);
+			movespeed = Mathf.Abs(MoveSpeed);
 			break;
 		}
 
 		// only run playing
 		if (gameset == GameSet.play) {
-			transform.position = new Vector3 (transform.position.x + MoveSpeed * 0.1f, transform.position.y, transform.position.z);
+			transform.position = new Vector3 (transform.position.x + movespeed * 0.01f, transform.position.y, transform.position.z);
 		}
 	}
 
 	// onTrigger Grounds ?
 	void OnTriggerEnter(Collider Ground) {
 
-		if (Ground.tag == "dead") {
+		if (Ground.CompareTag("dead")) {
 			GameManager.gameset = true;
 			gameset = GameSet.lose;
 		}
 
-		if (Ground.tag == "clear") {
+		if (Ground.CompareTag("clear")) {
 			GameManager.gameset = true;
 			gameset = GameSet.win;
 		}

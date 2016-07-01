@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 0c1ac4b90c7002042b10ec461dfa2ac9
+timeCreated: 1467339722
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: mang03_0
+    21300002: mang03_1
+    21300004: mang03_3
+    21300006: mang03_4
+    21300008: mang03_5
+    21300010: mang03_6
+    21300012: mang03_7
+    21300014: mang03_8
+    21300016: mang03_9
+    21300018: mang03_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: mang03_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 440
+        width: 160
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_1
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 419
+        width: 252
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_3
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 278
+        width: 34
+        height: 103
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_4
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 281
+        width: 65
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_5
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 315
+        width: 14
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 157
+        width: 57
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_7
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 170
+        width: 109
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_8
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 223
+        width: 53
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 13
+        width: 240
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mang03_10
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 13
+        width: 241
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
