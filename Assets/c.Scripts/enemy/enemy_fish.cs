@@ -87,7 +87,7 @@ public class enemy_fish : MonoBehaviour {
 	void mup(){
 		//fish_image.transform.Rotate (0, 0, -10);
 
-		upLerp_in = Mathf.Lerp (upLerp_in, 0, 0.1f);
+		upLerp_in = Mathf.Lerp (upLerp_in, 0, 0.9f);
 
 		if (upLerp_in <= 0) {
 			upLerp_in = 0;
@@ -106,7 +106,7 @@ public class enemy_fish : MonoBehaviour {
 	void mdown(){
 		//fish_image.transform.rotation = new Quaternion (0,0,90,0);
 
-		downSpeed_in = Mathf.Lerp (downSpeed_in, DownSpeed * 2f, 0.9f);
+		downSpeed_in = Mathf.Lerp (downSpeed_in, DownSpeed * 2f, 0.001f);
 
 		if (downSpeed_in >= DownSpeed * 0.1f) {
 			downSpeed_in = DownSpeed * 0.1f;

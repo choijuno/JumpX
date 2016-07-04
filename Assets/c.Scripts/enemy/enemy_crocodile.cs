@@ -34,8 +34,8 @@ public class enemy_crocodile : MonoBehaviour {
 			if (player.tag == "player") {
 				normalHp_in -= 1;
 				if (normalHp_in <= 0) {
-					normal.SetActive (false);
-					angly.SetActive (true);
+					//normal.SetActive (false);
+					//angly.SetActive (true);
 
 					move = crocodileMove.angly;
 				}
@@ -45,6 +45,7 @@ public class enemy_crocodile : MonoBehaviour {
 			if (player.tag == "player") {
 				anglyHp_in -= 1;
 				if (anglyHp_in <= 0) {
+					normal.SetActive (false);
 					angly.SetActive (false);
 					angly_move.SetActive (true);
 				}

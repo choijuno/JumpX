@@ -4,6 +4,7 @@ using System.Collections;
 public class GameCamera : MonoBehaviour {
 	
 	// player position
+	PlayerController playerController;
 	MovePosition playerState;
 	public float MoveSpeed;
 	float movespeed;
@@ -50,8 +51,9 @@ public class GameCamera : MonoBehaviour {
 			movespeed = -MoveSpeed;
 			break;
 		}
-
-		midleBackGround.transform.position = new Vector3 (midleBackGround.transform.position.x + movespeed * 0.001f, midleBackGround.transform.position.y, midleBackGround.transform.position.z);
+		if (GameManager.gameSet == 0) {
+			midleBackGround.transform.position = new Vector3 (midleBackGround.transform.position.x + movespeed * 0.001f, midleBackGround.transform.position.y, midleBackGround.transform.position.z);
+		}
 	}
 
 

@@ -13,7 +13,7 @@ public class enemy : MonoBehaviour {
 
 	void Update () {
 		//only run playing
-		if (!GameManager.gameset) {
+		if (GameManager.gameSet == 0) {
 			transform.position = new Vector3 (transform.position.x + speed * 0.01f, transform.position.y, transform.position.z);
 		}
 	}

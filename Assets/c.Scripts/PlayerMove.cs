@@ -8,9 +8,13 @@ public class PlayerMove : MonoBehaviour {
 	//public GameObject gameclear;
 
 	// status use
-	Bouncy bounce = Bouncy.Down;
+	public Bouncy bounce = Bouncy.Down;
 
+	public float readyTime;
 
+	public GameObject deadEffect;
+	public GameObject deadBody;
+	public GameObject bumpEffect;
 
 	//MaxHeight
 	public float MaxHeight;
@@ -33,7 +37,9 @@ public class PlayerMove : MonoBehaviour {
 	//float DownBounceSpeed_in;
 
 
-	void Start () {
+	void Awake () {
+		bounce = Bouncy.Ready;
+
 		//RESET height
 		MaxHeight_in = transform.position.y + MaxHeight;
 
@@ -45,15 +51,30 @@ public class PlayerMove : MonoBehaviour {
 		DownLerp_in = DownLerp * 0.1f;
 		//DownBounceSpeed_in = -DownBounceSpeed;
 
+		StartCoroutine ("GameReady");
+
 
 
 	}
+
+	IEnumerator GameReady(){
+		while (true) {
+			yield return new WaitForSeconds (readyTime);
+
+			bounce = Bouncy.Up;
+			GameManager.gameSet = 0;
+			Debug.Log (bounce);
+			StopCoroutine ("GameReady");
+
+		}
+	}
+
+
 
 
 	void Update () {
 		// status equal to bounce
 		if (bounce != Bouncy.Not) {
-			
 			switch (bounce) {
 
 			case Bouncy.Down:
@@ -67,6 +88,7 @@ public class PlayerMove : MonoBehaviour {
 			}
 				
 			if (transform.position.y >= MaxHeight_in) {
+				bumpEffect.SetActive (false);
 				DownLerp_in = 0;
 				bounce = Bouncy.Down;
 				transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
@@ -81,7 +103,7 @@ public class PlayerMove : MonoBehaviour {
 	void BDown(){
 		//Debug.Log ("Down : " + DownLerp_in);
 
-		DownLerp_in = Mathf.Lerp (DownLerp_in, DownLerp * 0.5f, 0.1f);
+		DownLerp_in = Mathf.Lerp (DownLerp_in, DownLerp * 0.5f, 0.001f);
 
 		if (DownLerp_in >= DownLerp * 0.1f) {
 			DownLerp_in = DownLerp * 0.1f;
@@ -110,16 +132,19 @@ public class PlayerMove : MonoBehaviour {
 	void OnTriggerEnter(Collider Ground) {
 
 		if (Ground.CompareTag("ground")) {
-			UpLerp_in = UpLerp *0.1f;
+			if (bounce == Bouncy.Down) {
+				UpLerp_in = UpLerp * 0.1f;
 				bounce = Bouncy.Up;
 
-			//bouncySpeed *= -1f;
-			MaxHeight_in = transform.position.y + MaxHeight;
-
+				//bouncySpeed *= -1f;
+				MaxHeight_in = transform.position.y + MaxHeight;
+			}
 		}
 
 		if (Ground.CompareTag("dead")) {
 			//gameover.SetActive (true);
+			deadBody.SetActive(false);
+			deadEffect.SetActive(true);
 			Invoke ("resetgame", 2f);
 			bounce = Bouncy.Not;
 		}
@@ -130,6 +155,17 @@ public class PlayerMove : MonoBehaviour {
 			bounce = Bouncy.Not;
 		}
 
+		if (!Ground.CompareTag ("Untagged")) {
+			if(GameManager.gameSet == 0)
+			bumped ();
+		}
+
+	}
+
+	// hit Ground Effect
+	void bumped() {
+		bumpEffect.transform.position = this.transform.position;
+		bumpEffect.SetActive (true);
 	}
 
 

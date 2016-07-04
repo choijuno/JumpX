@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	// status use
-	MovePosition playerState = MovePosition.Stay;
+	public MovePosition playerState = MovePosition.Stay;
 	GameSet gameset = GameSet.play;
 	PlayerMove playerMove;
 	// move, bounce speeds
@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour {
 
 	void Start () {
 		
-
 	}
 
 
@@ -49,17 +48,19 @@ public class PlayerController : MonoBehaviour {
 			movespeed = 0;
 			break;
 		case MovePosition.Left:
+			if (GameManager.gameSet == 0)
 			transform.rotation = new Quaternion (0, 180, 0, 0);
 			movespeed = -MoveSpeed;
 			break;
 		case MovePosition.Right:
+			if (GameManager.gameSet == 0)
 			transform.rotation = new Quaternion (0, 0, 0, 0);
 			movespeed = Mathf.Abs(MoveSpeed);
 			break;
 		}
 
 		// only run playing
-		if (gameset == GameSet.play) {
+		if (GameManager.gameSet == 0) {
 			transform.position = new Vector3 (transform.position.x + movespeed * 0.01f, transform.position.y, transform.position.z);
 		}
 	}
@@ -68,12 +69,12 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider Ground) {
 
 		if (Ground.CompareTag("dead")) {
-			GameManager.gameset = true;
+			GameManager.gameSet = 2;
 			gameset = GameSet.lose;
 		}
 
 		if (Ground.CompareTag("clear")) {
-			GameManager.gameset = true;
+			GameManager.gameSet = 1;
 			gameset = GameSet.win;
 		}
 	}

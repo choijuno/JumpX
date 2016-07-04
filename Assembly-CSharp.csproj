@@ -49,6 +49,7 @@
      <Compile Include="Assets\c.Scripts\GameCamera.cs" />
      <Compile Include="Assets\c.Scripts\GameManager.cs" />
      <Compile Include="Assets\c.Scripts\Ground.cs" />
+     <Compile Include="Assets\c.Scripts\Items\Cage.cs" />
      <Compile Include="Assets\c.Scripts\PlayerController.cs" />
      <Compile Include="Assets\c.Scripts\PlayerMove.cs" />
      <Compile Include="Assets\c.Scripts\PlayerMove2.cs" />
@@ -56,6 +57,34 @@
      <Compile Include="Assets\c.Scripts\enemy\enemy.cs" />
      <Compile Include="Assets\c.Scripts\enemy\enemy_crocodile.cs" />
      <Compile Include="Assets\c.Scripts\enemy\enemy_fish.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX2_Demo.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX3_Demo.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX_Demo.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\Assets\CFX_Demo_Translate.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\UI\CFX_Demo_GTButton.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Demo\UI\CFX_Demo_GTToggle.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX2_AutoRotate.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX_AutodestructWhenNoChildren.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX_InspectorHelp.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
+     <Compile Include="Assets\effect\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+     <Compile Include="Assets\effect\UnityChan\Scripts\CameraController.cs" />
+     <Compile Include="Assets\effect\UnityChan\Scripts\FaceUpdate.cs" />
+     <Compile Include="Assets\effect\UnityChan\Scripts\IdleChanger.cs" />
+     <Compile Include="Assets\effect\UnityChan\Scripts\SceneLoader.cs" />
+     <Compile Include="Assets\effect\UnityChan\Scripts\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\effect\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
+     <None Include="Assets\effect\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
+     <None Include="Assets\effect\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/PC03/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
