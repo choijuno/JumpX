@@ -36,3 +36,10 @@ public enum crocodileMove {
 	normal=0,
 	angly
 }
+
+public enum objectStyle {
+	ground=0,
+	breakground,
+	fish,
+	crocodile
+}

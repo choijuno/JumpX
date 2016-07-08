@@ -11,10 +11,11 @@ public class Ground : MonoBehaviour {
 		//StartCoroutine (bress());
 
 		switch (this.name) {
-		case "ground":
+		case "ground_Collider":
 			break;
 
-		case "breakground":
+		case "breakground_Collider":
+
 			breakgroundHp_in = breakgroundHp;
 			//StartCoroutine(breakground());
 			break;
@@ -46,7 +47,7 @@ public class Ground : MonoBehaviour {
 	void OnTriggerExit(Collider player) {
 
 		Debug.Log ("hit");
-		if (this.name == "breakground") {
+		if (this.name == "breakground_Collider") {
 			Debug.Log ("hit");
 			if (player.tag == "player") {
 				breakgroundHp_in -= 1;

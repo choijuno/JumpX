@@ -8,8 +8,9 @@ public class PlayerMove : MonoBehaviour {
 	//public GameObject gameclear;
 
 	// status use
-	public Bouncy bounce = Bouncy.Down;
+	public Transform StartPos;
 
+	public Bouncy bounce = Bouncy.Down;
 	public float readyTime;
 
 	public GameObject deadEffect;
@@ -38,6 +39,7 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void Awake () {
+		transform.position = StartPos.position;
 		bounce = Bouncy.Ready;
 
 		//RESET height
@@ -54,16 +56,16 @@ public class PlayerMove : MonoBehaviour {
 		StartCoroutine ("GameReady");
 
 
-
 	}
 
 	IEnumerator GameReady(){
+		
 		while (true) {
 			yield return new WaitForSeconds (readyTime);
 
 			bounce = Bouncy.Up;
 			GameManager.gameSet = 0;
-			Debug.Log (bounce);
+			//Debug.Log (bounce);
 			StopCoroutine ("GameReady");
 
 		}
@@ -133,6 +135,10 @@ public class PlayerMove : MonoBehaviour {
 
 		if (Ground.CompareTag("ground")) {
 			if (bounce == Bouncy.Down) {
+				if (!Ground.CompareTag ("Untagged")) {
+					if(GameManager.gameSet == 0)
+						bumped ();
+				}
 				UpLerp_in = UpLerp * 0.1f;
 				bounce = Bouncy.Up;
 
@@ -142,6 +148,7 @@ public class PlayerMove : MonoBehaviour {
 		}
 
 		if (Ground.CompareTag("dead")) {
+			Debug.Log ("dead");
 			//gameover.SetActive (true);
 			deadBody.SetActive(false);
 			deadEffect.SetActive(true);
@@ -155,22 +162,19 @@ public class PlayerMove : MonoBehaviour {
 			bounce = Bouncy.Not;
 		}
 
-		if (!Ground.CompareTag ("Untagged")) {
-			if(GameManager.gameSet == 0)
-			bumped ();
-		}
+
 
 	}
 
 	// hit Ground Effect
 	void bumped() {
-		bumpEffect.transform.position = this.transform.position;
-		bumpEffect.SetActive (true);
+			bumpEffect.transform.position = this.transform.position;
+			bumpEffect.SetActive (true);
 	}
 
 
 	//resetGame
 	void resetgame(){
-		Application.LoadLevel (0);
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }

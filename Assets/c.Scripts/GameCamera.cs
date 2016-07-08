@@ -13,6 +13,7 @@ public class GameCamera : MonoBehaviour {
 	public Transform playerPosition;
 	public float CameraCenterPosition;
 	void Start () {
+		transform.position = new Vector3 (playerPosition.transform.position.x + CameraCenterPosition, 0, -10);
 		movespeed = MoveSpeed;
 	}
 

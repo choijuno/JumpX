@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{087EF1EE-D240-B178-86CD-74B3760E26CB}</ProjectGuid>
+    <ProjectGuid>{A71406A9-79E4-C771-EFFD-76BD79EA36EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -38,17 +38,30 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Users/PC03/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Users/PC03/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Easy Save 2\ES2Init.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\ES2UniqueID.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueGameLogic.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueObjectManager.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueSaveManager.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Save and Load Prefabs Instantiated at Runtime\PrefabManager.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Shared Assets\Scripts\MyExampleScript.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Upload and Download a Texture\UploadDownloadTexture.cs" />
+     <Compile Include="Assets\Easy Save 2\Types\ES2_AudioClip.cs" />
+     <Compile Include="Assets\c.Scenes\Edit\EditSetting.cs" />
+     <Compile Include="Assets\c.Scenes\Edit\LoadManager.cs" />
+     <Compile Include="Assets\c.Scenes\Edit\MapMake.cs" />
      <Compile Include="Assets\c.Scenes\testscript.cs" />
      <Compile Include="Assets\c.Scripts\GameCamera.cs" />
      <Compile Include="Assets\c.Scripts\GameManager.cs" />
      <Compile Include="Assets\c.Scripts\Ground.cs" />
+     <Compile Include="Assets\c.Scripts\GroundMove.cs" />
      <Compile Include="Assets\c.Scripts\Items\Cage.cs" />
      <Compile Include="Assets\c.Scripts\PlayerController.cs" />
      <Compile Include="Assets\c.Scripts\PlayerMove.cs" />
@@ -85,12 +98,28 @@
      <Compile Include="Assets\effect\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
      <None Include="Assets\effect\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\effect\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
+     <None Include="Assets\Easy Save 2\changelog.txt" />
+     <None Include="Assets\Easy Save 2\readme.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\link.xml" />
+     <None Include="Assets\PlayMaker\Editor\Install\readme.txt" />
+     <None Include="Assets\stage\S1_obj.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/PC03/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Users/PC03/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="ES2">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/ES2.dll</HintPath>
+ </Reference>
+ <Reference Include="MoodkieSecurity">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/MoodkieSecurity.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D3FFB2E6-9A55-483B-574E-8D841036B706}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
