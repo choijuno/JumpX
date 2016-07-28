@@ -16,7 +16,7 @@ public class Ground : MonoBehaviour {
 
 		case "breakground_Collider":
 
-			breakgroundHp_in = breakgroundHp;
+			breakgroundHp_in = transform.parent.GetComponent<objMovement>().standHp;;
 			//StartCoroutine(breakground());
 			break;
 

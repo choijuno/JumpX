@@ -53,14 +53,35 @@
      <Compile Include="Assets\effect\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
      <Compile Include="Assets\effect\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
      <Compile Include="Assets\effect\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+     <None Include="Assets\stage\stage2\_obj.txt" />
      <None Include="Assets\effect\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
+     <None Include="Assets\stage\stage1\_obj_Component.txt" />
+     <None Include="Assets\stage\stage6\_obj.txt" />
      <None Include="Assets\effect\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\Easy Save 2\changelog.txt" />
+     <None Include="Assets\stage\stage9\_obj.txt" />
+     <None Include="Assets\stage\stage4\_obj.txt" />
+     <None Include="Assets\stage\stage3\_obj.txt" />
+     <None Include="Assets\stage\stage6\_obj_Component.txt" />
+     <None Include="Assets\stage\stage0\_obj.txt" />
      <None Include="Assets\Easy Save 2\readme.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\stage\stage10\_obj_Component.txt" />
+     <None Include="Assets\stage\stage1\_obj.txt" />
+     <None Include="Assets\stage\stage5\_obj.txt" />
+     <None Include="Assets\stage\stage5\_obj_Component.txt" />
+     <None Include="Assets\stage\stage0\_obj_Component.txt" />
      <None Include="Assets\link.xml" />
+     <None Include="Assets\stage\stage10\_obj.txt" />
+     <None Include="Assets\stage\stage2\_obj_Component.txt" />
+     <None Include="Assets\stage\stage3\_obj_Component.txt" />
+     <None Include="Assets\stage\stage7\_obj.txt" />
      <None Include="Assets\PlayMaker\Editor\Install\readme.txt" />
-     <None Include="Assets\stage\S1_obj.txt" />
+     <None Include="Assets\stage\stage8\_obj.txt" />
+     <None Include="Assets\stage\stage4\_obj_Component.txt" />
+     <None Include="Assets\stage\stage8\_obj_Component.txt" />
+     <None Include="Assets\stage\stage7\_obj_Component.txt" />
+     <None Include="Assets\stage\stage9\_obj_Component.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

@@ -6,6 +6,17 @@ public class PlayerController : MonoBehaviour {
 
 
 	// status use
+	public PlayerCC hiveCC = PlayerCC.not;
+	public float hiveTime;
+	float hiveTime_in;
+	public float hiveHp;
+	float hiveHp_in;
+	public float poisonTime;
+	float poisonTime_in;
+	bool poisonCheck;
+
+
+	MovePosition hiveState = MovePosition.Stay;
 	public MovePosition playerState = MovePosition.Stay;
 	GameSet gameset = GameSet.play;
 	PlayerMove playerMove;
@@ -13,7 +24,7 @@ public class PlayerController : MonoBehaviour {
 	public float MoveSpeed = 0f;
 	float movespeed;
 
-
+	public bool moveStopCheck;
 
 	void Start () {
 		
@@ -23,6 +34,8 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		//Debug.Log (MoveSpeed);
 
+
+
 		// raycast hit to gameObject in click point. change to MovePosition(status)
 		if (Input.GetMouseButton(0)) {
 			RaycastHit hit;
@@ -30,10 +43,18 @@ public class PlayerController : MonoBehaviour {
 				if (Physics.Raycast (ray, out hit)) {
 					
 					if (hit.collider.gameObject.CompareTag ("left")) {
-						playerState = MovePosition.Left;
+						if (!poisonCheck) {
+							playerState = MovePosition.Left;
+						} else {
+							playerState = MovePosition.Right;
+						}
 					}
 					if (hit.collider.gameObject.CompareTag ("right")) {
-						playerState = MovePosition.Right;
+						if (!poisonCheck) {
+							playerState = MovePosition.Right;
+						} else {
+							playerState = MovePosition.Left;
+						}
 					}
 
 			}
@@ -43,19 +64,30 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// status equal change speed
+		
 		switch (playerState) {
 		case MovePosition.Stay:
 			movespeed = 0;
 			break;
 		case MovePosition.Left:
-			if (GameManager.gameSet == 0)
-			transform.rotation = new Quaternion (0, 180, 0, 0);
-			movespeed = -MoveSpeed;
+			if (GameManager.gameSet == 0) {
+				transform.rotation = new Quaternion (0, 180, 0, 0);
+				if (!moveStopCheck) {
+					movespeed = -MoveSpeed;
+				} else {
+					movespeed = 0;
+				}
+			}
 			break;
 		case MovePosition.Right:
-			if (GameManager.gameSet == 0)
-			transform.rotation = new Quaternion (0, 0, 0, 0);
-			movespeed = Mathf.Abs(MoveSpeed);
+			if (GameManager.gameSet == 0) {
+				transform.rotation = new Quaternion (0, 0, 0, 0);
+				if (!moveStopCheck) {
+					movespeed = Mathf.Abs (MoveSpeed);
+				} else {
+					movespeed = 0;
+				}
+			}
 			break;
 		}
 
@@ -65,18 +97,105 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	// onTrigger Grounds ?
-	void OnTriggerEnter(Collider Ground) {
 
-		if (Ground.CompareTag("dead")) {
+	IEnumerator hive(){
+		hiveTime_in = hiveTime;
+		hiveHp_in = hiveHp;
+
+		while (true) {
+			yield return new WaitForSeconds (0.006f);
+			//Debug.Log (hiveHp_in);
+			if (Input.GetMouseButtonUp(0)) {
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				if (Physics.Raycast (ray, out hit)) {
+
+					if (hit.collider.gameObject.CompareTag ("left")) {
+						if (hiveState == MovePosition.Stay) {
+							hiveState = MovePosition.Left;
+							hiveHp_in--;
+						}
+						if (hiveState == MovePosition.Right) {
+							hiveState = MovePosition.Left;
+							hiveHp_in--;
+						}
+					}
+					if (hit.collider.gameObject.CompareTag ("right")) {
+						if (hiveState == MovePosition.Stay) {
+							hiveState = MovePosition.Right;
+							hiveHp_in--;
+						}
+						if (hiveState == MovePosition.Left) {
+							hiveState = MovePosition.Right;
+							hiveHp_in--;
+						}
+					}
+
+					if (hiveHp_in <= 0) {
+						StopCoroutine ("hive");
+					}
+				}
+			}
+
+			hiveTime_in = hiveTime_in - Time.deltaTime;
+			//Debug.Log (hiveTime_in);
+			if (hiveTime_in <= 0) {
+				GetComponent<PlayerMove>().deadBody.SetActive (false);
+				GetComponent<PlayerMove>().deadEffect.SetActive (true);
+				GetComponent<PlayerMove> ().bounce = Bouncy.Not;
+				GameManager.gameSet = 2;
+				gameset = GameSet.lose;
+				GetComponent<PlayerMove> ().Invoke ("resetgame", 2f);
+				StopCoroutine ("hive");
+			}
+		}
+	}
+
+	IEnumerator poison(){
+		Debug.Log ("poison");
+		poisonTime_in = poisonTime;
+		poisonCheck = true;
+		while (true) {
+			yield return new WaitForSeconds (0.006f);
+
+			poisonTime_in = poisonTime_in - Time.deltaTime;
+			//Debug.Log (hiveTime_in);
+			if (poisonTime_in <= 0) {
+				poisonCheck = false;
+				StopCoroutine ("poison");
+			}
+
+		}
+	}
+
+
+	// onTrigger Grounds ?
+	void OnTriggerEnter(Collider obj) {
+		
+
+		if (obj.CompareTag ("hive")) {
+			hiveCC = PlayerCC.bug;
+			Destroy (obj.transform.parent.gameObject);
+			StartCoroutine ("hive");
+		}
+
+		if (obj.CompareTag ("poison")) {
+			hiveCC = PlayerCC.bug;
+			Destroy (obj.transform.parent.gameObject);
+			StartCoroutine ("poison");
+		}
+
+		if (obj.CompareTag("dead")) {
 			GameManager.gameSet = 2;
 			gameset = GameSet.lose;
 		}
 
-		if (Ground.CompareTag("clear")) {
+		if (obj.CompareTag("clear")) {
 			GameManager.gameSet = 1;
 			gameset = GameSet.win;
 		}
+
+
 	}
 
 

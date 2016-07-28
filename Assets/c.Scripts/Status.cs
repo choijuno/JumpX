@@ -13,7 +13,20 @@ public enum Bouncy {
 	Up,
 	Not,
 	Wait,
-	Twin
+	Twin,
+	ride,
+	warp,
+	warpexit
+}
+
+public enum PlayerCC {
+	not=0,
+	heavy,
+	high,
+	reverse,
+	bug,
+	horizon,
+	riding
 }
 
 // game status
@@ -31,6 +44,13 @@ public enum fishMove {
 	bite
 }
 
+public enum objMove {
+	wait=0,
+	up,
+	down,
+	not
+}
+
 //crocodile
 public enum crocodileMove {
 	normal=0,
@@ -42,4 +62,20 @@ public enum objectStyle {
 	breakground,
 	fish,
 	crocodile
+}
+
+public enum elephantStatus {
+	stay = 0,
+	wait,
+	att,
+	end,
+	not
+}
+
+public enum hawkStatus {
+	stay = 0,
+	wait,
+	att,
+	end,
+	not
 }

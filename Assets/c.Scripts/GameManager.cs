@@ -3,8 +3,17 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	
+
 	// end game Check
 	public static int gameSet; //0:play 1:win 2:lose 3:wait
+
+	public static int TestNum;
+
+	void Start(){
+		
+
+
+	}
 
 	void Awake () {
 		gameSet = 3;

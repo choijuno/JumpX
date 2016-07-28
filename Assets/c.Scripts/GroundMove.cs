@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class GroundMove : MonoBehaviour {
+	
 	MovePosition movePos = MovePosition.Left;
 	public objectStyle style;
 
@@ -36,6 +37,8 @@ public class GroundMove : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (0.006f);
 
+
+
 			switch (movePos) {
 			case MovePosition.Left:
 				if (transform.position.x >= minRange_in) {
@@ -61,6 +64,12 @@ public class GroundMove : MonoBehaviour {
 				break;
 			}
 
+
+
+
+
+
 		}
 	}
+
 }
