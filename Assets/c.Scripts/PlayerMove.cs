@@ -292,10 +292,12 @@ public class PlayerMove : MonoBehaviour {
 				}
 			}
 
+			if (obj.name == "DeadSound") {
+				AudioSource.PlayClipAtPoint (deadSound, Camera_ingame.transform.position);
+			}
+
 			if (obj.CompareTag ("dead")) {
-				if (obj.name == "Dead") {
-					AudioSource.PlayClipAtPoint (deadSound, Camera_ingame.transform.position);
-				}
+				
 				Debug.Log ("dead");
 				//gameover.SetActive (true);
 				deadBody.SetActive (false);
