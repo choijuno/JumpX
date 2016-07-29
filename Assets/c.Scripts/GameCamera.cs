@@ -28,23 +28,37 @@ public class GameCamera : MonoBehaviour {
 		// camera move(lerp)
 		transform.position = new Vector3 (Mathf.Lerp(transform.position.x,playerPosition.transform.position.x + CameraCenterPosition ,0.1f), transform.position.y, transform.position.z);
 
-		if (Input.GetMouseButton(0)) {
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hit)) {
-
-				if (hit.collider.gameObject.CompareTag ("left")) {
-					playerState = MovePosition.Left;
-				}
-				if (hit.collider.gameObject.CompareTag ("right")) {
-					playerState = MovePosition.Right;
-				}
-
+		if (GameManager.tiltCheck) {
+			if (Input.acceleration.x < -0.08f)
+				playerState = MovePosition.Left;
+			if (Input.acceleration.x > 0.08f)
+				playerState = MovePosition.Right;
+			if (Input.acceleration.x >= -0.079999f && Input.acceleration.x <= 0.079999f) {
+				playerState = MovePosition.Stay;
 			}
-
 		} else {
-			playerState = MovePosition.Stay;
+			
+			if (Input.GetMouseButton (0)) {
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				if (Physics.Raycast (ray, out hit)) {
+
+					if (hit.collider.gameObject.CompareTag ("left")) {
+						playerState = MovePosition.Left;
+					}
+					if (hit.collider.gameObject.CompareTag ("right")) {
+						playerState = MovePosition.Right;
+					}
+
+				}
+
+			} else {
+				playerState = MovePosition.Stay;
+			}
 		}
+
+
+
 
 		switch (playerState) {
 		case MovePosition.Stay:
