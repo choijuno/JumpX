@@ -69,6 +69,7 @@
      <Compile Include="Assets\c.Scripts\SoundManager.cs" />
      <Compile Include="Assets\c.Scripts\Status.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\TestBtn.cs" />
+     <Compile Include="Assets\c.Scripts\TestScipts\clearCollider.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Elephant.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Hawk.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Monkey.cs" />
@@ -107,6 +108,8 @@
      <Compile Include="Assets\effect\UnityChan\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\effect\UnityChan\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\effect\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
+     <Compile Include="Assets\save.cs" />
+     <Compile Include="Assets\soundmanager.cs" />
      <None Include="Assets\stage\stage2\_obj.txt" />
      <None Include="Assets\effect\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\stage\stage1\_obj_Component.txt" />

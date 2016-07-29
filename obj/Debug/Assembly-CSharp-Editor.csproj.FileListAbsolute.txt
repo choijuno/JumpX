@@ -63,7 +63,6 @@ D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Unity.UNetWeaver.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Mono.Cecil.Mdb.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Unity.CecilTools.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Mono.Cecil.Pdb.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp.pdb
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.xml
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEditor.xml
@@ -78,3 +77,4 @@ D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEditor.TreeEditor.xml
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.dll
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.pdb
+D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

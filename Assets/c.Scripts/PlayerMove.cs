@@ -22,8 +22,11 @@ public class PlayerMove : MonoBehaviour {
 	public float readyTime;
 
 	public GameObject deadEffect;
+	public GameObject waterDead;
 	public GameObject deadBody;
+
 	public GameObject bumpEffect;
+
 
 	//MaxHeight
 	public float MaxHeight;
@@ -292,8 +295,10 @@ public class PlayerMove : MonoBehaviour {
 				}
 			}
 
-			if (obj.name == "DeadSound") {
+			if (obj.name == "water") {
 				AudioSource.PlayClipAtPoint (deadSound, Camera_ingame.transform.position);
+				waterDead.SetActive (true);
+
 			}
 
 			if (obj.CompareTag ("dead")) {
@@ -381,6 +386,7 @@ public class PlayerMove : MonoBehaviour {
 			bounce = Bouncy.Ready;
 			deadBody.SetActive(true);
 			deadEffect.SetActive(false);
+			waterDead.SetActive (false);
 			//RESET height
 			MaxHeight_in = transform.position.y + MaxHeight;
 
