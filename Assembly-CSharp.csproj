@@ -57,6 +57,7 @@
      <Compile Include="Assets\c.Scenes\Edit\EditSetting.cs" />
      <Compile Include="Assets\c.Scenes\Edit\LoadManager.cs" />
      <Compile Include="Assets\c.Scenes\Edit\MapMake.cs" />
+     <Compile Include="Assets\c.Scenes\TestScene\Test.cs" />
      <Compile Include="Assets\c.Scripts\GameCamera.cs" />
      <Compile Include="Assets\c.Scripts\GameManager.cs" />
      <Compile Include="Assets\c.Scripts\Ground.cs" />
