@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour {
 
 	// status use
 	public AudioClip bumpSound;
+	public AudioClip bumpSound2;
 	public AudioClip deadSound;
 
 
@@ -342,9 +343,31 @@ public class PlayerMove : MonoBehaviour {
 
 	// hit Ground Effect
 	void bumped() {
+		int rand = Random.Range (0, 10);
+
 			AudioSource.PlayClipAtPoint (bumpSound, Camera_ingame.transform.position);
+
 			bumpEffect.transform.position = this.transform.position;
 			bumpEffect.SetActive (true);
+
+		Debug.Log (rand);
+		switch (rand) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+			break;
+		case 8:
+		case 9:
+			AudioSource.PlayClipAtPoint (bumpSound2, Camera_ingame.transform.position);
+			break;
+		default:
+			break;
+		}
 	}
 
 
