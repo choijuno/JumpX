@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 
 
 		// raycast hit to gameObject in click point. change to MovePosition(status)
-
+		/*
 		if (Input.acceleration.x < -0.08f)
 			playerState = MovePosition.Left;
 		if (Input.acceleration.x > 0.08f)
@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour {
 		if (Input.acceleration.x >= -0.079999f && Input.acceleration.x <= 0.079999f) {
 			playerState = MovePosition.Stay;
 		}
+		*/
 		
-		
-		/*
+
 		if (Input.GetMouseButton(0)) {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			playerState = MovePosition.Stay;
 		}
-		*/
+
 
 
 
