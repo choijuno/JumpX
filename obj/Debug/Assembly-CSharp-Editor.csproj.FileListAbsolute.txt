@@ -78,3 +78,4 @@ D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.csprojRe
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.dll
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.pdb
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+D:\최준오\programing\projects\JumpX\Temp\bin\Debug\JarResolverLib.dll

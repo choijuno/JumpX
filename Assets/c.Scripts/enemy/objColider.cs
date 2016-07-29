@@ -192,6 +192,7 @@ public class objColider : MonoBehaviour {
 			case "1040011":
 				break;
 			case "1040021":
+				Camera_ingame = player.GetComponent<PlayerMove> ().Camera_ingame;
 				croco ();
 				break;
 			case "1040031":

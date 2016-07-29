@@ -231,7 +231,6 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\PlayGamesClientFactory.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
      <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
-     <Compile Include="Assets\JumpX\GPGS.cs" />
      <Compile Include="Assets\KW\GPGS.cs" />
      <Compile Include="Assets\c.Scenes\Edit\EditSetting.cs" />
      <Compile Include="Assets\c.Scenes\Edit\LoadManager.cs" />
@@ -239,8 +238,6 @@
      <Compile Include="Assets\c.Scenes\TestScene\Test.cs" />
      <Compile Include="Assets\c.Scripts\GameCamera.cs" />
      <Compile Include="Assets\c.Scripts\GameManager.cs" />
-     <Compile Include="Assets\c.Scripts\GooglePlayGame\GoogleManager.cs" />
-     <Compile Include="Assets\c.Scripts\GooglePlayGame\GoogleSingleton.cs" />
      <Compile Include="Assets\c.Scripts\Ground.cs" />
      <Compile Include="Assets\c.Scripts\GroundMove.cs" />
      <Compile Include="Assets\c.Scripts\Items\Cage.cs" />
