@@ -48,15 +48,19 @@
      <Compile Include="Assets\Plugins\Easy Save 2\ES2Init.cs" />
      <Compile Include="Assets\Plugins\Easy Save 2\Types\ES2_Sprite.cs" />
      <None Include="Assets\stage\stage2\_obj.txt" />
+     <None Include="Assets\GooglePlayGames\Editor\Podfile.txt" />
      <None Include="Assets\effect\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\stage\stage1\_obj_Component.txt" />
      <None Include="Assets\stage\stage6\_obj.txt" />
      <None Include="Assets\effect\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
+     <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\Easy Save 2\changelog.txt" />
      <None Include="Assets\stage\stage9\_obj.txt" />
+     <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
      <None Include="Assets\stage\stage4\_obj.txt" />
      <None Include="Assets\stage\stage3\_obj.txt" />
      <None Include="Assets\stage\stage6\_obj_Component.txt" />
+     <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
      <None Include="Assets\stage\stage0\_obj.txt" />
      <None Include="Assets\Easy Save 2\readme.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
@@ -66,6 +70,7 @@
      <None Include="Assets\stage\stage5\_obj_Component.txt" />
      <None Include="Assets\stage\stage0\_obj_Component.txt" />
      <None Include="Assets\link.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
      <None Include="Assets\stage\stage10\_obj.txt" />
      <None Include="Assets\stage\stage2\_obj_Component.txt" />
      <None Include="Assets\stage\stage3\_obj_Component.txt" />

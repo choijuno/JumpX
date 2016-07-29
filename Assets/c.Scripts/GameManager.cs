@@ -11,9 +11,18 @@ public class GameManager : MonoBehaviour {
 	public static bool tiltCheck;
 	public GameObject tiltOn;
 	public GameObject tiltOff;
-	void Start(){
-		
-
+	void Start()
+    {
+        GoogleManager.GetInstance.InitializeGPGS();
+        
+        if(GoogleManager.GetInstance.bLogin == false)
+        {
+            GoogleManager.GetInstance.LoginGPGS();
+        }
+        else
+        {
+            GoogleManager.GetInstance.LogoutGPGS();
+        }
 
 	}
 
