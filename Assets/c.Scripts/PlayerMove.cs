@@ -57,7 +57,8 @@ public class PlayerMove : MonoBehaviour {
 	float warpTime_in;
 	float warpSpeed_in;
 	float warpexitTime_in;
-	float warpHeight;
+	Transform warpHeight;
+	Transform warpX;
 
 	void Awake () {
 		transform.position = StartPos.position;
@@ -178,20 +179,34 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void Bwarp() {
-		transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, 0);
+		transform.position = new Vector3 (transform.position.x, warpHeight.position.y, 0);
+
 
 
 
 		if (warpTime_in <= 0) {
-			
-			UpLerp_in = Mathf.Lerp (UpLerp_in, 0, 0.1f);
 
-			if (UpLerp_in <= 0) {
-				UpLerp_in = 0;
+			if (warpX.position.x >= warpHeight.position.x) {
+				UpLerp_in = Mathf.Lerp (UpLerp_in, 0, 0.1f);
+
+				if (UpLerp_in <= 0) {
+					UpLerp_in = 0;
+				}
+
+				warpTime_in = 0;
+				transform.position = new Vector3 (transform.position.x - (warpSpeed_in * Time.deltaTime) - UpLerp_in, transform.position.y, transform.position.z);
+			} else {
+				UpLerp_in = Mathf.Lerp (UpLerp_in, 0, 0.1f);
+
+				if (UpLerp_in <= 0) {
+					UpLerp_in = 0;
+				}
+
+				warpTime_in = 0;
+				transform.position = new Vector3 (transform.position.x + (warpSpeed_in * Time.deltaTime) + UpLerp_in, transform.position.y, transform.position.z);
 			}
+			
 
-			warpTime_in = 0;
-			transform.position = new Vector3 (transform.position.x + (warpSpeed_in * Time.deltaTime) + UpLerp_in, transform.position.y, transform.position.z);
 
 		} else {
 			warpTime_in = warpTime_in - Time.deltaTime;
@@ -200,8 +215,8 @@ public class PlayerMove : MonoBehaviour {
 
 	void Bwarpexit() {
 
-		if (warpTime_in <= 0) {
-			warpTime_in = 0;
+		if (warpexitTime_in <= 0) {
+			warpexitTime_in = 0;
 			GetComponent<PlayerController> ().moveStopCheck = false;
 			deadBody.SetActive (true);
 
@@ -223,7 +238,7 @@ public class PlayerMove : MonoBehaviour {
 			}
 
 		} else {
-			warpTime_in = warpTime_in - Time.deltaTime;
+			warpexitTime_in = warpexitTime_in - Time.deltaTime;
 		}
 	}
 
@@ -242,6 +257,7 @@ public class PlayerMove : MonoBehaviour {
 		case Bouncy.Down:
 			
 			if (obj.CompareTag ("warp")) {
+				MaxHeight_in = 5;
 				GetComponent<PlayerController> ().moveStopCheck = true;
 				deadBody.SetActive (false);
 				Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
@@ -250,9 +266,12 @@ public class PlayerMove : MonoBehaviour {
 				warpTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
 				warpSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.1f;
 				warpexitTime_in = obj.transform.parent.GetComponent<Tunnel> ().exitTime;
+				warpX = obj.transform;
 				bounce = Bouncy.warp;
 
-				UpLerp_in = UpLerp * 0.15f;
+				UpLerp_in = UpLerp * 0.1f;
+
+				warpHeight = obj.transform.parent.GetComponent<Tunnel> ().exit.transform;
 
 			}
 
@@ -428,10 +447,12 @@ public class PlayerMove : MonoBehaviour {
 		case Bouncy.warp:
 			
 			if (obj.CompareTag ("warpexit")) {
+
+
 				warpexitTime_in = obj.transform.parent.transform.parent.GetComponent<Tunnel> ().exitTime;
 
 				Camera_ingame.GetComponent<GameCamera> ().riding = false;
-					MaxHeight_in = transform.position.y + MaxHeight;
+				MaxHeight_in = transform.position.y + MaxHeight;
 					UpBounceSpeed_in = UpBounceSpeed;
 					UpLerp_in = UpLerp * 0.1f;
 					bounce = Bouncy.warpexit;
@@ -449,147 +470,7 @@ public class PlayerMove : MonoBehaviour {
 		}
 
 
-		/*
 
-		if (obj.CompareTag ("warp")) {
-			
-			if (bounce == Bouncy.Down) {
-				GetComponent<PlayerController> ().moveStopCheck = true;
-				deadBody.SetActive (false);
-				Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
-				Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.001f;
-				Camera_ingame.GetComponent<GameCamera> ().riding = false;
-				warpTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
-				warpSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.001f;
-				warpexitTime_in = obj.transform.parent.GetComponent<Tunnel> ().exitTime;
-				bounce = Bouncy.warp;
-			}
-
-		}
-
-		if (obj.CompareTag ("warpexit")) {
-			if (bounce == Bouncy.warp) {
-				MaxHeight_in = transform.position.y + MaxHeight;
-				UpBounceSpeed_in = UpBounceSpeed;
-				DownLerp_in = DownLerp * 0.1f;
-				bounce = Bouncy.warpexit;
-			}
-		}
-
-		if (obj.CompareTag ("ride")) {
-			GetComponent<PlayerController> ().moveStopCheck = true;
-			switch (obj.name.Substring (0, 4)) {
-			case "elep":
-				if (bounce == Bouncy.Down) {
-					bounce = Bouncy.ride;
-					MaxHeight_in = transform.position.y + MaxHeight * 0.3f;
-					Camera_ingame.GetComponent<GameCamera> ().riding = true;
-					Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Elephant> ().waitTime;
-					Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Elephant> ().runSpeed * 0.001f;
-					rideTime_in = obj.transform.parent.GetComponent<Elephant> ().runTime;
-					transform.parent = obj.transform.parent.transform;
-					transform.localPosition = new Vector3 (obj.transform.parent.GetComponent<Elephant> ().Pos.transform.localPosition.x,obj.transform.parent.GetComponent<Elephant> ().Pos.transform.localPosition.y, 0);
-					obj.transform.parent.GetComponent<Elephant> ().stat = elephantStatus.wait;
-				}
-				break;
-			case "hawk":
-				bounce = Bouncy.ride;
-				MaxHeight_in = transform.position.y + MaxHeight * 0.3f;
-				Camera_ingame.GetComponent<GameCamera> ().riding = true;
-				Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Hawk> ().waitTime;
-				Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Hawk> ().runSpeed * 0.001f;
-				rideTime_in = obj.transform.parent.GetComponent<Hawk> ().runTime;
-				transform.parent = obj.transform.parent.transform;
-				transform.localPosition = new Vector3 (obj.transform.parent.GetComponent<Hawk> ().Pos.transform.localPosition.x,obj.transform.parent.GetComponent<Hawk> ().Pos.transform.localPosition.y, 0);
-				obj.transform.parent.GetComponent<Hawk> ().stat = hawkStatus.wait;
-				break;
-			}
-
-		}
-
-		if (bounce != Bouncy.ride) {
-			if (obj.CompareTag ("rain")) {
-				rainCC = PlayerCC.heavy;
-			}
-
-			if (obj.CompareTag ("jump")) {
-				if (bounce == Bouncy.Down) {
-					if (!obj.CompareTag ("Untagged")) {
-						if (GameManager.gameSet == 0)
-							
-							bumped ();
-					}
-					UpLerp_in = UpLerp * 0.15f;
-					bounce = Bouncy.Up;
-					MaxHeight_in = transform.position.y + MaxHeight * 1.5f;
-				}
-			}
-
-
-			if (obj.CompareTag ("ground")) {
-				if (bounce == Bouncy.Down) {
-					if (!obj.CompareTag ("Untagged")) {
-						if (GameManager.gameSet == 0)
-							
-							bumped ();
-					}
-
-					switch (rainCC) {
-					case PlayerCC.not:
-					//Debug.Log ("not!");
-						UpLerp_in = UpLerp * 0.1f;
-						bounce = Bouncy.Up;
-						MaxHeight_in = transform.position.y + MaxHeight;
-						break;
-					case PlayerCC.heavy:
-					//Debug.Log ("heavy!");
-						UpLerp_in = (UpLerp * 0.1f) / 2;
-						bounce = Bouncy.Up;
-						MaxHeight_in = transform.position.y + (MaxHeight / 2);
-						break;
-					case PlayerCC.high:
-						break;
-					case PlayerCC.reverse:
-						break;
-					case PlayerCC.bug:
-						break;
-					case PlayerCC.horizon:
-						break;
-					case PlayerCC.riding:
-						break;
-					}
-
-
-				}
-			}
-
-			if (bounce != Bouncy.warpexit) {
-				if (obj.name == "water") {
-					AudioSource.PlayClipAtPoint (deadSound, Camera_ingame.transform.position);
-					waterDead.SetActive (true);
-
-				}
-			
-
-				if (obj.CompareTag ("dead")) {
-					
-					Debug.Log (bounce);
-					//gameover.SetActive (true);
-					deadBody.SetActive (false);
-					deadEffect.SetActive (true);
-					Invoke ("resetgame", 2f);
-					bounce = Bouncy.Not;
-				}
-
-				if (obj.CompareTag ("clear")) {
-					//gameclear.SetActive (true);
-					Invoke ("resetgame", 2f);
-					bounce = Bouncy.Not;
-				}
-			}
-			//Debug.Log (bounce);
-		}
-		*/
 	}
 
 	void OnTriggerExit(Collider obj) {
