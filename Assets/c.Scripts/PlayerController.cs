@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 
 
 		// raycast hit to gameObject in click point. change to MovePosition(status)
+
 		if (GameManager.tiltCheck) {
 			if (Input.acceleration.x < -0.08f)
 				playerState = MovePosition.Left;
@@ -202,7 +203,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (obj.CompareTag("dead")) {
-			GameManager.gameSet = 2;
 			gameset = GameSet.lose;
 		}
 

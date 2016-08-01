@@ -117,6 +117,10 @@ public class PlayerMove : MonoBehaviour {
 				Bwarp ();
 				break;
 
+			case Bouncy.warpexit:
+				Bwarpexit ();
+				break;
+
 			}
 				
 
@@ -176,9 +180,47 @@ public class PlayerMove : MonoBehaviour {
 	void Bwarp() {
 		transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, 0);
 
+
+
+		if (warpTime_in <= 0) {
+			
+			UpLerp_in = Mathf.Lerp (UpLerp_in, 0, 0.1f);
+
+			if (UpLerp_in <= 0) {
+				UpLerp_in = 0;
+			}
+
+			warpTime_in = 0;
+			transform.position = new Vector3 (transform.position.x + (warpSpeed_in * Time.deltaTime) + UpLerp_in, transform.position.y, transform.position.z);
+
+		} else {
+			warpTime_in = warpTime_in - Time.deltaTime;
+		}
+	}
+
+	void Bwarpexit() {
+
 		if (warpTime_in <= 0) {
 			warpTime_in = 0;
-			transform.position = new Vector3 (transform.position.x + warpSpeed_in, transform.position.y, transform.position.z);
+			GetComponent<PlayerController> ().moveStopCheck = false;
+			deadBody.SetActive (true);
+
+
+			UpLerp_in = Mathf.Lerp (UpLerp_in, 0, 0.1f);
+
+
+			if (UpLerp_in <= 0) {
+				UpLerp_in = 0;
+			}
+
+			transform.position = new Vector3 (transform.position.x, transform.position.y + (UpBounceSpeed_in * Time.deltaTime) + UpLerp_in, transform.position.z);
+
+			if (transform.position.y >= MaxHeight_in) {
+				bumpEffect.SetActive (false);
+				DownLerp_in = 0;
+				bounce = Bouncy.Down;
+				transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
+			}
 
 		} else {
 			warpTime_in = warpTime_in - Time.deltaTime;
@@ -188,16 +230,241 @@ public class PlayerMove : MonoBehaviour {
 	// onTrigger Grounds ?
 	void OnTriggerEnter(Collider obj) {
 		//Debug.Log (obj.name);
+		switch (bounce) {
+
+		case Bouncy.Wait:
+			
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+
+			break;
+		case Bouncy.Down:
+			
+			if (obj.CompareTag ("warp")) {
+				GetComponent<PlayerController> ().moveStopCheck = true;
+				deadBody.SetActive (false);
+				Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
+				Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.001f;
+				Camera_ingame.GetComponent<GameCamera> ().riding = true;
+				warpTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
+				warpSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.1f;
+				warpexitTime_in = obj.transform.parent.GetComponent<Tunnel> ().exitTime;
+				bounce = Bouncy.warp;
+
+				UpLerp_in = UpLerp * 0.15f;
+
+			}
+
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+
+			if (obj.CompareTag ("ride")) {
+				GetComponent<PlayerController> ().moveStopCheck = true;
+				switch (obj.name.Substring (0, 4)) {
+				case "elep":
+					if (bounce == Bouncy.Down) {
+						bounce = Bouncy.ride;
+						MaxHeight_in = transform.position.y + MaxHeight * 0.3f;
+						Camera_ingame.GetComponent<GameCamera> ().riding = true;
+						Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Elephant> ().waitTime;
+						Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Elephant> ().runSpeed * 0.001f;
+						rideTime_in = obj.transform.parent.GetComponent<Elephant> ().runTime;
+						transform.parent = obj.transform.parent.transform;
+						transform.localPosition = new Vector3 (obj.transform.parent.GetComponent<Elephant> ().Pos.transform.localPosition.x, obj.transform.parent.GetComponent<Elephant> ().Pos.transform.localPosition.y, 0);
+						obj.transform.parent.GetComponent<Elephant> ().stat = elephantStatus.wait;
+					}
+					break;
+				case "hawk":
+					bounce = Bouncy.ride;
+					MaxHeight_in = transform.position.y + MaxHeight * 0.3f;
+					Camera_ingame.GetComponent<GameCamera> ().riding = true;
+					Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Hawk> ().waitTime;
+					Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Hawk> ().runSpeed * 0.001f;
+					rideTime_in = obj.transform.parent.GetComponent<Hawk> ().runTime;
+					transform.parent = obj.transform.parent.transform;
+					transform.localPosition = new Vector3 (obj.transform.parent.GetComponent<Hawk> ().Pos.transform.localPosition.x, obj.transform.parent.GetComponent<Hawk> ().Pos.transform.localPosition.y, 0);
+					obj.transform.parent.GetComponent<Hawk> ().stat = hawkStatus.wait;
+					break;
+				}
+			}
+
+			if (obj.CompareTag ("jump")) {
+					if (!obj.CompareTag ("Untagged")) {
+						if (GameManager.gameSet == 0)
+							bumped ();
+					}
+					UpLerp_in = UpLerp * 0.15f;
+					bounce = Bouncy.Up;
+					MaxHeight_in = transform.position.y + MaxHeight * 1.5f;
+			}
+
+			if (obj.CompareTag ("ground")) {
+					if (!obj.CompareTag ("Untagged")) {
+						if (GameManager.gameSet == 0)
+							bumped ();
+					}
+
+					switch (rainCC) {
+					case PlayerCC.not:
+						//Debug.Log ("not!");
+						UpLerp_in = UpLerp * 0.1f;
+						bounce = Bouncy.Up;
+						MaxHeight_in = transform.position.y + MaxHeight;
+						break;
+					case PlayerCC.heavy:
+						//Debug.Log ("heavy!");
+						UpLerp_in = (UpLerp * 0.1f) / 2;
+						bounce = Bouncy.Up;
+						MaxHeight_in = transform.position.y + (MaxHeight / 2);
+						break;
+					case PlayerCC.high:
+						break;
+					case PlayerCC.reverse:
+						break;
+					case PlayerCC.bug:
+						break;
+					case PlayerCC.horizon:
+						break;
+					case PlayerCC.riding:
+						break;
+					}
+			}
+
+			if (obj.name == "water") {
+				AudioSource.PlayClipAtPoint (deadSound, Camera_ingame.transform.position);
+				waterDead.SetActive (true);
+
+			}
+
+
+			if (obj.CompareTag ("dead")) {
+				GameManager.gameSet = 2;
+				Debug.Log (bounce);
+				//gameover.SetActive (true);
+				deadBody.SetActive (false);
+				deadEffect.SetActive (true);
+				Invoke ("resetgame", 2f);
+				bounce = Bouncy.Not;
+			}
+
+			if (obj.CompareTag ("clear")) {
+				//gameclear.SetActive (true);
+				Invoke ("resetgame", 2f);
+				bounce = Bouncy.Not;
+			}
+
+
+			break;
+		case Bouncy.Up:
+
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+
+			if (obj.CompareTag ("ride")) {
+				GetComponent<PlayerController> ().moveStopCheck = true;
+				switch (obj.name.Substring (0, 4)) {
+				case "elep":
+					if (bounce == Bouncy.Down) {
+						bounce = Bouncy.ride;
+						MaxHeight_in = transform.position.y + MaxHeight * 0.3f;
+						Camera_ingame.GetComponent<GameCamera> ().riding = true;
+						Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Elephant> ().waitTime;
+						Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Elephant> ().runSpeed * 0.001f;
+						rideTime_in = obj.transform.parent.GetComponent<Elephant> ().runTime;
+						transform.parent = obj.transform.parent.transform;
+						transform.localPosition = new Vector3 (obj.transform.parent.GetComponent<Elephant> ().Pos.transform.localPosition.x, obj.transform.parent.GetComponent<Elephant> ().Pos.transform.localPosition.y, 0);
+						obj.transform.parent.GetComponent<Elephant> ().stat = elephantStatus.wait;
+					}
+					break;
+				case "hawk":
+					bounce = Bouncy.ride;
+					MaxHeight_in = transform.position.y + MaxHeight * 0.3f;
+					Camera_ingame.GetComponent<GameCamera> ().riding = true;
+					Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Hawk> ().waitTime;
+					Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Hawk> ().runSpeed * 0.001f;
+					rideTime_in = obj.transform.parent.GetComponent<Hawk> ().runTime;
+					transform.parent = obj.transform.parent.transform;
+					transform.localPosition = new Vector3 (obj.transform.parent.GetComponent<Hawk> ().Pos.transform.localPosition.x, obj.transform.parent.GetComponent<Hawk> ().Pos.transform.localPosition.y, 0);
+					obj.transform.parent.GetComponent<Hawk> ().stat = hawkStatus.wait;
+					break;
+				}
+			}
+
+			if (obj.CompareTag ("dead")) {
+				GameManager.gameSet = 2;
+				Debug.Log (bounce);
+				//gameover.SetActive (true);
+				deadBody.SetActive (false);
+				deadEffect.SetActive (true);
+				Invoke ("resetgame", 2f);
+				bounce = Bouncy.Not;
+			}
+			
+			break;
+		case Bouncy.Not:
+
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+			
+			break;
+		case Bouncy.Ready:
+
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+			
+			break;
+		case Bouncy.ride:
+
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+			
+			break;
+		case Bouncy.warp:
+			
+			if (obj.CompareTag ("warpexit")) {
+				warpexitTime_in = obj.transform.parent.transform.parent.GetComponent<Tunnel> ().exitTime;
+
+				Camera_ingame.GetComponent<GameCamera> ().riding = false;
+					MaxHeight_in = transform.position.y + MaxHeight;
+					UpBounceSpeed_in = UpBounceSpeed;
+					UpLerp_in = UpLerp * 0.1f;
+					bounce = Bouncy.warpexit;
+			}
+
+			break;
+		case Bouncy.warpexit:
+
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+
+			break;
+
+		}
+
+
+		/*
+
 		if (obj.CompareTag ("warp")) {
-			GetComponent<PlayerController> ().moveStopCheck = true;
-			deadBody.SetActive (false);
-			Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
-			Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.001f;
-			Camera_ingame.GetComponent<GameCamera> ().riding = false;
-			warpTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
-			warpSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.001f;
-			warpexitTime_in = obj.transform.parent.GetComponent<Tunnel> ().exitTime;
-			bounce = Bouncy.warp;
+			
+			if (bounce == Bouncy.Down) {
+				GetComponent<PlayerController> ().moveStopCheck = true;
+				deadBody.SetActive (false);
+				Camera_ingame.GetComponent<GameCamera> ().waitTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
+				Camera_ingame.GetComponent<GameCamera> ().rideSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.001f;
+				Camera_ingame.GetComponent<GameCamera> ().riding = false;
+				warpTime_in = obj.transform.parent.GetComponent<Tunnel> ().waitTime;
+				warpSpeed_in = obj.transform.parent.GetComponent<Tunnel> ().Speed * 0.001f;
+				warpexitTime_in = obj.transform.parent.GetComponent<Tunnel> ().exitTime;
+				bounce = Bouncy.warp;
+			}
+
 		}
 
 		if (obj.CompareTag ("warpexit")) {
@@ -296,29 +563,33 @@ public class PlayerMove : MonoBehaviour {
 				}
 			}
 
-			if (obj.name == "water") {
-				AudioSource.PlayClipAtPoint (deadSound, Camera_ingame.transform.position);
-				waterDead.SetActive (true);
+			if (bounce != Bouncy.warpexit) {
+				if (obj.name == "water") {
+					AudioSource.PlayClipAtPoint (deadSound, Camera_ingame.transform.position);
+					waterDead.SetActive (true);
 
-			}
+				}
+			
 
-			if (obj.CompareTag ("dead")) {
-				
-				Debug.Log ("dead");
-				//gameover.SetActive (true);
-				deadBody.SetActive (false);
-				deadEffect.SetActive (true);
-				Invoke ("resetgame", 2f);
-				bounce = Bouncy.Not;
-			}
+				if (obj.CompareTag ("dead")) {
+					
+					Debug.Log (bounce);
+					//gameover.SetActive (true);
+					deadBody.SetActive (false);
+					deadEffect.SetActive (true);
+					Invoke ("resetgame", 2f);
+					bounce = Bouncy.Not;
+				}
 
-			if (obj.CompareTag ("clear")) {
-				//gameclear.SetActive (true);
-				Invoke ("resetgame", 2f);
-				bounce = Bouncy.Not;
+				if (obj.CompareTag ("clear")) {
+					//gameclear.SetActive (true);
+					Invoke ("resetgame", 2f);
+					bounce = Bouncy.Not;
+				}
 			}
 			//Debug.Log (bounce);
 		}
+		*/
 	}
 
 	void OnTriggerExit(Collider obj) {
@@ -373,6 +644,9 @@ public class PlayerMove : MonoBehaviour {
 
 	//resetGame
 	public void resetgame(){
+		
+
+
 		if (Application.loadedLevelName != "Edit") {
 			
 			Application.LoadLevel (Application.loadedLevel);

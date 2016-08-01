@@ -14,7 +14,7 @@ public class colliderTurnpoint : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider turnpoint){
-		Debug.Log ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		//Debug.Log ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		
 		if(turnpoint.CompareTag("turnpoint")){
 			if (transform.parent.GetComponent<MoveOnGround> ().move == MovePosition.Left) {
