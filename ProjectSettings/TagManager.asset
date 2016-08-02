@@ -21,6 +21,7 @@ TagManager:
   - ride_elephant
   - warp
   - warpexit
+  - stun
   layers:
   - Default
   - TransparentFX
