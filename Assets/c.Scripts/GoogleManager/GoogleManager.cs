@@ -4,6 +4,7 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi.SavedGame;
 using System;
 using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
 
 public class GoogleManager : GoogleSingleton<GoogleManager> {
     
@@ -16,9 +17,30 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     public void InitializeGPGS()
     {
         bLogin = false;
-        PlayGamesPlatform.Activate();
-    }
+        PlayGamesPlatform.DebugLogEnabled = true;
 
+        PlayGamesPlatform.Activate();
+        
+        Social.localUser.Authenticate((bool success) =>
+        {
+            if (success) Debug.Log("sign in success");
+            else Debug.Log("sign in fail");
+        });
+    }
+    public void ShowLeaderboard()
+    {
+        if (Social.localUser.authenticated)
+        {
+            Social.ShowLeaderboardUI();
+        }
+    }
+    public void ShowAchievement()
+    {
+        if (Social.localUser.authenticated)
+        {
+            Social.ShowAchievementsUI();
+        }
+    }
     public void LoginGPGS()
     {
         if (!Social.localUser.authenticated)

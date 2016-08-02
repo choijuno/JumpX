@@ -98,6 +98,7 @@
      <None Include="Assets\stage\stage0\_obj.txt" />
      <None Include="Assets\Easy Save 2\readme.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\StreamingAssets\build_info.txt" />
      <None Include="Assets\stage\stage10\_obj_Component.txt" />
      <None Include="Assets\stage\stage1\_obj.txt" />
      <None Include="Assets\stage\stage5\_obj.txt" />

@@ -21,15 +21,14 @@
 /// Resources.
 ///
 
-namespace KW
-{
+
 public static class GPGS
 {
-        public const string achievement_ = "CgkI6431z84CEAIQAQ"; // <GPGSID>
-        public const string achievement_1 = "CgkI6431z84CEAIQAg"; // <GPGSID>
-        public const string achievement_2 = "CgkI6431z84CEAIQAw"; // <GPGSID>
-        public const string achievement_3 = "CgkI6431z84CEAIQBA"; // <GPGSID>
-        public const string achievement_4 = "CgkI6431z84CEAIQBQ"; // <GPGSID>
+        public const string achievement_test = "CgkIhrGUqu8ZEAIQAQ"; // <GPGSID>
+        public const string achievement_test1 = "CgkIhrGUqu8ZEAIQAg"; // <GPGSID>
+        public const string achievement_test2 = "CgkIhrGUqu8ZEAIQAw"; // <GPGSID>
+        public const string achievement_test3 = "CgkIhrGUqu8ZEAIQBA"; // <GPGSID>
+        public const string achievement_test4 = "CgkIhrGUqu8ZEAIQBQ"; // <GPGSID>
 
 }
-}
+

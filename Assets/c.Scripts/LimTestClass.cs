@@ -4,38 +4,32 @@ using UnityEngine.UI;
 
 public class LimTestClass : MonoBehaviour {
 
-    Button GoogleLoginBtn;
-    Text LoginCallBack;
-    Text LogInOut;
+    Button Achievement;
+    Button leaderBoard;
 	// Use this for initialization
-	void Start () {
-
-        GoogleLoginBtn = GameObject.Find("GoogleLoginBtn").GetComponent<Button>();
-        GoogleLoginBtn.onClick.AddListener(GoogleLoginBtnFunc);
-
-        LoginCallBack = GameObject.Find("LoginCallBack").GetComponent<Text>();
-        LogInOut = GameObject.Find("LogInOut").GetComponent<Text>();
-
-        GoogleManager.GetInstance.InitializeGPGS();
-        LoginCallBack.text = "로그인 : " + GoogleManager.GetInstance.bLogin.ToString();
-    }
-    void Update()
+	void Start ()
     {
-        LoginCallBack.text = "로그인 : " + GoogleManager.GetInstance.bLogin.ToString();
-    }
-	void GoogleLoginBtnFunc()
-    {
+        Achievement = GameObject.Find("Achievement").GetComponent<Button>();
+        Achievement.onClick.AddListener(ShowAchievementFunc);
+        leaderBoard = GameObject.Find("LeaderBoard").GetComponent<Button>();
+        leaderBoard.onClick.AddListener(ShowleaderBoardFunc);
+        
         if (GoogleManager.GetInstance.bLogin == false)
         {
+            GoogleManager.GetInstance.InitializeGPGS();
             GoogleManager.GetInstance.LoginGPGS();
-            LogInOut.text = "로그아웃";
-            Debug.Log("로그아웃");
         }
         else
         {
             GoogleManager.GetInstance.LogoutGPGS();
-            LogInOut.text = "로그인";
-            Debug.Log("로그인");
         }
+    }
+    void ShowAchievementFunc()
+    {
+        GoogleManager.GetInstance.ShowAchievement();
+    }
+    void ShowleaderBoardFunc()
+    {
+        GoogleManager.GetInstance.ShowLeaderboard();
     }
 }

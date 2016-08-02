@@ -89,15 +89,15 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.KW.JumpX
-  bundleVersion: 1.0
+  bundleIdentifier: com.GoodGame.JumpX
+  bundleVersion: 1.01
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: dc4a8fb737a0c494c8f3368a7c20ca91
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -158,8 +158,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: "C:/Users/tlghk/Desktop/\uC810\uD504X/user.keystore"
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/tlghk/Desktop/JumpX_limsihwan/Real.keystore
+  AndroidKeyaliasName: jumpx
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
