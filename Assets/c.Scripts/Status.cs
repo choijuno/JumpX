@@ -16,7 +16,8 @@ public enum Bouncy {
 	Twin,
 	ride,
 	warp,
-	warpexit
+	warpexit,
+	stun
 }
 
 public enum PlayerCC {

@@ -110,6 +110,10 @@ public class PlayerMove : MonoBehaviour {
 				BUp ();
 				break;
 
+			case Bouncy.stun:
+				BStun ();
+				break;
+
 			case Bouncy.ride:
 				Bride ();
 				break;
@@ -164,6 +168,10 @@ public class PlayerMove : MonoBehaviour {
 
 	void BNot(){
 		transform.position = new Vector3 (transform.position.x, transform.position.y - 0.1f * Time.deltaTime, transform.position.z);
+	}
+
+	void BStun(){
+		
 	}
 
 	void Bride() {
@@ -429,6 +437,13 @@ public class PlayerMove : MonoBehaviour {
 				rainCC = PlayerCC.heavy;
 			}
 			
+			break;
+		case Bouncy.stun:
+
+			if (obj.CompareTag ("rain")) {
+				rainCC = PlayerCC.heavy;
+			}
+
 			break;
 		case Bouncy.Ready:
 
