@@ -14,14 +14,10 @@ public class LimTestClass : MonoBehaviour {
         leaderBoard = GameObject.Find("LeaderBoard").GetComponent<Button>();
         leaderBoard.onClick.AddListener(ShowleaderBoardFunc);
         
-        if (GoogleManager.GetInstance.bLogin == false)
+        if (!Social.localUser.authenticated)
         {
             GoogleManager.GetInstance.InitializeGPGS();
             GoogleManager.GetInstance.LoginGPGS();
-        }
-        else
-        {
-            GoogleManager.GetInstance.LogoutGPGS();
         }
     }
     void ShowAchievementFunc()
