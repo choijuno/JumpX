@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject tiltOff;
 	void Start()
     {
-       
+			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 	}
 
 	void Awake () {
