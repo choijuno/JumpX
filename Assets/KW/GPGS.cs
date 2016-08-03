@@ -21,7 +21,6 @@
 /// Resources.
 ///
 
-
 public static class GPGS
 {
         public const string achievement_test = "CgkIhrGUqu8ZEAIQAQ"; // <GPGSID>
@@ -31,4 +30,3 @@ public static class GPGS
         public const string achievement_test4 = "CgkIhrGUqu8ZEAIQBQ"; // <GPGSID>
 
 }
-
