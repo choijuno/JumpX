@@ -5406,6 +5406,23 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 452550, guid: f52f8219d36d4194d81ccc7e729e93fd, type: 2}
   m_PrefabInternal: {fileID: 1638618546}
+--- !u!111 &1080695457
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1080695455}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: dba77e3b39cfc0d42b83d47c1ac02e9b, type: 2}
+  - {fileID: 7400000, guid: 334ef5e488425d2488901f3c1376c1b4, type: 2}
+  - {fileID: 7400000, guid: 17c7375fc192a9243bd0933def730a7c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1086756535
 GameObject:
   m_ObjectHideFlags: 0
@@ -12018,6 +12035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7af4b02c7d230546b453e38c0d5bb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _anim: {fileID: 0}
   bumpSound: {fileID: 8300000, guid: d043356377368aa458d14ba140f6107a, type: 3}
   bumpSound2: {fileID: 8300000, guid: 75e1f4db8bbc74649a3aca35c922a47f, type: 3}
   deadSound: {fileID: 8300000, guid: 8086e785a0e0cba48bca7494cfdc174f, type: 3}
@@ -12026,7 +12044,7 @@ MonoBehaviour:
   StartPos: {fileID: 2145956768}
   rainCC: 0
   bounce: 0
-  readyTime: 0.5
+  readyTime: 2
   deadEffect: {fileID: 442049322}
   waterDead: {fileID: 0}
   deadBody: {fileID: 1080695455}

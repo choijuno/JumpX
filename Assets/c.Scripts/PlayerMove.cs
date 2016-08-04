@@ -8,9 +8,19 @@ public class PlayerMove : MonoBehaviour {
 	//public GameObject gameclear;
 
 	// status use
+
+	//public Animation _anim;
+	//public AnimationClip Jumping2;
+	//public AnimationClip Jumping3;
+
+	public Animator _anim;
+
+
 	public AudioClip bumpSound;
 	public AudioClip bumpSound2;
 	public AudioClip deadSound;
+
+
 
 
 	public GameObject loadManager;
@@ -61,6 +71,9 @@ public class PlayerMove : MonoBehaviour {
 	Transform warpX;
 
 	void Awake () {
+		//_anim = deadBody.GetComponent<Animation> ();
+		_anim = deadBody.GetComponent<Animator>();
+
 		transform.position = StartPos.position;
 		bounce = Bouncy.Ready;
 
@@ -85,8 +98,9 @@ public class PlayerMove : MonoBehaviour {
 		while (true) {
 			
 			yield return new WaitForSeconds (readyTime);
-
+			_anim.SetTrigger ("JumpStart");
 			bounce = Bouncy.Up;
+			_anim.SetTrigger ("Up");
 			GameManager.gameSet = 0;
 			//Debug.Log (bounce);
 			StopCoroutine ("GameReady");
@@ -134,6 +148,12 @@ public class PlayerMove : MonoBehaviour {
 					DownLerp_in = 0;
 					bounce = Bouncy.Down;
 					transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
+
+				_anim.SetTrigger ("Down");
+				//_anim.clip = Jumping3;
+				//Debug.Log(_anim.clip);
+				//_anim.Play ();
+
 				}
 
 		} else {
@@ -335,6 +355,10 @@ public class PlayerMove : MonoBehaviour {
                     UpLerp_in = UpLerp * 0.15f;
                     bounce = Bouncy.Up;
                     MaxHeight_in = transform.position.y + MaxHeight * 1.5f;
+				_anim.SetTrigger ("BumpJump");
+				_anim.SetTrigger ("Up");
+				//_anim.clip = Jumping2;
+				//_anim.Play ();
                 }
 
                 if (obj.CompareTag("ground"))
@@ -370,6 +394,10 @@ public class PlayerMove : MonoBehaviour {
                         case PlayerCC.riding:
                             break;
                     }
+				_anim.SetTrigger ("BumpJump");
+				_anim.SetTrigger ("Up");
+				//_anim.clip = Jumping2;
+				//_anim.Play ();
                 }
 
                 if (obj.name == "water")
@@ -406,6 +434,8 @@ public class PlayerMove : MonoBehaviour {
                     //gameclear.SetActive (true);
                     Invoke("resetgame", 2f);
                     bounce = Bouncy.Not;
+					_anim.SetTrigger ("BumpJump");
+					_anim.SetTrigger ("GameSet");
                 }
                 break;
             case Bouncy.Up:
@@ -503,6 +533,10 @@ public class PlayerMove : MonoBehaviour {
                     UpBounceSpeed_in = UpBounceSpeed;
                     UpLerp_in = UpLerp * 0.1f;
                     bounce = Bouncy.warpexit;
+				_anim.SetTrigger ("BumpJump");
+				_anim.SetTrigger ("Up");
+				//_anim.clip = Jumping2;
+				//_anim.Play ();
                 }
 
                 break;
