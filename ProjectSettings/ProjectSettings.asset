@@ -158,7 +158,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Lim/Desktop/jumpX_limsi/Real.keystore
+  AndroidKeystoreName: C:/Users/tlghk/Desktop/JumpX_limsihwan/Real.keystore
   AndroidKeyaliasName: jumpx
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

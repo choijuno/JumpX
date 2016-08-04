@@ -10,7 +10,8 @@ using System.IO;
 using UnityEngine.UI;
 
 public class GoogleManager : GoogleSingleton<GoogleManager> {
-    
+
+    [Serializable]
     public class TestScore
     {
         public int test;
@@ -18,18 +19,14 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
 
     TestScore TS = new TestScore();
     Text CloudText;
-
-    void Start()
-    {
-        
-    }
+    
     public bool bLogin
     {
         get;
         set;
     }
     
-    public void InitializeGPGS()
+    public void InitializeGPGS() //초기화.
     {
         TS.test = 100;
         bLogin = false;
@@ -44,12 +41,19 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
 
         PlayGamesPlatform.Activate();
     }
-    public bool CheckLogin()
+    public bool CheckLogin()//로그인 상태확인.
     {
         return Social.localUser.authenticated;
     }
-    public void SaveToCloud()
+    public void SaveToCloud()//클라우드 세이브.
     {
+        if (!Social.localUser.authenticated) //로그인 안되있으면 리턴.
+        {
+            LoginGPGS();
+
+            return;
+        }
+
         CloudText.text = "첫번째 세이브";
         OpenSavedGame("SaveTest", true);
     }
@@ -72,12 +76,14 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     {
         if (status == SavedGameRequestStatus.Success)
         {
-            BinaryFormatter b = new BinaryFormatter();
+            /*BinaryFormatter b = new BinaryFormatter();
             MemoryStream m = new MemoryStream();
             b.Serialize(m, TS.test);
             byte[] bytes = m.GetBuffer();
-       
-            Debug.Log("=====1=> : "+bytes.Length);
+            */
+
+            byte[] bytes = ObjectToByteArraySerialize(TS.test);
+            
 
             //파일이 준비되었으므로, 실제 게임 저장을 수행.
             //저장할데이터바이트배열에 저장하실 바이트 배열을 지정합니다.
@@ -116,12 +122,18 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
         }
     }
 
-    public void LoadFromCloud()
+    public void LoadFromCloud() //클라우드 로그시키기.
     {
-        if (Social.localUser.authenticated)
+        if (!Social.localUser.authenticated) //로그인 안되있으면 리턴.
         {
-            OpenSavedGame("SaveTest", false);
+
+            LoginGPGS();
+
+            return;
         }
+
+        OpenSavedGame("SaveTest", false);
+     
     }
     void OnSavedGameOpenedToRead(SavedGameRequestStatus status, ISavedGameMetadata game)
     {
@@ -149,7 +161,8 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
         {
             //데이터 읽기에 성공했습니다.
             //data 배열을 복구해서 적절하게 사용.
-            Debug.Log("=====2=> : " + data.Length);
+            int test = Deserialize<int>(data);
+            Debug.Log("=====2=> : " + test);
         }
         else
         {
@@ -157,32 +170,53 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
             //읽기 실패 했다. 오류출력.
         }
     }
-    public void ShowLeaderboard()
+    public byte[] ObjectToByteArraySerialize(object obj) //모든 오브젝트를 바이트배열로 저장합니다. 클라우드 세이브.
+    {
+        using (var memoryStream = new MemoryStream())
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(memoryStream, obj);
+            memoryStream.Flush();
+            memoryStream.Position = 0;
+
+            return memoryStream.ToArray();
+        }
+    }
+    public T Deserialize<T>(byte[] byteData) //바이트형태를 T타입으로 리턴해줌.
+    {
+        using (var stream = new MemoryStream(byteData))
+        {
+            var formatter = new BinaryFormatter();
+            stream.Seek(0, SeekOrigin.Begin);
+            return (T)formatter.Deserialize(stream);
+        }
+    }
+    public void ShowLeaderboard() //리더보드 보여주기
     {
         if (Social.localUser.authenticated)
         {
             Social.ShowLeaderboardUI();
         }
     }
-    public void ShowAchievement()
+    public void ShowAchievement() //리더보드 보여주기
     {
         if (Social.localUser.authenticated)
         {
             Social.ShowAchievementsUI();
         }
     }
-    public void LoginGPGS()
+    public void LoginGPGS() //로그인
     {
         if (!Social.localUser.authenticated)
             Social.localUser.Authenticate(LoginCallBackGPGS);
     }
 
-    public void LoginCallBackGPGS(bool result)
+    public void LoginCallBackGPGS(bool result) //로그인
     {
         bLogin = result;
     }
 
-    public void LogoutGPGS()
+    public void LogoutGPGS()//로그아웃
     {
         if(Social.localUser.authenticated)
         {

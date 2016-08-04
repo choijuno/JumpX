@@ -14265,6 +14265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7af4b02c7d230546b453e38c0d5bb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _anim: {fileID: 0}
   bumpSound: {fileID: 8300000, guid: d043356377368aa458d14ba140f6107a, type: 3}
   bumpSound2: {fileID: 8300000, guid: 75e1f4db8bbc74649a3aca35c922a47f, type: 3}
   deadSound: {fileID: 8300000, guid: 8086e785a0e0cba48bca7494cfdc174f, type: 3}

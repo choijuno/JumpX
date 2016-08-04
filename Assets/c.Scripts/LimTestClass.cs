@@ -25,10 +25,9 @@ public class LimTestClass : MonoBehaviour {
         leaderBoard = GameObject.Find("LeaderBoard").GetComponent<Button>();
         leaderBoard.onClick.AddListener(ShowleaderBoardFunc);
 
-        GoogleManager.GetInstance.InitializeGPGS();
-
         if (!Social.localUser.authenticated)
         {
+            GoogleManager.GetInstance.InitializeGPGS();
             GoogleManager.GetInstance.LoginGPGS();
         }
     }
