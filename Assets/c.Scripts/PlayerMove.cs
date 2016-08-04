@@ -281,11 +281,12 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
                 break;
-            case Bouncy.Down:
+		case Bouncy.Down:
 
                 if (obj.CompareTag("warp"))
                 {
@@ -309,6 +310,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
@@ -347,6 +349,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("jump"))
                 {
+				
                     if (!obj.CompareTag("Untagged"))
                     {
                         if (GameManager.gameSet == 0)
@@ -354,9 +357,11 @@ public class PlayerMove : MonoBehaviour {
                     }
                     UpLerp_in = UpLerp * 0.15f;
                     bounce = Bouncy.Up;
-                    MaxHeight_in = transform.position.y + MaxHeight * 1.5f;
-				_anim.SetTrigger ("BumpJump");
+				MaxHeight_in = transform.position.y + MaxHeight * 1.5f;
+				_anim.SetBool("PowerDown",true);
+				//_anim.SetTrigger ("BumpJump");
 				_anim.SetTrigger ("Up");
+
 				//_anim.clip = Jumping2;
 				//_anim.Play ();
                 }
@@ -393,8 +398,10 @@ public class PlayerMove : MonoBehaviour {
                             break;
                         case PlayerCC.riding:
                             break;
-                    }
-				_anim.SetTrigger ("BumpJump");
+				}
+
+				_anim.SetBool("PowerDown",false);
+				//_anim.SetTrigger ("BumpJump");
 				_anim.SetTrigger ("Up");
 				//_anim.clip = Jumping2;
 				//_anim.Play ();
@@ -434,7 +441,7 @@ public class PlayerMove : MonoBehaviour {
                     //gameclear.SetActive (true);
                     Invoke("resetgame", 2f);
                     bounce = Bouncy.Not;
-					_anim.SetTrigger ("BumpJump");
+					//_anim.SetTrigger ("BumpJump");
 					_anim.SetTrigger ("GameSet");
                 }
                 break;
@@ -442,6 +449,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
@@ -494,6 +502,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
@@ -502,6 +511,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
@@ -510,6 +520,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
@@ -518,6 +529,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
@@ -533,7 +545,7 @@ public class PlayerMove : MonoBehaviour {
                     UpBounceSpeed_in = UpBounceSpeed;
                     UpLerp_in = UpLerp * 0.1f;
                     bounce = Bouncy.warpexit;
-				_anim.SetTrigger ("BumpJump");
+				//_anim.SetTrigger ("BumpJump");
 				_anim.SetTrigger ("Up");
 				//_anim.clip = Jumping2;
 				//_anim.Play ();
@@ -544,6 +556,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("rain"))
                 {
+				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
@@ -558,6 +571,7 @@ public class PlayerMove : MonoBehaviour {
     void OnTriggerExit(Collider obj) {
 
 		if (obj.CompareTag("rain")) {
+			_anim.SetBool("RainCheck",false);
 			rainCC = PlayerCC.not;
 			/*
 
