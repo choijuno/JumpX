@@ -274,6 +274,12 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
      <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
      <Compile Include="Assets\KW\GPGS.cs" />
+     <Compile Include="Assets\Reporter\MultiKeyDictionary.cs" />
+     <Compile Include="Assets\Reporter\Reporter.cs" />
+     <Compile Include="Assets\Reporter\ReporterGUI.cs" />
+     <Compile Include="Assets\Reporter\ReporterMessageReceiver.cs" />
+     <Compile Include="Assets\Reporter\Test\Rotate.cs" />
+     <Compile Include="Assets\Reporter\Test\TestReporter.cs" />
      <Compile Include="Assets\c.Scenes\Edit\EditSetting.cs" />
      <Compile Include="Assets\c.Scenes\Edit\LoadManager.cs" />
      <Compile Include="Assets\c.Scenes\Edit\MapMake.cs" />

@@ -81,6 +81,7 @@
      <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_2.cs" />
      <Compile Include="Assets\PlayServicesResolver\Editor\SampleDependencies.cs" />
      <Compile Include="Assets\PlayServicesResolver\Editor\SettingsDialog.cs" />
+     <Compile Include="Assets\Reporter\Editor\ReporterEditor.cs" />
      <Compile Include="Assets\effect\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
      <Compile Include="Assets\effect\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
      <Compile Include="Assets\effect\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
