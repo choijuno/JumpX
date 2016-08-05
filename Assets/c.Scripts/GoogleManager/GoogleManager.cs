@@ -8,6 +8,7 @@ using UnityEngine.SocialPlatforms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GoogleManager : GoogleSingleton<GoogleManager> {
 
@@ -169,6 +170,102 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
             CloudText.text = "실패";
             //읽기 실패 했다. 오류출력.
         }
+    }
+    public void ReportScoreLeaderBoard(int score) //리더보드에 스코어 저장.
+    {
+        Social.ReportScore(score, GPGS.leaderboard_test, (bool success) =>
+        {
+            if (success)
+            {
+                Debug.Log("리더보드 성공");
+            }
+            else
+            {
+                Debug.Log("리더보드 실패");
+            }
+        });
+    }
+    public void LeaderBoardLoadScores() //리더보드 스코어 가져오는것.
+    {
+        ILeaderboard lb = Social.CreateLeaderboard();
+        lb.id = GPGS.leaderboard_test;
+        lb.LoadScores(ok =>
+        {
+            if (ok)
+            {
+                LoadUsersAndDisplay(lb);
+            }
+            else
+            {
+                Debug.Log("Error retrieving leaderboardi");
+            }
+        });
+    }
+    internal void LoadUsersAndDisplay(ILeaderboard lb)
+    {
+        // get the user ids
+        List<string> userIds = new List<string>();
+
+       
+        foreach (IScore score in lb.scores)
+        {
+            Debug.Log("lb.score === " + score.value);
+            Debug.Log("Social.localUser ==== " + Social.localUser.id);
+            Debug.Log("score.userId ==== " + score.userID);
+            userIds.Add(score.userID);
+        }
+        // load the profiles and display (or in this case, log)
+        Social.LoadUsers(userIds.ToArray(), (users) =>
+        {
+            string status = "Leaderboard loading: " + lb.title + " count = " +
+                lb.scores.Length;
+            foreach (IScore score in lb.scores)
+            {
+                IUserProfile user = FindUser(users, score.userID);
+                status += "\n" + score.formattedValue + " by " +
+                    (string)(
+                        (user != null) ? user.userName : "**unk_" + score.userID + "**");
+            }
+
+            Debug.Log(status);
+        });
+    }
+    IUserProfile FindUser(IUserProfile[] users, string userID)
+    {
+        foreach (IUserProfile user in users)
+            if (user.id == userID) return user;
+        return null;
+    }
+    public void LoadingFriends() //친구들 불러오는곳
+    {
+        PlayGamesPlatform.Instance.GetUserEmail((status, email) =>
+        {
+            if (status == CommonStatusCodes.Success)
+            {
+                Debug.Log("주소는 : " + email);
+            }
+            else
+            {
+                Debug.Log("에러 메일 : " + status);
+            }
+        });
+
+        Social.localUser.LoadFriends((ok) =>
+        {
+            int a = Social.localUser.friends.Rank;
+            Debug.Log("Friends loaded OK: " + ok);
+            Debug.Log("친구 길이 ======= " + Social.localUser.friends.Length);
+            Debug.Log("친구 랭크 ======= " + Social.localUser.friends.Rank);
+            foreach (IUserProfile p in Social.localUser.friends)
+            {
+                Debug.Log("유저이름 ==== " + p.userName);
+                Debug.Log("유저상태 ==== " + p.state);
+                Debug.Log("유저isfriend? === " + p.isFriend);
+                Debug.Log("유저아이디 === " + p.id);
+                Debug.Log("유저랭킹 === " + Social.localUser.friends.Rank);
+                
+            }
+        });
     }
     public byte[] ObjectToByteArraySerialize(object obj) //모든 오브젝트를 바이트배열로 저장합니다. 클라우드 세이브.
     {

@@ -9,7 +9,15 @@ public class LimTestClass : MonoBehaviour {
 
     Button CloudSave;
     Button CloudLoad;
+
+    Button BoardSave;
+    Button ScoreSave;
+
+    Button FriendLoading;
+
+    Button LoadLeaderBoard;
     Text CloudText;
+    Text ScoreTxt;
 	// Use this for initialization
 	void Start ()
     {
@@ -24,6 +32,19 @@ public class LimTestClass : MonoBehaviour {
         Achievement.onClick.AddListener(ShowAchievementFunc);
         leaderBoard = GameObject.Find("LeaderBoard").GetComponent<Button>();
         leaderBoard.onClick.AddListener(ShowleaderBoardFunc);
+
+        BoardSave = GameObject.Find("BoardSave").GetComponent<Button>();
+        BoardSave.onClick.AddListener(leaderBoardSave);
+        ScoreSave = GameObject.Find("ScoreSave").GetComponent<Button>();
+        ScoreSave.onClick.AddListener(ScoreSaveFunc);
+
+        LoadLeaderBoard = GameObject.Find("LoadLeaderBoard").GetComponent<Button>();
+        LoadLeaderBoard.onClick.AddListener(LoadLeaderBoardFunc);
+
+        ScoreTxt = ScoreSave.GetComponentInChildren<Text>();
+
+        FriendLoading = GameObject.Find("FriendLoading").GetComponent<Button>();
+        FriendLoading.onClick.AddListener(FriendLoadingFunc);
 
         if (!Social.localUser.authenticated)
         {
@@ -46,5 +67,23 @@ public class LimTestClass : MonoBehaviour {
     void ShowleaderBoardFunc()
     {
         GoogleManager.GetInstance.ShowLeaderboard();
+    }
+    void leaderBoardSave()
+    {
+        GoogleManager.GetInstance.ReportScoreLeaderBoard(PlayerPrefs.GetInt("LeaderSave"));
+    }
+    void ScoreSaveFunc()
+    {
+        int randindex = Random.Range(10, 20);
+        PlayerPrefs.SetInt("LeaderSave", randindex);
+        ScoreTxt.text = randindex.ToString();
+    }
+    void FriendLoadingFunc()
+    {
+        GoogleManager.GetInstance.LoadingFriends();
+    }
+    void LoadLeaderBoardFunc()
+    {
+        GoogleManager.GetInstance.LeaderBoardLoadScores();
     }
 }

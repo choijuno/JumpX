@@ -23,10 +23,10 @@
 
 public static class GPGS
 {
-        public const string achievement_test = "CgkIhrGUqu8ZEAIQAQ"; // <GPGSID>
-        public const string achievement_test1 = "CgkIhrGUqu8ZEAIQAg"; // <GPGSID>
-        public const string achievement_test2 = "CgkIhrGUqu8ZEAIQAw"; // <GPGSID>
-        public const string achievement_test3 = "CgkIhrGUqu8ZEAIQBA"; // <GPGSID>
-        public const string achievement_test4 = "CgkIhrGUqu8ZEAIQBQ"; // <GPGSID>
-
+    public const string achievement_test = "CgkIhrGUqu8ZEAIQAQ"; // <GPGSID>
+    public const string achievement_test1 = "CgkIhrGUqu8ZEAIQAg"; // <GPGSID>
+    public const string achievement_test2 = "CgkIhrGUqu8ZEAIQAw"; // <GPGSID>
+    public const string achievement_test3 = "CgkIhrGUqu8ZEAIQBA"; // <GPGSID>
+    public const string achievement_test4 = "CgkIhrGUqu8ZEAIQBQ"; // <GPGSID>
+    public const string leaderboard_test = "CgkIhrGUqu8ZEAIQBg";
 }
