@@ -9,9 +9,17 @@ public class Tunnel : MonoBehaviour {
 	public float Speed;
 	public float exitTime;
 
+	public int direction;
+
 	// Use this for initialization
 	void Start () {
-	
+		if (exit.transform.position.x <= this.transform.position.x) {
+			//left
+			direction = 1;
+		} else {
+			//right
+			direction = 2;
+		}
 	}
 
 	IEnumerator wait(){

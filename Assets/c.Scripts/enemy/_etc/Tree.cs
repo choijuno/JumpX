@@ -9,9 +9,12 @@ public class Tree : MonoBehaviour {
 	public float attSpeed;
 	float attSpeed_in;
 	public float stunTime;
-
+	float Xbase;
+	float Ybase;
 	// Use this for initialization
 	void Start () {
+		Xbase = fruit.transform.position.x;
+		Ybase = fruit.transform.position.y;
 		waitTime_in = waitTime;
 		attSpeed_in = attSpeed * 0.001f;
 		StartCoroutine ("wait");
@@ -25,7 +28,7 @@ public class Tree : MonoBehaviour {
 			waitTime_in = waitTime_in - Time.deltaTime;
 			if (waitTime_in <= 0) {
 				waitTime_in = waitTime;
-				fruit.transform.position = transform.position;
+				fruit.transform.position = new Vector3(Xbase, Ybase, 0);
 				fruit.SetActive (true);
 			}
 		}

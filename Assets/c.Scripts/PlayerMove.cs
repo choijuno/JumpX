@@ -70,7 +70,11 @@ public class PlayerMove : MonoBehaviour {
 	Transform warpHeight;
 	Transform warpX;
 
+	float stunTime_in;
+	bool stunGround;
+
 	void Awake () {
+		Camera_ingame.GetComponent<GameCamera> ().direction = 1;
 		//_anim = deadBody.GetComponent<Animation> ();
 		_anim = deadBody.GetComponent<Animator>();
 
@@ -149,6 +153,7 @@ public class PlayerMove : MonoBehaviour {
 					bounce = Bouncy.Down;
 					transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
 
+				_anim.SetBool ("DropCheck", true);
 				_anim.SetTrigger ("Down");
 				//_anim.clip = Jumping3;
 				//Debug.Log(_anim.clip);
@@ -192,6 +197,34 @@ public class PlayerMove : MonoBehaviour {
 
 	void BStun(){
 		
+		if (stunTime_in >= 0) {
+			stunTime_in = stunTime_in - Time.deltaTime;
+		} else {
+			UpLerp_in = UpLerp * 0.1f;
+			bounce = Bouncy.Up;
+			_anim.SetBool ("StunCheck", false);
+
+			MaxHeight_in = transform.position.y + MaxHeight;
+			GetComponent<PlayerController> ().moveStopCheck = false;
+			Camera_ingame.GetComponent<GameCamera> ().direction = 1;
+		}
+
+		if (stunGround) {
+
+
+
+		} else {
+
+			DownLerp_in = Mathf.Lerp (DownLerp_in, DownLerp * 0.5f, 0.001f);
+
+			if (DownLerp_in >= DownLerp * 0.1f) {
+				DownLerp_in = DownLerp * 0.1f;
+			}
+
+			transform.position = new Vector3 (transform.position.x, transform.position.y - DownLerp_in * 0.1f, transform.position.z);
+
+		}
+
 	}
 
 	void Bride() {
@@ -246,6 +279,7 @@ public class PlayerMove : MonoBehaviour {
 		if (warpexitTime_in <= 0) {
 			warpexitTime_in = 0;
 			GetComponent<PlayerController> ().moveStopCheck = false;
+			Camera_ingame.GetComponent<GameCamera> ().direction = 1;
 			deadBody.SetActive (true);
 
 
@@ -290,9 +324,11 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("warp"))
                 {
+				_anim.SetBool ("DropCheck", false);
                     MaxHeight_in = 5;
                     GetComponent<PlayerController>().moveStopCheck = true;
                     deadBody.SetActive(false);
+					Camera_ingame.GetComponent<GameCamera> ().direction = obj.transform.parent.GetComponent<Tunnel> ().direction;
                     Camera_ingame.GetComponent<GameCamera>().waitTime_in = obj.transform.parent.GetComponent<Tunnel>().waitTime;
                     Camera_ingame.GetComponent<GameCamera>().rideSpeed_in = obj.transform.parent.GetComponent<Tunnel>().Speed * 0.001f;
                     Camera_ingame.GetComponent<GameCamera>().riding = true;
@@ -316,7 +352,8 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("ride"))
                 {
-                    GetComponent<PlayerController>().moveStopCheck = true;
+				GetComponent<PlayerController>().moveStopCheck = true;
+				_anim.SetBool ("DropCheck", false);
                     switch (obj.name.Substring(0, 4))
                     {
                         case "elep":
@@ -358,6 +395,7 @@ public class PlayerMove : MonoBehaviour {
                     UpLerp_in = UpLerp * 0.15f;
                     bounce = Bouncy.Up;
 				MaxHeight_in = transform.position.y + MaxHeight * 1.5f;
+				_anim.SetBool ("DropCheck", false);
 				_anim.SetBool("PowerDown",true);
 				//_anim.SetTrigger ("BumpJump");
 				_anim.SetTrigger ("Up");
@@ -367,7 +405,7 @@ public class PlayerMove : MonoBehaviour {
                 }
 
                 if (obj.CompareTag("ground"))
-                {
+			{
                     if (!obj.CompareTag("Untagged"))
                     {
                         if (GameManager.gameSet == 0)
@@ -400,6 +438,7 @@ public class PlayerMove : MonoBehaviour {
                             break;
 				}
 
+				_anim.SetBool ("DropCheck", false);
 				_anim.SetBool("PowerDown",false);
 				//_anim.SetTrigger ("BumpJump");
 				_anim.SetTrigger ("Up");
@@ -414,6 +453,19 @@ public class PlayerMove : MonoBehaviour {
 
                 }
 
+				if (obj.CompareTag("stun"))
+				{
+				Debug.Log ("DownStun");
+				_anim.SetBool ("StunCheck", true);
+				_anim.SetTrigger ("DownStun");
+				stunGround = false;
+				GetComponent<PlayerController>().moveStopCheck = true;
+				Camera_ingame.GetComponent<GameCamera> ().direction = 0;
+				stunTime_in = obj.transform.parent.GetComponent<Tree> ().stunTime;
+					DownLerp_in = 0;
+					bounce = Bouncy.stun;
+
+				}
 
                 if (obj.CompareTag("dead"))
                 {
@@ -441,7 +493,8 @@ public class PlayerMove : MonoBehaviour {
                     //gameclear.SetActive (true);
                     Invoke("resetgame", 2f);
                     bounce = Bouncy.Not;
-					//_anim.SetTrigger ("BumpJump");
+				//_anim.SetTrigger ("BumpJump");
+				_anim.SetBool ("DropCheck", false);
 					_anim.SetTrigger ("GameSet");
                 }
                 break;
@@ -486,6 +539,19 @@ public class PlayerMove : MonoBehaviour {
                     }
                 }
 
+				if (obj.CompareTag("stun"))
+				{
+				Debug.Log ("UpStun");
+				stunGround = false;
+				_anim.SetBool ("StunCheck", true);
+					GetComponent<PlayerController>().moveStopCheck = true;
+					Camera_ingame.GetComponent<GameCamera> ().direction = 0;
+					stunTime_in = obj.transform.parent.GetComponent<Tree> ().stunTime;
+					DownLerp_in = 0;
+					bounce = Bouncy.stun;
+
+				}
+
                 if (obj.CompareTag("dead"))
                 {
                     GameManager.gameSet = 2;
@@ -507,13 +573,28 @@ public class PlayerMove : MonoBehaviour {
                 }
 
                 break;
-            case Bouncy.stun:
+			case Bouncy.stun:
+				
+				if (obj.CompareTag ("ground")) {
+				stunGround = true;
+				}
 
                 if (obj.CompareTag("rain"))
                 {
 				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
+
+				if (obj.CompareTag("dead"))
+				{
+					GameManager.gameSet = 2;
+					Debug.Log(bounce);
+					//gameover.SetActive (true);
+					deadBody.SetActive(false);
+					deadEffect.SetActive(true);
+					Invoke("resetgame", 2f);
+					bounce = Bouncy.Not;
+				}
 
                 break;
             case Bouncy.Ready:
@@ -538,6 +619,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("warpexit"))
                 {
+					Camera_ingame.GetComponent<GameCamera> ().direction = 0;
                     warpexitTime_in = obj.transform.parent.transform.parent.GetComponent<Tunnel>().exitTime;
 
                     Camera_ingame.GetComponent<GameCamera>().riding = false;
@@ -553,7 +635,7 @@ public class PlayerMove : MonoBehaviour {
 
                 break;
             case Bouncy.warpexit:
-
+				
                 if (obj.CompareTag("rain"))
                 {
 				_anim.SetBool("RainCheck",true);
@@ -598,7 +680,6 @@ public class PlayerMove : MonoBehaviour {
 			bumpEffect.transform.position = this.transform.position;
 			bumpEffect.SetActive (true);
 
-		Debug.Log (rand);
 		switch (rand) {
 		case 0:
 		case 1:

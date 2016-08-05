@@ -16,6 +16,7 @@ public class GameCamera : MonoBehaviour {
 	public float waitTime_in;
 	public float rideSpeed_in;
 	public bool riding;
+	public int direction;
 
 	void Start () {
 		transform.position = new Vector3 (playerPosition.transform.position.x + CameraCenterPosition, 0, -10);
@@ -73,11 +74,25 @@ public class GameCamera : MonoBehaviour {
 		}
 		if (GameManager.gameSet == 0) {
 			if (!riding) {
-				midleBackGround.transform.position = new Vector3 (midleBackGround.transform.position.x + movespeed * 0.001f, midleBackGround.transform.position.y, midleBackGround.transform.position.z);
+				
+				if (direction != 0) {
+					midleBackGround.transform.position = new Vector3 (midleBackGround.transform.position.x + movespeed * 0.001f, midleBackGround.transform.position.y, midleBackGround.transform.position.z);
+				}
+
 			} else {
 				waitTime_in = waitTime_in - Time.deltaTime;
 				if (waitTime_in <= 0) {
-					midleBackGround.transform.position = new Vector3 (midleBackGround.transform.position.x - rideSpeed_in * 0.1f, midleBackGround.transform.position.y, midleBackGround.transform.position.z);
+					switch (direction) {
+					case 0: //stop
+						
+						break;
+					case 1: //left
+						midleBackGround.transform.position = new Vector3 (midleBackGround.transform.position.x + rideSpeed_in * 0.1f, midleBackGround.transform.position.y, midleBackGround.transform.position.z);
+						break;
+					case 2: //right
+						midleBackGround.transform.position = new Vector3 (midleBackGround.transform.position.x - rideSpeed_in * 0.1f, midleBackGround.transform.position.y, midleBackGround.transform.position.z);
+						break;
+					}
 				}
 			}
 		}

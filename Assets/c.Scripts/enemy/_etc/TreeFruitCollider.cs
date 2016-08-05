@@ -9,5 +9,10 @@ public class TreeFruitCollider : MonoBehaviour {
 
 		}
 
+		if (player.CompareTag ("ground")) {
+			this.gameObject.SetActive (false);
+
+		}
+
 	}
 }

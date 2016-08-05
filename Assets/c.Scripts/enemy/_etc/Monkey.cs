@@ -24,6 +24,7 @@ public class Monkey : MonoBehaviour {
 			waitTime_in = waitTime_in - Time.deltaTime;
 			if (waitTime_in <= 0) {
 				waitTime_in = waitTime;
+				banana.SetActive (true);
 				banana.transform.position = transform.position;
 			}
 		}
