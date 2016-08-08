@@ -9513,7 +9513,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 281.6, y: 0.000011921}
+  m_AnchoredPosition: {x: 282, y: 0.000011921}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1379050247 stripped
@@ -10564,7 +10564,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -281.8, y: 0}
+  m_AnchoredPosition: {x: -282, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1458445285 stripped
@@ -13216,6 +13216,8 @@ MonoBehaviour:
   playerBody: {fileID: 1918113601}
   Pos: 0
   EndPos: 0
+  chaStart: {fileID: 1453072423}
+  chaEnd: {fileID: 1345990543}
 --- !u!4 &1725925917
 Transform:
   m_ObjectHideFlags: 0
