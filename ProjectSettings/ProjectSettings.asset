@@ -9,8 +9,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: KW
-  productName: JumpX
+  companyName: GoodGameSt
+  productName: JumpingX
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -89,15 +89,15 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.GoodGame.JumpX
-  bundleVersion: 1.01
+  bundleIdentifier: com.GoodGameSt.JumpingX
+  bundleVersion: 1.00
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: dc4a8fb737a0c494c8f3368a7c20ca91
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -158,8 +158,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: "D:/\uCD5C\uC900\uC624/programing/projects/JumpX/Real.keystore"
-  AndroidKeyaliasName: jumpx
+  AndroidKeystoreName: C:/Users/tlghk/Desktop/JumpX_limsihwan/RealKey.keystore
+  AndroidKeyaliasName: realkey
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1

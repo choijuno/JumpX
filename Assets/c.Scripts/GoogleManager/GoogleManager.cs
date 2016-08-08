@@ -173,7 +173,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     }
     public void ReportScoreLeaderBoard(int score) //리더보드에 스코어 저장.
     {
-        Social.ReportScore(score, GPGS.leaderboard_test, (bool success) =>
+        Social.ReportScore(score, GPGS.LeaderBoardTest, (bool success) =>
         {
             if (success)
             {
@@ -188,7 +188,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     public void LeaderBoardLoadScores() //리더보드 스코어 가져오는것.
     {
         ILeaderboard lb = Social.CreateLeaderboard();
-        lb.id = GPGS.leaderboard_test;
+        lb.id = GPGS.LeaderBoardTest;
         lb.LoadScores(ok =>
         {
             if (ok)
@@ -238,6 +238,17 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     }
     public void LoadingFriends() //친구들 불러오는곳
     {
+        PlayGamesPlatform.Instance.GetServerAuthCode((status,callback) =>
+        {
+            if(CommonStatusCodes.Success == status)
+            {
+                Debug.Log("서버 성공 :" + callback);
+            }
+            else
+            {
+                Debug.Log("에러 메일 : " + status);
+            }
+        });
         PlayGamesPlatform.Instance.GetUserEmail((status, email) =>
         {
             if (status == CommonStatusCodes.Success)

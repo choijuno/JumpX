@@ -10,7 +10,7 @@ public class TestBtn : MonoBehaviour {
 		GameManager.TestNum = int.Parse(this.name.Substring (0, 3));
         if(GameManager.TestNum == 001)
         {
-            Social.ReportProgress(GPGS.achievement_test, 100.0f, (bool success) =>
+            Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) =>
             {
 
             });
