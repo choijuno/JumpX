@@ -20,7 +20,14 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
 
     TestScore TS = new TestScore();
     Text CloudText;
-    
+
+
+    RawImage testfriendImg;
+    void Start()
+    {
+        testfriendImg = GameObject.Find("testfriendImg").GetComponent<RawImage>();
+
+    }
     public bool bLogin
     {
         get;
@@ -173,6 +180,11 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     }
     public void ReportScoreLeaderBoard(int score) //리더보드에 스코어 저장.
     {
+        if (!Social.localUser.authenticated)
+        {
+            LoginGPGS();
+            return;
+        }
         Social.ReportScore(score, GPGS.LeaderBoardTest, (bool success) =>
         {
             if (success)
@@ -187,6 +199,11 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     }
     public void LeaderBoardLoadScores() //리더보드 스코어 가져오는것.
     {
+        if (!Social.localUser.authenticated)
+        {
+            LoginGPGS();
+            return;
+        }
         ILeaderboard lb = Social.CreateLeaderboard();
         lb.id = GPGS.LeaderBoardTest;
         lb.LoadScores(ok =>
@@ -201,7 +218,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
             }
         });
     }
-    internal void LoadUsersAndDisplay(ILeaderboard lb)
+    internal void LoadUsersAndDisplay(ILeaderboard lb) //리더보드 디스플레이
     {
         // get the user ids
         List<string> userIds = new List<string>();
@@ -238,6 +255,11 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     }
     public void LoadingFriends() //친구들 불러오는곳
     {
+        if (!Social.localUser.authenticated)
+        {
+            LoginGPGS();
+            return;
+        }
         PlayGamesPlatform.Instance.GetServerAuthCode((status,callback) =>
         {
             if(CommonStatusCodes.Success == status)
@@ -249,6 +271,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
                 Debug.Log("에러 메일 : " + status);
             }
         });
+        /* 유저 email
         PlayGamesPlatform.Instance.GetUserEmail((status, email) =>
         {
             if (status == CommonStatusCodes.Success)
@@ -259,22 +282,14 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
             {
                 Debug.Log("에러 메일 : " + status);
             }
-        });
+        });*/
 
         Social.localUser.LoadFriends((ok) =>
         {
-            int a = Social.localUser.friends.Rank;
-            Debug.Log("Friends loaded OK: " + ok);
-            Debug.Log("친구 길이 ======= " + Social.localUser.friends.Length);
-            Debug.Log("친구 랭크 ======= " + Social.localUser.friends.Rank);
             foreach (IUserProfile p in Social.localUser.friends)
             {
-                Debug.Log("유저이름 ==== " + p.userName);
-                Debug.Log("유저상태 ==== " + p.state);
-                Debug.Log("유저isfriend? === " + p.isFriend);
-                Debug.Log("유저아이디 === " + p.id);
-                Debug.Log("유저랭킹 === " + Social.localUser.friends.Rank);
-                
+                //이름, 아이디 등등 가져올 수 있다.
+                testfriendImg.texture = p.image;
             }
         });
     }
@@ -333,7 +348,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
         }
     }
 
-    public Texture2D GetImageGPGS()
+    public Texture2D GetImageGPGS() //내 이미지
     {
         if (Social.localUser.authenticated)
             return Social.localUser.image;
@@ -341,7 +356,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
             return null;
     }
     
-    public string GetNameGPGS()
+    public string GetNameGPGS() // 내 이름
     {
         if (Social.localUser.authenticated)
             return Social.localUser.userName;

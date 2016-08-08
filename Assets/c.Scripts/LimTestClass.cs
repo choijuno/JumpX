@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LimTestClass : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class LimTestClass : MonoBehaviour {
     Button FriendLoading;
 
     Button LoadLeaderBoard;
+
+    Button itemBuyBtn;
     Text CloudText;
     Text ScoreTxt;
 	// Use this for initialization
@@ -46,6 +49,9 @@ public class LimTestClass : MonoBehaviour {
         FriendLoading = GameObject.Find("FriendLoading").GetComponent<Button>();
         FriendLoading.onClick.AddListener(FriendLoadingFunc);
 
+
+        itemBuyBtn = GameObject.Find("ItemBuy").GetComponent<Button>();
+        itemBuyBtn.onClick.AddListener(itemBuyGo);
         if (!Social.localUser.authenticated)
         {
             GoogleManager.GetInstance.InitializeGPGS();
@@ -85,5 +91,9 @@ public class LimTestClass : MonoBehaviour {
     void LoadLeaderBoardFunc()
     {
         GoogleManager.GetInstance.LeaderBoardLoadScores();
+    }
+    void itemBuyGo()
+    {
+        SceneManager.LoadScene(2);
     }
 }
