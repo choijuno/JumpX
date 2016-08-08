@@ -485,10 +485,10 @@ public class PlayerMove : MonoBehaviour {
                         Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) =>{});
                     }else if(GameManager.TestNum == 002)
                     {
-                        Social.ReportProgress(GPGS.achievement_test3, 100.0f, (bool success) => {});
+                        Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) => {});
                     }else if(GameManager.TestNum == 003)
                     {
-                        Social.ReportProgress(GPGS.achievement_test4, 100.0f, (bool success) => {});
+                        Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) => {});
                     }
                     //gameclear.SetActive (true);
                     Invoke("resetgame", 2f);
