@@ -1,29 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\c.Scripts\TestScipts\UI_Gage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\c.Scenes\Edit\LoadManager.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\UnityAds\Scripts\Advertisements\Misc\Utils.cs" Line="12" Column="1" />
-      <File FileName="Assets\c.Scripts\TestScipts\UI_Gage.cs" Line="37" Column="51" />
-      <File FileName="Assets\c.Scripts\PlayerMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\enemy\_etc\Monkey.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\enemy\_etc\Tunnel.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\TestScipts\TestBtn.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\GameCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scenes\Edit\LoadManager.cs" Line="1" Column="1" />
       <File FileName="Assets\c.Scenes\Edit\MapMake.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scenes\Edit\LoadManager.cs" Line="230" Column="21" />
       <File FileName="Assets\c.Scenes\Edit\EditSetting.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\TestScipts\TestBtn.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\PlayerMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\PlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets\c.Scripts\Status.cs" Line="1" Column="1" />
       <File FileName="Assets\c.Scripts\enemy\objMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\enemy\objColider.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\SoundManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\enemy\_etc\colliderTurnpoint.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\LimTestClass.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\admobAds\AdmobAdsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\enemy\_etc\TreeFruitCollider.cs" Line="1" Column="1" />
-      <File FileName="Assets\c.Scripts\enemy\_etc\Tree.cs" Line="1" Column="1" />
-      <File FileName="Assets\PlayServicesResolver\Editor\PlayServicesResolver.cs" Line="1" Column="1" />
+      <File FileName="Assets\c.Scripts\enemy\objColider.cs" Line="3" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
