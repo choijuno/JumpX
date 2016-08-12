@@ -26,8 +26,8 @@ public class AdmobAdsManager : MonoBehaviour {
     {
         bannerView.Show();
     }
-    /*void OnDisable() //배너 안보이게.
+    void OnDisable() //배너 안보이게.
     {
         bannerView.Hide();
-    }*/
+    }
 }

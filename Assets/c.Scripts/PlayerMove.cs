@@ -502,6 +502,9 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
             case Bouncy.Up:
+				if (obj.CompareTag ("gold")) {
+					GameManager.gameGold += 10;
+				}
 
                 if (obj.CompareTag("rain"))
                 {
@@ -577,7 +580,10 @@ public class PlayerMove : MonoBehaviour {
 
                 break;
 			case Bouncy.stun:
-				
+				if (obj.CompareTag ("gold")) {
+					GameManager.gameGold += 10;
+				}
+
 				if (obj.CompareTag ("ground")) {
 				stunGround = true;
 				}
