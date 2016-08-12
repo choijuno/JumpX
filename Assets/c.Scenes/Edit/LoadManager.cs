@@ -50,7 +50,7 @@ public class LoadManager : MonoBehaviour {
 	public GameObject spider_3;
 
 	//05Items
-
+	public GameObject gold;
 
 	//06Hurddle
 	public GameObject cloud;
@@ -202,7 +202,9 @@ public class LoadManager : MonoBehaviour {
 						_tmp = (GameObject)Instantiate (spider_3, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
 						break;
 				//05Item
-
+					case "1050011":
+						_tmp = (GameObject)Instantiate (gold, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
+						break;
 				//06Hurddle
 					case "1060011":
 						_tmp = (GameObject)Instantiate (cloud, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;

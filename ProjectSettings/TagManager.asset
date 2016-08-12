@@ -22,6 +22,7 @@ TagManager:
   - warp
   - warpexit
   - stun
+  - gold
   layers:
   - Default
   - TransparentFX
