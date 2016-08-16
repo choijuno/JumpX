@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5337C027-3E5C-90D1-34F8-EBE958C459AA}</ProjectGuid>
+    <ProjectGuid>{6F1E9B65-A903-4CCD-9E93-9F2C70C50543}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -408,33 +408,33 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="ES2">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/ES2.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/ES2.dll</HintPath>
  </Reference>
  <Reference Include="MoodkieSecurity">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/MoodkieSecurity.dll</HintPath>
- </Reference>
- <Reference Include="Security">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
- </Reference>
- <Reference Include="Apple">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/MoodkieSecurity.dll</HintPath>
  </Reference>
  <Reference Include="Common">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
- </Reference>
- <Reference Include="Stores">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
- </Reference>
- <Reference Include="winrt">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
  </Reference>
  <Reference Include="Editor">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Security">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ </Reference>
+ <Reference Include="Apple">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ </Reference>
+ <Reference Include="winrt">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{317160BF-46FC-16CF-A75F-8B9499C4C2B6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{22657426-2A52-4A06-3282-8D4A89B26753}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{686A0D2F-1D91-2E82-B7AB-57F961657991}</ProjectGuid>
+    <ProjectGuid>{0044DDE5-D465-1503-C30D-0C6C59BC2886}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -165,19 +165,37 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="JMOAssets">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/effect/JMO Assets/Editor/JMOAssets.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/effect/JMO Assets/Editor/JMOAssets.dll</HintPath>
  </Reference>
  <Reference Include="JarResolverLib">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
  <Reference Include="ES2">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/ES2.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/ES2.dll</HintPath>
  </Reference>
  <Reference Include="MoodkieSecurity">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/MoodkieSecurity.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/MoodkieSecurity.dll</HintPath>
  </Reference>
  <Reference Include="ES2Editor">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/Editor/ES2Editor.dll</HintPath>
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/Editor/ES2Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Common">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
+ </Reference>
+ <Reference Include="Editor">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Security">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ </Reference>
+ <Reference Include="Apple">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ </Reference>
+ <Reference Include="winrt">
+ <HintPath>C:/Users/tlghk/Desktop/Jumpx_limsihwan/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -191,32 +209,14 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="Security">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
- </Reference>
- <Reference Include="Apple">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
- </Reference>
- <Reference Include="Common">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
- </Reference>
- <Reference Include="Stores">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
- </Reference>
- <Reference Include="winrt">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
- </Reference>
- <Reference Include="Editor">
- <HintPath>C:/Users/tlghk/Desktop/JumpX_limsihwan/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
- </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{317160BF-46FC-16CF-A75F-8B9499C4C2B6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{22657426-2A52-4A06-3282-8D4A89B26753}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{5337C027-3E5C-90D1-34F8-EBE958C459AA}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{6F1E9B65-A903-4CCD-9E93-9F2C70C50543}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
-      <Project>{721381DD-A69E-C61E-A1D5-0F3342B97028}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
+      <Project>{8C7026BE-AE8B-6592-07C6-B5187E8258DC}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
