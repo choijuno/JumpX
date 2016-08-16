@@ -313,18 +313,21 @@ public class PlayerMove : MonoBehaviour {
 
             case Bouncy.Wait:
 
-                if (obj.CompareTag("rain"))
-                {
+                if (obj.CompareTag("rain")) {
 				_anim.SetBool("RainCheck",true);
                     rainCC = PlayerCC.heavy;
                 }
 
                 break;
-		case Bouncy.Down:
+
+			case Bouncy.Down:
+				if (obj.CompareTag ("gold")) {
+				GameManager.gameGold += 10;
+				}
 
                 if (obj.CompareTag("warp"))
                 {
-				_anim.SetBool ("DropCheck", false);
+					_anim.SetBool ("DropCheck", false);
                     MaxHeight_in = 5;
                     GetComponent<PlayerController>().moveStopCheck = true;
                     deadBody.SetActive(false);
@@ -499,6 +502,9 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
             case Bouncy.Up:
+				if (obj.CompareTag ("gold")) {
+					GameManager.gameGold += 10;
+				}
 
                 if (obj.CompareTag("rain"))
                 {
@@ -574,7 +580,10 @@ public class PlayerMove : MonoBehaviour {
 
                 break;
 			case Bouncy.stun:
-				
+				if (obj.CompareTag ("gold")) {
+					GameManager.gameGold += 10;
+				}
+
 				if (obj.CompareTag ("ground")) {
 				stunGround = true;
 				}
