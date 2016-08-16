@@ -8,7 +8,8 @@ public class TestBtn : MonoBehaviour {
 
 	public void BtnClick(){
 		GameManager.TestNum = int.Parse(this.name.Substring (0, 3));
-        if(GameManager.TestNum == 001)
+        /*
+        if (GameManager.TestNum == 001)
         {
             Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) =>
             {
@@ -21,7 +22,7 @@ public class TestBtn : MonoBehaviour {
             {
 
             });
-        }
+        }*/
 		Application.LoadLevel ("TestGame");
 	}
 

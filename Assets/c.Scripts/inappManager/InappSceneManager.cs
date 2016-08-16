@@ -25,7 +25,6 @@ public class InappSceneManager : MonoBehaviour {
     }
     void gold50func()
     {
-        Debug.Log("aa");
         InappManager.Instance.Buy50Gold();
     }
     void backfunc()
