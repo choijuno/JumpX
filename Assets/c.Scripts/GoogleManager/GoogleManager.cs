@@ -25,7 +25,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     RawImage testfriendImg;
     void Start()
     {
-        testfriendImg = GameObject.Find("testfriendImg").GetComponent<RawImage>();
+        //testfriendImg = GameObject.Find("testfriendImg").GetComponent<RawImage>();
 
     }
     public bool bLogin

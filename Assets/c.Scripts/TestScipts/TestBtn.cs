@@ -27,7 +27,7 @@ public class TestBtn : MonoBehaviour {
 	}
 
 	public void TestHome() {
-		Application.LoadLevel ("TestMain");
+		Application.LoadLevel (1);
 	}
 
 	public void TestOn(){
