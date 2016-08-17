@@ -34,7 +34,7 @@ public class BtnController : MonoBehaviour {
 	public void pauseHome(){
 		Time.timeScale = 1f;
 		GameManager.pauseCheck = false;
-		Application.LoadLevel ("TestMain");
+		Application.LoadLevel ("SelectScene");
 	}
 
 	public void Bgm_OnOff(){
