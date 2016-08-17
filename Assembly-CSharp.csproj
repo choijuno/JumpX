@@ -291,6 +291,9 @@
      <Compile Include="Assets\c.Scripts\Ground.cs" />
      <Compile Include="Assets\c.Scripts\GroundMove.cs" />
      <Compile Include="Assets\c.Scripts\Items\Cage.cs" />
+     <Compile Include="Assets\c.Scripts\L.Scripts\DataSave\DataSave.cs" />
+     <Compile Include="Assets\c.Scripts\L.Scripts\MainScene\mainSceneManager.cs" />
+     <Compile Include="Assets\c.Scripts\L.Scripts\SelectScene\selectManager.cs" />
      <Compile Include="Assets\c.Scripts\LimTestClass.cs" />
      <Compile Include="Assets\c.Scripts\PlayerController.cs" />
      <Compile Include="Assets\c.Scripts\PlayerMove.cs" />

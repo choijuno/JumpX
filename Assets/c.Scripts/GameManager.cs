@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
+
 
 public class GameManager : MonoBehaviour {
+    
 
-	public static int gameGold = 0;
+    public static int gameGold = 0;
 	public Text gameGold_txt;
 
 	// end game Check
@@ -15,9 +18,11 @@ public class GameManager : MonoBehaviour {
 	public static bool tiltCheck;
 	public GameObject tiltOn;
 	public GameObject tiltOff;
+    
 	void Start()
     {
-			Screen.sleepTimeout = SleepTimeout.NeverSleep;
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+   
 	}
 
 	void Awake () {
@@ -30,7 +35,38 @@ public class GameManager : MonoBehaviour {
 		}
 		gameSet = 3;
 	}
+    public void setStarCount(int starCount)
+    {
 
+    }
+    public int getStarCount()
+    {
+        return 0;
+    }
+    public void setStageIndex(int stageIndex)
+    {
+
+    }
+    public int getStageCount()
+    {
+        return 0;
+    }
+    public void setStageClear(bool stageClear)
+    {
+
+    }
+    public bool getStageClear()
+    {
+        return true;
+    }
+    public void setGameRecord(float gameRecord)
+    {
+
+    }
+    public float getGameRecord()
+    {
+        return 0;
+    }
 
 	void Update () {
 		if(Input.GetKeyUp(KeyCode.Escape)){
@@ -38,7 +74,8 @@ public class GameManager : MonoBehaviour {
 		}
 
 
-	}
+
+    }
 
 	IEnumerator GoldCheck(){
 		while (true) {
