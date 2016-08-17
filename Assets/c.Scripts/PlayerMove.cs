@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour {
 	//public AnimationClip Jumping2;
 	//public AnimationClip Jumping3;
 
+
 	public Animator _anim;
 
 
@@ -116,35 +117,37 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void Update () {
-		// status equal to bounce
-		if (bounce != Bouncy.Not) {
-			switch (bounce) {
 
-			case Bouncy.Down:
-				BDown ();
-				break;
+		if (!GameManager.pauseCheck) {
+			// status equal to bounce
+			if (bounce != Bouncy.Not) {
+				switch (bounce) {
 
-			case Bouncy.Up:
-				BUp ();
-				break;
+				case Bouncy.Down:
+					BDown ();
+					break;
 
-			case Bouncy.stun:
-				BStun ();
-				break;
+				case Bouncy.Up:
+					BUp ();
+					break;
 
-			case Bouncy.ride:
-				Bride ();
-				break;
+				case Bouncy.stun:
+					BStun ();
+					break;
 
-			case Bouncy.warp:
-				Bwarp ();
-				break;
+				case Bouncy.ride:
+					Bride ();
+					break;
 
-			case Bouncy.warpexit:
-				Bwarpexit ();
-				break;
+				case Bouncy.warp:
+					Bwarp ();
+					break;
 
-			}
+				case Bouncy.warpexit:
+					Bwarpexit ();
+					break;
+
+				}
 				
 
 				if (transform.position.y >= MaxHeight_in) {
@@ -153,16 +156,17 @@ public class PlayerMove : MonoBehaviour {
 					bounce = Bouncy.Down;
 					transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
 
-				_anim.SetBool ("DropCheck", true);
-				_anim.SetTrigger ("Down");
-				//_anim.clip = Jumping3;
-				//Debug.Log(_anim.clip);
-				//_anim.Play ();
+					_anim.SetBool ("DropCheck", true);
+					_anim.SetTrigger ("Down");
+					//_anim.clip = Jumping3;
+					//Debug.Log(_anim.clip);
+					//_anim.Play ();
 
 				}
 
-		} else {
-			BNot ();
+			} else {
+				BNot ();
+			}
 		}
 
 	}

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+	public static bool pauseCheck;
+
 	public static int gameGold = 0;
 	public Text gameGold_txt;
 
