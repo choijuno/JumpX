@@ -285,6 +285,8 @@ public class PlayerMove : MonoBehaviour {
 			GetComponent<PlayerController> ().moveStopCheck = false;
 			Camera_ingame.GetComponent<GameCamera> ().direction = 1;
 			deadBody.SetActive (true);
+			_anim.SetTrigger ("JumpStart");
+			_anim.SetTrigger ("Up");
 
 
 			UpLerp_in = Mathf.Lerp (UpLerp_in, 0, 0.1f);
@@ -641,7 +643,6 @@ public class PlayerMove : MonoBehaviour {
                     UpLerp_in = UpLerp * 0.1f;
                     bounce = Bouncy.warpexit;
 				//_anim.SetTrigger ("BumpJump");
-				_anim.SetTrigger ("Up");
 				//_anim.clip = Jumping2;
 				//_anim.Play ();
                 }
