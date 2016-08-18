@@ -15,6 +15,7 @@ public class mainSceneManager : MonoBehaviour {
 
         faceBookBtn = GameObject.Find("facebookBtn").GetComponent<Button>();
         faceBookBtn.onClick.AddListener(faceBookBtnFunc);
+        
     }
 
 	void startBtnFunc()

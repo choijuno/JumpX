@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour {
 
 	public bool moveStopCheck;
 
-	void Start () {
-		
+	void Start ()
+    {
+
 	}
 
 

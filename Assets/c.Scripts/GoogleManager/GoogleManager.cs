@@ -12,6 +12,7 @@ using System.Collections.Generic;
 
 public class GoogleManager : GoogleSingleton<GoogleManager> {
 
+
     [Serializable]
     public class TestScore
     {
@@ -26,7 +27,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     void Start()
     {
         //testfriendImg = GameObject.Find("testfriendImg").GetComponent<RawImage>();
-
+        DontDestroyOnLoad(this);
     }
     public bool bLogin
     {
@@ -38,7 +39,7 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     {
         TS.test = 100;
         bLogin = false;
-        CloudText = GameObject.Find("CloudText").GetComponent<Text>();
+        //CloudText = GameObject.Find("CloudText").GetComponent<Text>();
         //PlayGamesPlatform.DebugLogEnabled = true;
 
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
