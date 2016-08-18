@@ -488,8 +488,9 @@ public class PlayerMove : MonoBehaviour {
                 }
 
                 if (obj.CompareTag("clear"))
-                { //게임클리어.
-                   /* if (GameManager.TestNum == 001)
+                { 
+                    //게임클리어.
+                    /*if (GameManager.TestNum == 001)
                     {
                         Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) =>{});
                     }else if(GameManager.TestNum == 002)

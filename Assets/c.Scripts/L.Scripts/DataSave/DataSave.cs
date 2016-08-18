@@ -26,6 +26,18 @@ public class DataSave : MonoBehaviour {
 
     public static DataSave Instance;
     private float gameMoney;
+    private float cashMoney;
+    public float CashMoney
+    {
+        get
+        {
+            return cashMoney;
+        }
+        set
+        {
+            cashMoney = value;
+        }
+    }
     public float GameMoney
     {
         get
@@ -37,6 +49,7 @@ public class DataSave : MonoBehaviour {
             this.gameMoney = value; //es2세이브
         }
     }
+    
     void Start()
     {
         Instance = this;
