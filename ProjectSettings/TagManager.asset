@@ -33,7 +33,7 @@ TagManager:
   - 
   - 
   - character
-  - 
+  - CRO
   - 
   - 
   - 
@@ -59,4 +59,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 
+    uniqueID: 662738493
+    locked: 0
+  - name: 
+    uniqueID: 1474277339
     locked: 0

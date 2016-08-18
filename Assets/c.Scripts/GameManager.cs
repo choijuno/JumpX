@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour {
 	void Start()
     {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
-   
 	}
 
 	void Awake () {
@@ -35,39 +34,6 @@ public class GameManager : MonoBehaviour {
 		}
 		gameSet = 3;
 	}
-    public void setStarCount(int starCount)
-    {
-
-    }
-    public int getStarCount()
-    {
-        return 0;
-    }
-    public void setStageIndex(int stageIndex)
-    {
-
-    }
-    public int getStageCount()
-    {
-        return 0;
-    }
-    public void setStageClear(bool stageClear)
-    {
-
-    }
-    public bool getStageClear()
-    {
-        return true;
-    }
-    public void setGameRecord(float gameRecord)
-    {
-
-    }
-    public float getGameRecord()
-    {
-        return 0;
-    }
-
 	void Update () {
 		if(Input.GetKeyUp(KeyCode.Escape)){
 			Application.Quit ();
