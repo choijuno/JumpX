@@ -16,10 +16,11 @@ public class PlayerMove : MonoBehaviour {
 
 	public Animator _anim;
 
-
+	public GameObject SoundBase;
 	public AudioClip bumpSound;
 	public AudioClip bumpSound2;
 	public AudioClip deadSound;
+	public AudioClip goldSound;
 
 
 
@@ -329,6 +330,7 @@ public class PlayerMove : MonoBehaviour {
 			case Bouncy.Down:
 				if (obj.CompareTag ("gold")) {
 				GameManager.gameGold += 10;
+				AudioSource.PlayClipAtPoint(goldSound, SoundBase.transform.position);
 				}
 
                 if (obj.CompareTag("warp"))
@@ -457,7 +459,7 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.name == "water")
                 {
-                    AudioSource.PlayClipAtPoint(deadSound, Camera_ingame.transform.position);
+                    AudioSource.PlayClipAtPoint(deadSound, SoundBase.transform.position);
                     waterDead.SetActive(true);
 
                 }
@@ -501,7 +503,7 @@ public class PlayerMove : MonoBehaviour {
                         Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) => {});
                     }*/
 
-                    DataSave.Instance.saveData(GameManager.TestNum, 3, 3.01f);
+                    //DataSave.Instance.saveData(GameManager.TestNum, 3, 3.01f);
                     
                     //gameclear.SetActive (true);
                     Invoke("resetgame", 2f);
@@ -513,7 +515,9 @@ public class PlayerMove : MonoBehaviour {
                 break;
             case Bouncy.Up:
 				if (obj.CompareTag ("gold")) {
-					GameManager.gameGold += 10;
+				GameManager.gameGold += 10;
+				AudioSource.PlayClipAtPoint(goldSound, SoundBase.transform.position);
+				Debug.Log ("Upgold");
 				}
 
                 if (obj.CompareTag("rain"))
@@ -591,7 +595,8 @@ public class PlayerMove : MonoBehaviour {
                 break;
 			case Bouncy.stun:
 				if (obj.CompareTag ("gold")) {
-					GameManager.gameGold += 10;
+				GameManager.gameGold += 10;
+				AudioSource.PlayClipAtPoint(goldSound, SoundBase.transform.position);
 				}
 
 				if (obj.CompareTag ("ground")) {
@@ -693,7 +698,7 @@ public class PlayerMove : MonoBehaviour {
 	void bumped() {
 		int rand = Random.Range (0, 10);
 
-			AudioSource.PlayClipAtPoint (bumpSound, Camera_ingame.transform.position);
+			AudioSource.PlayClipAtPoint (bumpSound, SoundBase.transform.position);
 
 			bumpEffect.transform.position = this.transform.position;
 			bumpEffect.SetActive (true);
@@ -710,7 +715,7 @@ public class PlayerMove : MonoBehaviour {
 			break;
 		case 8:
 		case 9:
-			AudioSource.PlayClipAtPoint (bumpSound2, Camera_ingame.transform.position);
+			AudioSource.PlayClipAtPoint (bumpSound2, SoundBase.transform.position);
 			break;
 		default:
 			break;

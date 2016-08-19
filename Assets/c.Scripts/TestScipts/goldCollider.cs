@@ -9,7 +9,6 @@ public class goldCollider : MonoBehaviour {
 
 	void OnTriggerEnter(Collider player){
 		if (player.CompareTag ("player")) {
-
 			model.SetActive (false);
 			modelDestroy.SetActive (true);
 			this.GetComponent<BoxCollider> ().enabled = false;

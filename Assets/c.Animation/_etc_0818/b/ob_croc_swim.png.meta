@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 12e6bc1be45822e4d85bab39bb8e1ab1
+timeCreated: 1471344392
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ob_croc_swim_0
+    21300002: ob_croc_swim_1
+    21300004: ob_croc_swim_2
+    21300006: ob_croc_swim_3
+    21300008: ob_croc_swim_4
+    21300010: ob_croc_swim_5
+    21300012: ob_croc_swim_6
+    21300014: ob_croc_swim_7
+    21300016: ob_croc_swim_8
+    21300018: ob_croc_swim_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ob_croc_swim_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 106
+        width: 213
+        height: 58
+      alignment: 9
+      pivot: {x: 0.57387996, y: 0.43540087}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -89.23643, y: 32.74675}
+        - {x: -121.23643, y: 24.74675}
+        - {x: -122.23643, y: 23.74675}
+        - {x: -122.23643, y: -2.2532501}
+        - {x: -63.236427, y: -25.25325}
+        - {x: 64.76357, y: -25.25325}
+        - {x: 90.76357, y: -19.25325}
+        - {x: 90.76357, y: 20.74675}
+        - {x: 22.763573, y: 32.74675}
+    - name: ob_croc_swim_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 78
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ob_croc_swim_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 90
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ob_croc_swim_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 89
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ob_croc_swim_4
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 71
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ob_croc_swim_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 71
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ob_croc_swim_6
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 66
+        width: 68
+        height: 21
+      alignment: 9
+      pivot: {x: 0.14736287, y: 0.57136714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ob_croc_swim_7
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 56
+        width: 15
+        height: 10
+      alignment: 9
+      pivot: {x: 0.4500431, y: 0.27519417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ob_croc_swim_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 14
+        width: 49
+        height: 37
+      alignment: 9
+      pivot: {x: 0.7446871, y: 0.8037926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.510334, y: 5.259674}
+        - {x: 8.510334, y: 7.259674}
+        - {x: -17.489666, y: 7.259674}
+        - {x: -36.489666, y: -14.740326}
+        - {x: -36.489666, y: -23.740326}
+        - {x: -32.489666, y: -29.740326}
+        - {x: -11.489666, y: -29.740326}
+        - {x: 5.510334, y: -15.740326}
+        - {x: 11.510334, y: -8.740326}
+        - {x: 12.510334, y: -6.740326}
+    - name: ob_croc_swim_9
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 11
+        width: 30
+        height: 38
+      alignment: 9
+      pivot: {x: 0.450043, y: 0.77607805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
