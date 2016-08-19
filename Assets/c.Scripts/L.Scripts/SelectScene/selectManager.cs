@@ -9,18 +9,29 @@ public class selectManager : MonoBehaviour {
     public GameObject ScrollPanel;
     public GameObject allBtnPanel;
 
+    public Sprite clearSprite;
+    public Sprite noneSprite; //자물쇠 이미지
+    public Sprite newSprite; //새로열린 이미지
+
+    public Canvas UiCanvas;
+    CanvasGroup canvasGroup;
+    bool fadeOut;
+
     Button shopBtn;
     Button MyBtn;
     Button rangkingBtn;
     Button tropyBtn;
     Button setupBtn;
     
+
 	void Start ()
     {
         selectInit();
     }
     void selectInit()
     {
+        canvasGroup = UiCanvas.GetComponent<CanvasGroup>();
+        fadeOut = true;
         shopBtn = allBtnPanel.transform.FindChild("shopBtn").GetComponent<Button>();
         MyBtn = allBtnPanel.transform.FindChild("MyBtn").GetComponent<Button>();
         rangkingBtn = allBtnPanel.transform.FindChild("rangkingBtn").GetComponent<Button>();
@@ -35,23 +46,84 @@ public class selectManager : MonoBehaviour {
 
         for (int i = 0; i < ScrollPanel.transform.childCount - 1; i++)
         {
-            Button stageBtn = ScrollPanel.transform.GetChild(i + 1).gameObject.GetComponent<Button>();
+            Button stageBtn = ScrollPanel.transform.GetChild(i + 1).gameObject.GetComponent<Button>(); //버튼들
+            Image stageImg = stageBtn.GetComponent<Image>();
+            Text stageText = stageBtn.transform.GetChild(3).GetComponent<Text>();
+
+            if (i > ES2.Load<float>("stageCount"))
+            {
+                stageText.text = "";
+                stageImg.sprite = noneSprite;
+                stageBtn.interactable = false;
+            }
+            else
+            {
+                stageText.text = (i + 1).ToString();
+                if (i == ES2.Load<float>("stageCount"))
+                    stageImg.sprite = newSprite;
+                else
+                    stageImg.sprite = clearSprite;
+
+                stageBtn.interactable = true;
+            }
+               
+
+            for(int j = 0; j < 3; j++)
+            {
+                stageBtn.transform.GetChild(j).gameObject.SetActive(false);
+            }
             stageBtn.onClick.AddListener(() => SceneGo(stageBtn.name));
         }
+        loadStar(); //별 로드
+        loadNoneStage();
     }
-    void loadTest()
+    IEnumerator FadeOut()
     {
-        string[] test = new string[3]; 
-        test  = ES2.LoadArray<string>("keyValue1");
-        
-        Debug.Log("======stageIndex====" + test[0]);
-        Debug.Log("======starcount====" + test[1]);
-        Debug.Log("======stagerecord====" + test[2]);
+        while (fadeOut)
+        {
+            canvasGroup.alpha -= Time.deltaTime * 2;
+            if (canvasGroup.alpha <= 0)
+                fadeOut = false;
+            yield return null;
+        }
+        canvasGroup.interactable = false;
+        SceneManager.LoadScene(3);
+        yield return null;
+    }
+
+    void loadStar()
+    {
+        string[] test = new string[3];
+        GameObject[] star = new GameObject[3];
+        Button stageBtn;
+        if (ES2.Exists("stageCount"))
+        {
+            for (int i = 0; i < ES2.Load<float>("stageCount"); i++)
+            {
+                test = ES2.LoadArray<string>("ValueKey" + (i + 1));
+                stageBtn = ScrollPanel.transform.GetChild(i + 1).gameObject.GetComponent<Button>();
+                for (int j = 0; j < test.Length; j++)
+                {
+                    float[] stage = new float[3];
+                    stage[j] = float.Parse(test[j]);
+
+                    for (int k = 0; k < stage[1]; k++)
+                    {
+                        star[k] = stageBtn.transform.GetChild(k).gameObject;
+                        star[k].SetActive(true);
+                    }
+                }
+            }
+        }
+    }
+    void loadNoneStage()
+    {
+
     }
     void SceneGo(string name) //게임씬으로 넘기자
     {
         GameManager.TestNum = System.Convert.ToInt32(name);
-        SceneManager.LoadScene("TestGame");
+        StartCoroutine(FadeOut());
     }
     void shopBtnFunc() //상점 버튼 눌렀을때.
     {
@@ -71,6 +143,6 @@ public class selectManager : MonoBehaviour {
     }
     void setupBtnFunc() //설정 버튼 눌렀을때.
     {
-        loadTest();
+        
     }
 }

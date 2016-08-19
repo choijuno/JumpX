@@ -49,19 +49,50 @@ public class DataSave : MonoBehaviour {
             this.gameMoney = value; //es2세이브
         }
     }
-    
+
+    struct stageData
+    {
+        private float stageIndex;
+        private float starCount;
+        private float stageRecord;
+        
+        public stageData(float stageIndex, float starCount, float stageRecord)
+        {
+            this.stageIndex = stageIndex;
+            this.starCount = starCount;
+            this.stageRecord = stageRecord;
+        }
+    }
+
     void Start()
     {
         Instance = this;
-        saveData(1, 1, 1);
         DontDestroyOnLoad(this);
     }
     public void saveData(float stageIndex, float starCount, float stageRecord)
     {
+        Debug.Log("-------stageindex-----" + stageIndex);
+
+        //stageData sd = new stageData(stageIndex, starCount, stageRecord);
+        //ES2.Save(sd, "valueKeytest");
+
         string[] test = new string[3];
         test[0] = stageIndex.ToString();
         test[1] = starCount.ToString();
         test[2] = stageRecord.ToString();
+
         ES2.Save(test, "ValueKey" + stageIndex.ToString());
+
+        if (ES2.Exists("stageCount"))
+        {
+            if (ES2.Load<float>("stageCount") < stageIndex)
+            {
+                ES2.Save(stageIndex, "stageCount");
+            }
+        }
+        else
+        {
+            ES2.Save(stageIndex, "stageCount");
+        }
     }
 }
