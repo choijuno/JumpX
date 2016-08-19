@@ -8,48 +8,51 @@ public class mainSceneManager : MonoBehaviour {
     Button startBtn;
     Button faceBookBtn;
 
-    public Image fade;
-    float fades = 1.0f;
-    float time = 0;
-    bool fadeChk = false;
-
+    public Canvas Canvas;
+    CanvasGroup canvasGroup;
+    bool fadeIn;
+    bool fadeOut;
     void Start ()
     {
+        fadeIn = true;
+        fadeOut = true;
         startBtn = GameObject.Find("startBtn").GetComponent<Button>();
         startBtn.onClick.AddListener(startBtnFunc);
 
         faceBookBtn = GameObject.Find("facebookBtn").GetComponent<Button>();
         faceBookBtn.onClick.AddListener(faceBookBtnFunc);
-        
+        canvasGroup = Canvas.GetComponent<CanvasGroup>();
+        StartCoroutine(FadeIn());
     }
-    void Update()
+    IEnumerator FadeIn()
     {
-        time += Time.deltaTime * 2.0f;
-        if (fades > 0.0f && time >= 0.1f)
+        while(fadeIn)
         {
-            if(fadeChk == false)
-            {
-                fades -= 0.2f;
-                fade.color = new Color(0, 0, 0, fades);
-            }
-            else
-            {
-                fades += 0.2f;
-                fade.color = new Color(0, 0, 0, fades);
-                SceneManager.LoadScene(1);
-            }
-            time = 0;
+            canvasGroup.alpha += Time.deltaTime * 2;
+            if (canvasGroup.alpha >= 1)
+                fadeIn = false;
+            yield return null;
         }
-        else if (fades <= 0.0f)
+        canvasGroup.interactable = true;
+        yield return null;
+    }
+
+    IEnumerator FadeOut()
+    {
+        while (fadeOut)
         {
-            time = 0;
-            fade.gameObject.SetActive(false);
+            canvasGroup.alpha -= Time.deltaTime * 2;
+            if (canvasGroup.alpha <= 0)
+                fadeOut = false;
+            yield return null;
         }
+        canvasGroup.interactable = false;
+        SceneManager.LoadScene(1);
+        yield return null;
     }
 	void startBtnFunc()
     {
-        fade.gameObject.SetActive(true);
-        fadeChk = true;
+        StartCoroutine(FadeOut());
     }
     void faceBookBtnFunc()
     {
