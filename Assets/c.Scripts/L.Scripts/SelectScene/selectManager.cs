@@ -43,37 +43,38 @@ public class selectManager : MonoBehaviour {
         rangkingBtn.onClick.AddListener(rangkingBtnFunc);
         tropyBtn.onClick.AddListener(tropyBtnFunc);
         setupBtn.onClick.AddListener(setupBtnFunc);
+		if (!ES2.Exists("stageCount"))
+			ES2.Save(0,"stageCount");
+		
+		if (ES2.Exists ("stageCount")) {
+			for (int i = 0; i < ScrollPanel.transform.childCount - 1; i++) {
+				Button stageBtn = ScrollPanel.transform.GetChild (i + 1).gameObject.GetComponent<Button> (); //버튼들
+				Image stageImg = stageBtn.GetComponent<Image> ();
+				Text stageText = stageBtn.transform.GetChild (3).GetComponent<Text> ();
 
-        for (int i = 0; i < ScrollPanel.transform.childCount - 1; i++)
-        {
-            Button stageBtn = ScrollPanel.transform.GetChild(i + 1).gameObject.GetComponent<Button>(); //버튼들
-            Image stageImg = stageBtn.GetComponent<Image>();
-            Text stageText = stageBtn.transform.GetChild(3).GetComponent<Text>();
 
-            if (i > ES2.Load<float>("stageCount"))
-            {
-                stageText.text = "";
-                stageImg.sprite = noneSprite;
-                stageBtn.interactable = false;
-            }
-            else
-            {
-                stageText.text = (i + 1).ToString();
-                if (i == ES2.Load<float>("stageCount"))
-                    stageImg.sprite = newSprite;
-                else
-                    stageImg.sprite = clearSprite;
+				if (i > ES2.Load<float> ("stageCount")) {
+					stageText.text = "";
+					stageImg.sprite = noneSprite;
+					stageBtn.interactable = false;
+				} else {
+					stageText.text = (i + 1).ToString ();
+					if (i == ES2.Load<float> ("stageCount"))
+						stageImg.sprite = newSprite;
+					else
+						stageImg.sprite = clearSprite;
 
-                stageBtn.interactable = true;
-            }
+					stageBtn.interactable = true;
+				}
                
 
-            for(int j = 0; j < 3; j++)
-            {
-                stageBtn.transform.GetChild(j).gameObject.SetActive(false);
-            }
-            stageBtn.onClick.AddListener(() => SceneGo(stageBtn.name));
-        }
+				for (int j = 0; j < 3; j++) {
+					stageBtn.transform.GetChild (j).gameObject.SetActive (false);
+				}
+				stageBtn.onClick.AddListener (() => SceneGo (stageBtn.name));
+			}
+		}
+
         loadStar(); //별 로드
         loadNoneStage();
     }
