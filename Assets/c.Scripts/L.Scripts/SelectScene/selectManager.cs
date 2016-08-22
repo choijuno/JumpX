@@ -22,7 +22,13 @@ public class selectManager : MonoBehaviour {
     Button rangkingBtn;
     Button tropyBtn;
     Button setupBtn;
-    
+
+    //상점
+    GameObject storeAndRoom;
+    GameObject myRoom;
+    GameObject store;
+    Button storeRoomExit;
+
 
 	void Start ()
     {
@@ -37,6 +43,13 @@ public class selectManager : MonoBehaviour {
         rangkingBtn = allBtnPanel.transform.FindChild("rangkingBtn").GetComponent<Button>();
         tropyBtn = allBtnPanel.transform.FindChild("tropyBtn").GetComponent<Button>();
         setupBtn = allBtnPanel.transform.FindChild("setupBtn").GetComponent<Button>();
+
+        storeAndRoom = UiCanvas.gameObject.transform.FindChild("StoreAndRoom").gameObject;
+        storeAndRoom.SetActive(false);
+        myRoom = storeAndRoom.transform.FindChild("MyRoom").gameObject;
+        store = storeAndRoom.transform.FindChild("Store").gameObject;
+        storeRoomExit = storeAndRoom.transform.FindChild("StoreRoomExit").GetComponent<Button>();
+        storeRoomExit.onClick.AddListener(storeRoomExitFunc);
 
         shopBtn.onClick.AddListener(shopBtnFunc);
         MyBtn.onClick.AddListener(MyBtnFunc);
@@ -127,11 +140,15 @@ public class selectManager : MonoBehaviour {
     }
     void shopBtnFunc() //상점 버튼 눌렀을때.
     {
-
+        storeAndRoom.SetActive(true);
+        store.SetActive(true);
+        myRoom.SetActive(false);
     }
     void MyBtnFunc() //인벤토리 버튼 눌렀을때.
     {
-
+        storeAndRoom.SetActive(true);
+        store.SetActive(false);
+        myRoom.SetActive(true);
     }
     void rangkingBtnFunc() //랭킹 버튼 눌렀을때.
     {
@@ -144,5 +161,9 @@ public class selectManager : MonoBehaviour {
     void setupBtnFunc() //설정 버튼 눌렀을때.
     {
         
+    }
+    void storeRoomExitFunc() //상점 닫기
+    {
+        storeAndRoom.SetActive(false);
     }
 }
