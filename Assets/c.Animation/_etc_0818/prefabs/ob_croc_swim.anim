@@ -84,19 +84,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: -0.02398038, y: -0.97520053, z: 0}
-        inSlope: {x: 0, y: 0.15040112, z: 0}
-        outSlope: {x: 0, y: 0.15040112, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: -0.1, z: 0}
+        outSlope: {x: 0, y: -0.1, z: 0}
         tangentMode: 0
       - time: 0.5
-        value: {x: -0.02398038, y: -0.9, z: 0}
+        value: {x: 0, y: -0.05, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - time: 1
-        value: {x: -0.02398038, y: -0.97520053, z: 0}
-        inSlope: {x: 0, y: -0.15040112, z: 0}
-        outSlope: {x: 0, y: -0.15040112, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0.1, z: 0}
+        outSlope: {x: 0, y: 0.1, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -246,17 +246,17 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -0.02398038
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 0.5
-        value: -0.02398038
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 1
-        value: -0.02398038
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -271,19 +271,19 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -0.97520053
-        inSlope: 0.15040112
-        outSlope: 0.15040112
+        value: 0
+        inSlope: -0.1
+        outSlope: -0.1
         tangentMode: 10
       - time: 0.5
-        value: -0.9
+        value: -0.05
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 1
-        value: -0.97520053
-        inSlope: -0.15040112
-        outSlope: -0.15040112
+        value: 0
+        inSlope: 0.1
+        outSlope: 0.1
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2

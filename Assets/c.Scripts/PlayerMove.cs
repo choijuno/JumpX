@@ -503,7 +503,7 @@ public class PlayerMove : MonoBehaviour {
                         Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) => {});
                     }*/
 
-                    //DataSave.Instance.saveData(GameManager.TestNum, 3, 3.01f);
+                    DataSave.Instance.saveData(GameManager.TestNum, 3, 3.01f);
                     
                     //gameclear.SetActive (true);
                     Invoke("resetgame", 2f);

@@ -305,6 +305,7 @@
      <Compile Include="Assets\c.Scripts\TestScipts\UI_Gage.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\clearCollider.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\goldCollider.cs" />
+     <Compile Include="Assets\c.Scripts\TestScipts\jumpPointCollider.cs" />
      <Compile Include="Assets\c.Scripts\UnityAds\UnityAdsManager.cs" />
      <Compile Include="Assets\c.Scripts\admobAds\AdmobAdsManager.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Elephant.cs" />
