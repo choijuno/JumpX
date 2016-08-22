@@ -42,6 +42,8 @@ public class LoadManager : MonoBehaviour {
 	public GameObject monkey;
 	public GameObject plant;
 	public GameObject rhino;
+	public GameObject tree;
+	public GameObject tree_R;
 
 	//04MoveEnemy
 	public GameObject hedgedog;
@@ -184,7 +186,7 @@ public class LoadManager : MonoBehaviour {
 						_tmp = (GameObject)Instantiate (wood, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
 						break;
 
-						//02ActionObj
+				//02ActionObj
 					case "1020011":
 						_tmp = (GameObject)Instantiate (jumpPoint, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
 						break;
@@ -238,6 +240,12 @@ public class LoadManager : MonoBehaviour {
 						_tmp.GetComponent<objMovement> ().U_Speed = objPos_component_dataIn [k + 12];
 						_tmp.GetComponent<objMovement> ().U_Lerp = objPos_component_dataIn [k + 13];
 						_tmp.GetComponent<objMovement> ().down_Lerp = objPos_component_dataIn [k + 14];
+						break;
+					case "1030051":
+						_tmp = (GameObject)Instantiate (tree, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
+						break;
+					case "1030052":
+						_tmp = (GameObject)Instantiate (tree_R, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
 						break;
 
 				//04Moveenemy

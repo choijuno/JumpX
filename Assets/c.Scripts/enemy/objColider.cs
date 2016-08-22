@@ -4,6 +4,8 @@ using System.Collections;
 public class objColider : MonoBehaviour {
 	public GameObject Camera_ingame;
 
+
+
 	public bool reset;
 	public float standhp;
 	public float angryhp;
@@ -277,6 +279,7 @@ public class objColider : MonoBehaviour {
 			standhp--;
 			if (standhp <= 0) {
 				Debug.Log ("??????");
+
 				plantModel.SetActive (false);
 				plantDeadPoint.GetComponent<BoxCollider> ().enabled = false;
 				GetComponent<BoxCollider> ().enabled = false;

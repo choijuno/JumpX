@@ -2640,6 +2640,11 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 19850256, guid: b20653d125abe284b877c0045b4f062c,
     type: 2}
   m_PrefabInternal: {fileID: 1525673108}
+--- !u!95 &184366281 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9564574, guid: f677ff88d02bda04198cc9f3d4f0d0f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1300218578}
 --- !u!4 &192313084 stripped
 Transform:
   m_PrefabParentObject: {fileID: 423056, guid: fd782da696a3ed7499c6bd74db268500, type: 2}
@@ -6603,6 +6608,22 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 19837820, guid: b20653d125abe284b877c0045b4f062c,
     type: 2}
   m_PrefabInternal: {fileID: 1345859590}
+--- !u!1 &523814709 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 119384, guid: f677ff88d02bda04198cc9f3d4f0d0f7, type: 2}
+  m_PrefabInternal: {fileID: 1300218578}
+--- !u!114 &523814715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523814709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551b1918e6fdfaa418bb23d193f1661f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishAni: {fileID: 184366281}
 --- !u!1 &533732333 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 172430, guid: b20653d125abe284b877c0045b4f062c, type: 2}
@@ -12037,6 +12058,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 118544, guid: 7f3f87988ed1f01448809c2032e9a136, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f3f87988ed1f01448809c2032e9a136, type: 2}
   m_IsPrefabParent: 0
@@ -15726,6 +15751,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20653d125abe284b877c0045b4f062c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1200989617 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 113304, guid: ccf10ddbbd5d7ac4ca48c36865c8424e, type: 2}
+  m_PrefabInternal: {fileID: 741770205}
+--- !u!114 &1200989622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200989617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4731f9723e2e09740ae58a010f8891e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantAni: {fileID: 1489711487}
 --- !u!1 &1203890540 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 195264, guid: b20653d125abe284b877c0045b4f062c, type: 2}
@@ -19775,6 +19816,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20653d125abe284b877c0045b4f062c, type: 2}
   m_IsPrefabParent: 0
+--- !u!95 &1489711487 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9575716, guid: ccf10ddbbd5d7ac4ca48c36865c8424e,
+    type: 2}
+  m_PrefabInternal: {fileID: 741770205}
 --- !u!1001 &1498062846
 Prefab:
   m_ObjectHideFlags: 0

@@ -309,13 +309,16 @@
      <Compile Include="Assets\c.Scripts\UnityAds\UnityAdsManager.cs" />
      <Compile Include="Assets\c.Scripts\admobAds\AdmobAdsManager.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Elephant.cs" />
+     <Compile Include="Assets\c.Scripts\enemy\_etc\FishCollider.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Hawk.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Monkey.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\MoveOnGround.cs" />
+     <Compile Include="Assets\c.Scripts\enemy\_etc\PlantDeadPoint.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Spider.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\SpiderRadar.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Tree.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\TreeFruitCollider.cs" />
+     <Compile Include="Assets\c.Scripts\enemy\_etc\Tree_R.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\Tunnel.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\TunnelCollider.cs" />
      <Compile Include="Assets\c.Scripts\enemy\_etc\TunnelExitCollider.cs" />

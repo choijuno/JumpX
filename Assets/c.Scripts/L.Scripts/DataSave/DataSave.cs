@@ -60,12 +60,14 @@ public class DataSave : MonoBehaviour {
         {
             this.stageIndex = stageIndex;
             this.starCount = starCount;
-            this.stageRecord = stageRecord;
-        }
+			this.stageRecord = stageRecord;
+		}
+
     }
 
     void Start()
     {
+		DataSave.Instance.GameMoney = 123;
         Instance = this;
         DontDestroyOnLoad(this);
     }
