@@ -36,7 +36,10 @@ public class GameManager : MonoBehaviour {
 	}
 	void Update () {
 		if(Input.GetKeyUp(KeyCode.Escape)){
-			Application.Quit ();
+			if (Application.loadedLevelName != "TestGame") {
+				Application.Quit ();
+			}
+
 		}
 
 
