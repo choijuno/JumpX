@@ -197,7 +197,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void BNot(){
-		transform.position = new Vector3 (transform.position.x, transform.position.y - 0.1f * Time.deltaTime, transform.position.z);
+		//transform.position = new Vector3 (transform.position.x, transform.position.y - 0.1f * Time.deltaTime, transform.position.z);
 	}
 
 	void BStun(){
@@ -733,7 +733,8 @@ public class PlayerMove : MonoBehaviour {
 			Application.LoadLevel (Application.loadedLevel);
 
 		} else {
-			
+			GetComponent<PlayerController> ().moveStopCheck = false;
+
 			backGround_inCamera.transform.position = new Vector3 (backGround_basePos.transform.position.x, backGround_basePos.transform.position.y, backGround_basePos.transform.position.z);
 			FindChild_inParent = FindChild_inParent.GetComponentInChildren<Transform>();
 			foreach (Transform child in FindChild_inParent) {
@@ -752,7 +753,9 @@ public class PlayerMove : MonoBehaviour {
 					case "2000":
 						break;
 					case "1040021":
-						child_inChild.GetComponent<objColider> ().reset = true;
+						if (child_inChild.name.Substring (0, 5) == "croco") {
+							child_inChild.GetComponent<objColider> ().reset = true;
+						}
 						break;
 
 					}
