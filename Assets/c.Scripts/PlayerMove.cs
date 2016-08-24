@@ -490,7 +490,7 @@ public class PlayerMove : MonoBehaviour {
                 }
 
                 if (obj.CompareTag("clear"))
-                { 
+                {
                     //게임클리어.
                     /*if (GameManager.TestNum == 001)
                     {
@@ -503,8 +503,8 @@ public class PlayerMove : MonoBehaviour {
                         Social.ReportProgress(GPGS.achievement_test1, 100.0f, (bool success) => {});
                     }*/
 
-                    DataSave.Instance.saveData(GameManager.TestNum, 3, 3.01f);
-                    
+                    DataSave._instance.saveData(GameManager.TestNum, 3, 3.01f);
+                   
                     //gameclear.SetActive (true);
                     Invoke("resetgame", 2f);
                     bounce = Bouncy.Not;

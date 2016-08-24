@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,12 +9,19 @@ public class selectManager : MonoBehaviour {
     
     public GameObject ScrollPanel;
     public GameObject allBtnPanel;
+    public GameObject ui_back_large;
+
 
     public Sprite clearSprite;
     public Sprite noneSprite; //자물쇠 이미지
     public Sprite newSprite; //새로열린 이미지
+    public Sprite storeBtnClick;
+    public Sprite myRoomBtnClick;
+    public Sprite noneStoreBtn;
+    public Sprite noneMyRoomBtn;
 
     public Canvas UiCanvas;
+    public Canvas fadingCanvas;
     CanvasGroup canvasGroup;
     bool fadeOut;
 
@@ -22,7 +30,18 @@ public class selectManager : MonoBehaviour {
     Button rangkingBtn;
     Button tropyBtn;
     Button setupBtn;
-    
+
+    Button myRoomBtn;
+    Button storeBtn;
+    //상점
+    GameObject storeAndRoom;
+    GameObject myRoom;
+    GameObject store;
+    Button storeRoomExit;
+
+    EventSystem eventSystem;
+
+    Text gameMoney;
 
 	void Start ()
     {
@@ -30,13 +49,37 @@ public class selectManager : MonoBehaviour {
     }
     void selectInit()
     {
+        fadingCanvas.gameObject.SetActive(false);
+        gameMoney = GameObject.Find("gameMoney").GetComponent<Text>();
+
+        if(ES2.Exists("Money_Game"))
+            gameMoney.text = DataSave._instance.getMoney_Game().ToString(); //돈 출력
+
+        eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+        eventSystem.pixelDragThreshold = (int)(0.5f * Screen.dpi / 2.54f);
+
         canvasGroup = UiCanvas.GetComponent<CanvasGroup>();
+
         fadeOut = true;
         shopBtn = allBtnPanel.transform.FindChild("shopBtn").GetComponent<Button>();
         MyBtn = allBtnPanel.transform.FindChild("MyBtn").GetComponent<Button>();
         rangkingBtn = allBtnPanel.transform.FindChild("rangkingBtn").GetComponent<Button>();
         tropyBtn = allBtnPanel.transform.FindChild("tropyBtn").GetComponent<Button>();
         setupBtn = allBtnPanel.transform.FindChild("setupBtn").GetComponent<Button>();
+
+        storeAndRoom = UiCanvas.gameObject.transform.FindChild("StoreAndRoom").gameObject;
+        ui_back_large = storeAndRoom.gameObject.transform.FindChild("ui_back_large").gameObject;
+        storeAndRoom.SetActive(false);
+        myRoom = ui_back_large.transform.FindChild("MyRoom").gameObject;
+        store = ui_back_large.transform.FindChild("Store").gameObject;
+
+        storeRoomExit = ui_back_large.transform.FindChild("StoreRoomExit").GetComponent<Button>();
+        storeRoomExit.onClick.AddListener(storeRoomExitFunc);
+
+        myRoomBtn = ui_back_large.transform.FindChild("myRoomBtn").GetComponent<Button>();
+        myRoomBtn.onClick.AddListener(MyBtnFunc);
+        storeBtn = ui_back_large.transform.FindChild("storeBtn").GetComponent<Button>();
+        storeBtn.onClick.AddListener(shopBtnFunc);
 
         shopBtn.onClick.AddListener(shopBtnFunc);
         MyBtn.onClick.AddListener(MyBtnFunc);
@@ -80,6 +123,7 @@ public class selectManager : MonoBehaviour {
     }
     IEnumerator FadeOut()
     {
+        fadingCanvas.gameObject.SetActive(true);
         while (fadeOut)
         {
             canvasGroup.alpha -= Time.deltaTime * 2;
@@ -128,11 +172,23 @@ public class selectManager : MonoBehaviour {
     }
     void shopBtnFunc() //상점 버튼 눌렀을때.
     {
-
+        storeBtn.GetComponent<Image>().sprite = storeBtnClick;
+        storeBtn.GetComponent<Image>().SetNativeSize();
+        myRoomBtn.GetComponent<Image>().sprite = noneMyRoomBtn;
+        myRoomBtn.GetComponent<Image>().SetNativeSize();
+        storeAndRoom.SetActive(true);
+        store.SetActive(true);
+        myRoom.SetActive(false);
     }
     void MyBtnFunc() //인벤토리 버튼 눌렀을때.
     {
-
+        myRoomBtn.GetComponent<Image>().sprite = myRoomBtnClick;
+        myRoomBtn.GetComponent<Image>().SetNativeSize();
+        storeBtn.GetComponent<Image>().sprite = noneStoreBtn;
+        storeBtn.GetComponent<Image>().SetNativeSize();
+        storeAndRoom.SetActive(true);
+        store.SetActive(false);
+        myRoom.SetActive(true);
     }
     void rangkingBtnFunc() //랭킹 버튼 눌렀을때.
     {
@@ -145,5 +201,9 @@ public class selectManager : MonoBehaviour {
     void setupBtnFunc() //설정 버튼 눌렀을때.
     {
         
+    }
+    void storeRoomExitFunc() //상점 닫기
+    {
+        storeAndRoom.SetActive(false);
     }
 }
