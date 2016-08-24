@@ -1,53 +1,17 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
-
-public class SaveData
-{
-    float stageIndex;
-    float starCount;
-    float stageRecord;
-
-    public SaveData(float stageIndex, float starCount, float stageRecord)
-    {
-        this.stageIndex = stageIndex;
-        this.starCount = starCount;
-        this.stageRecord = stageRecord;
-    }
-    public void showData(ref float stageIndex, ref float starCount, ref float stageRecord)
-    {
-        this.stageIndex = stageIndex;
-        this.starCount = starCount;
-        this.stageRecord = stageRecord;
-    }
-}
-
 public class DataSave : MonoBehaviour {
 
-    public static DataSave Instance;
-    private float gameMoney;
-    private float cashMoney;
-    public float CashMoney
+    public static DataSave _instance;
+
+    public void setMoney_Game(float game_Money)
     {
-        get
-        {
-            return cashMoney;
-        }
-        set
-        {
-            cashMoney = value;
-        }
+        ES2.Save<float>(ES2.Load<float>("Money_Game") + game_Money, "Money_Game");
     }
-    public float GameMoney
+    public float getMoney_Game()
     {
-        get
-        {
-            return gameMoney; //es2로드
-        }
-        set
-        {
-            this.gameMoney = value; //es2세이브
-        }
+        return ES2.Load<float>("Money_Game");
     }
 
     struct stageData
@@ -66,8 +30,15 @@ public class DataSave : MonoBehaviour {
 
     void Start()
     {
-        Instance = this;
         DontDestroyOnLoad(this);
+        if(_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }else
+        {
+            DestroyImmediate(this.gameObject);
+        }
     }
     public void saveData(float stageIndex, float starCount, float stageRecord)
     {

@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Plugins\Easy Save 2\ES2Init.cs" />
      <Compile Include="Assets\Plugins\Easy Save 2\Types\ES2_Sprite.cs" />
+     <Compile Include="Assets\Plugins\SimpleJSON.cs" />
      <Compile Include="Assets\Plugins\UnityPurchasing\script\ComboBox.cs" />
      <Compile Include="Assets\Plugins\UnityPurchasing\script\IAPDemo.cs" />
      <Compile Include="Assets\Plugins\UnityPurchasing\script\UnibillDemo.cs" />
