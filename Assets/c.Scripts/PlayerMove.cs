@@ -39,6 +39,7 @@ public class PlayerMove : MonoBehaviour {
 	public GameObject deadBody;
 
 	public GameObject bumpEffect;
+	public GameObject waterEffect;
 
 
 	//MaxHeight
@@ -153,6 +154,7 @@ public class PlayerMove : MonoBehaviour {
 
 				if (transform.position.y >= MaxHeight_in) {
 					bumpEffect.SetActive (false);
+					waterEffect.SetActive (false);
 					DownLerp_in = 0;
 					bounce = Bouncy.Down;
 					transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
@@ -301,6 +303,7 @@ public class PlayerMove : MonoBehaviour {
 
 			if (transform.position.y >= MaxHeight_in) {
 				bumpEffect.SetActive (false);
+				waterEffect.SetActive (false);
 				DownLerp_in = 0;
 				bounce = Bouncy.Down;
 				transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
@@ -460,7 +463,8 @@ public class PlayerMove : MonoBehaviour {
                 if (obj.name == "water")
                 {
                     AudioSource.PlayClipAtPoint(deadSound, SoundBase.transform.position);
-                    waterDead.SetActive(true);
+					waterbumped ();
+				//waterDead.SetActive(true);
 
                 }
 
@@ -720,6 +724,13 @@ public class PlayerMove : MonoBehaviour {
 		default:
 			break;
 		}
+	}
+
+	void waterbumped() {
+
+		waterEffect.transform.position = this.transform.position;
+		waterEffect.SetActive (true);
+
 	}
 
 

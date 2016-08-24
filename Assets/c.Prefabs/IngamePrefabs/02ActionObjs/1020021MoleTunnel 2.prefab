@@ -80,7 +80,7 @@ GameObject:
   - 114: {fileID: 11421682}
   - 114: {fileID: 11460992}
   m_Layer: 0
-  m_Name: 1020021MoleTunnel
+  m_Name: 1020021MoleTunnel 2
   m_TagString: warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1431,6 +1431,7 @@ MonoBehaviour:
   waterDead: {fileID: 0}
   deadBody: {fileID: 122856}
   bumpEffect: {fileID: 0}
+  waterEffect: {fileID: 0}
   MaxHeight: 2.5
   UpKey: 111111110
   UpLerp: 2.5
