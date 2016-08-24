@@ -36,6 +36,7 @@ public class LoadManager : MonoBehaviour {
 	//02ActionObj
 	public GameObject jumpPoint;
 	public GameObject moleTunnel;
+	public GameObject moleTunnel_2;
 
 	//03StayEnemy
 	public GameObject fish;
@@ -57,6 +58,7 @@ public class LoadManager : MonoBehaviour {
 
 	//06Hurddle
 	public GameObject cloud;
+	public GameObject cloud_2;
 	public GameObject hive;
 	public GameObject poison;
 
@@ -193,8 +195,12 @@ public class LoadManager : MonoBehaviour {
 					case "1020021":
 						_tmp = (GameObject)Instantiate (moleTunnel, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
 						break;
+					case "1020022":
+						_tmp = (GameObject)Instantiate (moleTunnel_2, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
+						break;
 
 				//03Stayenemy
+					case "1030012":
 					case "1030011":
 						_tmp = (GameObject)Instantiate (fish, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
 						if (objPos_component_dataIn [k + 1] == 1)
@@ -288,23 +294,9 @@ public class LoadManager : MonoBehaviour {
 				//06Hurddle
 					case "1060011":
 						_tmp = (GameObject)Instantiate (cloud, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
-						if (objPos_component_dataIn [k + 1] == 1)
-							_tmp.GetComponent<objMovement> ().havehp = true;
-						_tmp.GetComponent<objMovement> ().standHp = (int)objPos_component_dataIn [k + 2];
-						_tmp.GetComponent<objMovement> ().angryHp = (int)objPos_component_dataIn [k + 3];
-						if (objPos_component_dataIn [k + 4] == 1)
-							_tmp.GetComponent<objMovement> ().move = true;
-						_tmp.GetComponent<objMovement> ().L_Speed = objPos_component_dataIn [k + 5];
-						_tmp.GetComponent<objMovement> ().R_Speed = objPos_component_dataIn [k + 6];
-						_tmp.GetComponent<objMovement> ().L_Range = objPos_component_dataIn [k + 7];
-						_tmp.GetComponent<objMovement> ().R_Range = objPos_component_dataIn [k + 8];
-						if (objPos_component_dataIn [k + 9] == 1)
-							_tmp.GetComponent<objMovement> ().jump = true;
-						_tmp.GetComponent<objMovement> ().waitTime_jump = objPos_component_dataIn [k + 10];
-						_tmp.GetComponent<objMovement> ().maxHeight = objPos_component_dataIn [k + 11];
-						_tmp.GetComponent<objMovement> ().U_Speed = objPos_component_dataIn [k + 12];
-						_tmp.GetComponent<objMovement> ().U_Lerp = objPos_component_dataIn [k + 13];
-						_tmp.GetComponent<objMovement> ().down_Lerp = objPos_component_dataIn [k + 14];
+						break;
+					case "1060012":
+						_tmp = (GameObject)Instantiate (cloud_2, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;
 						break;
 					case "1060021":
 						_tmp = (GameObject)Instantiate (hive, new Vector3 (objPos_dataIn [i + 1], objPos_dataIn [i + 2], 0), Quaternion.identity) as GameObject;

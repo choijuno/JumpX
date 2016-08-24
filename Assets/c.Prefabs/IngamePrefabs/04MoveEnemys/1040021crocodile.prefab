@@ -836,7 +836,7 @@ MonoBehaviour:
   allStop: 0
   havehp: 0
   standHp: 3
-  angryHp: 1
+  angryHp: 0
   move: 1
   turn_image: {fileID: 454416}
   L_Speed: 3
@@ -863,12 +863,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera_ingame: {fileID: 0}
   reset: 0
-  standhp: 0
+  standhp: 3
   angryhp: 0
   croc_ani: {fileID: 9549404}
-  crocStand: {fileID: 0}
   crocAngry: {fileID: 160488}
   crocSound: {fileID: 8300000, guid: 0595f6c6fcd9fd94b9f566d4600657f4, type: 3}
+  yeon_ani: {fileID: 0}
+  yeon_collider: {fileID: 0}
+  yeonSound: {fileID: 0}
   yeon1: {fileID: 0}
   yeon2: {fileID: 0}
   yeon3: {fileID: 0}
