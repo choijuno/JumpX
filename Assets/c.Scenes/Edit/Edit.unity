@@ -1913,7 +1913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461508, guid: a3e8ee2f8c396dd468fa040f27249b31, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 187214, guid: a3e8ee2f8c396dd468fa040f27249b31, type: 2}
       propertyPath: m_Name
@@ -2136,7 +2136,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &253402700
 RectTransform:
@@ -4771,6 +4771,8 @@ MonoBehaviour:
   monkey: {fileID: 161792, guid: 7f3f87988ed1f01448809c2032e9a136, type: 2}
   plant: {fileID: 188114, guid: ccf10ddbbd5d7ac4ca48c36865c8424e, type: 2}
   rhino: {fileID: 149564, guid: 77f6bc9e0821d9d40a791f5ad33437a6, type: 2}
+  tree: {fileID: 162536, guid: c7d55f7421ceea740bcf4d4c805b1fa4, type: 2}
+  tree_R: {fileID: 162536, guid: 6140426d64ea47044889e230c0887bc8, type: 2}
   hedgedog: {fileID: 186896, guid: f35b88ac3b1cc614aa770131a3028ff2, type: 2}
   crocodile: {fileID: 128124, guid: 0c93eb7958236b94e9fadbe609232e6e, type: 2}
   spider_1: {fileID: 127662, guid: 0f7f3bb563fa08d4c8715cb8a9db4dcf, type: 2}
@@ -4902,7 +4904,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: db917303e284d31418a56292ce270a5e, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: db917303e284d31418a56292ce270a5e, type: 2}
       propertyPath: looping
@@ -8688,7 +8690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &972502765 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 155626, guid: b20653d125abe284b877c0045b4f062c, type: 2}
@@ -11080,7 +11082,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1236167235
 GameObject:
   m_ObjectHideFlags: 0
@@ -11342,6 +11344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiveCC: 0
+  hive_bees: {fileID: 0}
   hiveTime: 0
   hiveHp: 0
   poisonTime: 0
@@ -11410,7 +11413,7 @@ Transform:
   - {fileID: 1396354665}
   - {fileID: 460457097}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &1264235433 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 135386, guid: b20653d125abe284b877c0045b4f062c, type: 2}
@@ -13751,7 +13754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496418, guid: ce3399ccd4f5dfc4892ce4a212dda9cf, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 178446, guid: ce3399ccd4f5dfc4892ce4a212dda9cf, type: 2}
       propertyPath: m_Name
@@ -15631,7 +15634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441850, guid: 015cafaa157a0294b997aceb7bf45246, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 193606, guid: 015cafaa157a0294b997aceb7bf45246, type: 2}
       propertyPath: m_IsActive
@@ -18412,7 +18415,7 @@ Transform:
   - {fileID: 1430157148}
   - {fileID: 1116885484}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &2070833752 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 155626, guid: b20653d125abe284b877c0045b4f062c, type: 2}

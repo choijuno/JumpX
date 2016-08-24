@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MoveOnGround : MonoBehaviour {
 
+	public Animator thisAni;
+
 	public MovePosition move = MovePosition.Left;
 
 	Transform image;
@@ -15,6 +17,13 @@ public class MoveOnGround : MonoBehaviour {
 	void Start () {
 		waitTime_in = waitTime;
 		Speed_in = Speed * 0.001f;
+
+		if (this.gameObject.name.Substring (0, 6) == "104001") {
+			if (move == MovePosition.Left) {
+				thisAni.SetTrigger ("move");
+			}
+		}
+
 	}
 	
 	// Update is called once per frame

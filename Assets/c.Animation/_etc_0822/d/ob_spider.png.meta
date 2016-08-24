@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: b264ddd6bae5a7842bfffe949980b0ab
+timeCreated: 1471768164
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ob_spider_0
+    21300002: ob_spider_1
+    21300004: ob_spider_2
+    21300006: ob_spider_3
+    21300008: ob_spider_4
+    21300010: ob_spider_5
+    21300012: ob_spider_6
+    21300014: ob_spider_7
+    21300016: ob_spider_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ob_spider_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 379
+        width: 113
+        height: 55
+      alignment: 9
+      pivot: {x: 0.92441285, y: 0.19931918}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -104.45865, y: 44.037445}
+        - {x: -104.45865, y: 37.037445}
+        - {x: -9.458649, y: -10.962555}
+        - {x: 8.541351, y: -10.962555}
+        - {x: 8.541351, y: 6.037445}
+        - {x: -6.4586487, y: 33.037445}
+        - {x: -28.458649, y: 44.037445}
+    - name: ob_spider_1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 382
+        width: 135
+        height: 56
+      alignment: 9
+      pivot: {x: 0.059000764, y: 0.11609431}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.034897, y: 49.49872}
+        - {x: -7.965103, y: 1.4987183}
+        - {x: -7.965103, y: -6.5012817}
+        - {x: 20.034897, y: -6.5012817}
+        - {x: 127.0349, y: 38.49872}
+        - {x: 127.0349, y: 48.49872}
+        - {x: 113.0349, y: 49.49872}
+    - name: ob_spider_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 295
+        width: 181
+        height: 59
+      alignment: 9
+      pivot: {x: 0.9385627, y: 0.47197038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -94.87985, y: 31.153748}
+        - {x: -161.87985, y: -15.846252}
+        - {x: -169.87985, y: -23.846252}
+        - {x: -169.87985, y: -27.846252}
+        - {x: -142.87985, y: -27.846252}
+        - {x: 11.120148, y: -12.846252}
+        - {x: 11.120148, y: 13.153748}
+        - {x: -64.87985, y: 31.153748}
+    - name: ob_spider_3
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 294
+        width: 181
+        height: 59
+      alignment: 9
+      pivot: {x: 0.07971074, y: 0.52803016}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.572357, y: 27.846222}
+        - {x: -12.427643, y: 6.846222}
+        - {x: -14.427643, y: 2.846222}
+        - {x: -14.427643, y: -10.153778}
+        - {x: -13.427643, y: -12.153778}
+        - {x: 154.57236, y: -31.153778}
+        - {x: 166.57236, y: -31.153778}
+        - {x: 166.57236, y: -15.153778}
+        - {x: 105.57236, y: 27.846222}
+    - name: ob_spider_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 206
+        width: 145
+        height: 55
+      alignment: 9
+      pivot: {x: 0.9333957, y: 0.68040854}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.342377, y: 8.57753}
+        - {x: -36.342377, y: 17.57753}
+        - {x: -74.34238, y: 17.57753}
+        - {x: -86.34238, y: 13.57753}
+        - {x: -135.34238, y: -32.42247}
+        - {x: -135.34238, y: -37.42247}
+        - {x: -125.34238, y: -37.42247}
+        - {x: 1.6576233, y: -8.42247}
+        - {x: 9.657623, y: -5.42247}
+        - {x: 9.657623, y: 2.57753}
+    - name: ob_spider_5
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 208
+        width: 144
+        height: 55
+      alignment: 9
+      pivot: {x: 0.098047465, y: 0.7104767}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.881165, y: 15.923782}
+        - {x: -14.118835, y: 0.92378235}
+        - {x: -14.118835, y: -9.076218}
+        - {x: 2.8811646, y: -12.076218}
+        - {x: 108.881165, y: -39.076218}
+        - {x: 129.88116, y: -39.076218}
+        - {x: 129.88116, y: -16.076218}
+        - {x: 72.881165, y: 15.923782}
+    - name: ob_spider_6
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 88
+        width: 103
+        height: 93
+      alignment: 9
+      pivot: {x: 0.9013949, y: 0.90899134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -92.84367, y: -42.536194}
+        - {x: -92.84367, y: -84.536194}
+        - {x: -77.84367, y: -84.536194}
+        - {x: 10.156326, y: -33.536194}
+        - {x: 10.156326, y: 8.463806}
+        - {x: -29.843674, y: 8.463806}
+        - {x: -74.84367, y: 0.46380615}
+    - name: ob_spider_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 82
+        width: 104
+        height: 94
+      alignment: 9
+      pivot: {x: 0.11836595, y: 0.9222336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 53.68994, y: -0.68995667}
+        - {x: 0.6899414, y: 7.3100433}
+        - {x: -12.310059, y: 7.3100433}
+        - {x: -12.310059, y: 0.31004333}
+        - {x: -11.310059, y: -0.68995667}
+        - {x: 16.689941, y: -8.689957}
+        - {x: 86.68994, y: -86.68996}
+        - {x: 91.68994, y: -86.68996}
+        - {x: 91.68994, y: -81.68996}
+        - {x: 69.68994, y: -19.689957}
+    - name: ob_spider_8
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 82
+        width: 92
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 56}
+        - {x: -46, y: 43}
+        - {x: -46, y: -37}
+        - {x: -45, y: -49}
+        - {x: -31, y: -56}
+        - {x: 34, y: -56}
+        - {x: 46, y: -38}
+        - {x: 46, y: 29}
+        - {x: 27, y: 56}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

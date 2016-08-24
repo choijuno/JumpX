@@ -44,6 +44,7 @@ GameObject:
   - 33: {fileID: 3311962}
   - 65: {fileID: 6596034}
   - 23: {fileID: 2310270}
+  - 114: {fileID: 11439868}
   m_Layer: 0
   m_Name: deadpointCollider
   m_TagString: dead
@@ -587,6 +588,18 @@ MonoBehaviour:
   U_Speed: 0
   U_Lerp: 0
   down_Lerp: 0
+--- !u!114 &11439868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4731f9723e2e09740ae58a010f8891e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantAni: {fileID: 9575716}
 --- !u!114 &11496436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -602,9 +615,12 @@ MonoBehaviour:
   reset: 0
   standhp: 0
   angryhp: 0
-  crocStand: {fileID: 0}
+  croc_ani: {fileID: 0}
   crocAngry: {fileID: 0}
   crocSound: {fileID: 0}
+  yeon_ani: {fileID: 0}
+  yeon_collider: {fileID: 0}
+  yeonSound: {fileID: 0}
   yeon1: {fileID: 0}
   yeon2: {fileID: 0}
   yeon3: {fileID: 0}

@@ -472,7 +472,7 @@ public class PlayerMove : MonoBehaviour {
 				stunGround = false;
 				GetComponent<PlayerController>().moveStopCheck = true;
 				Camera_ingame.GetComponent<GameCamera> ().direction = 0;
-				stunTime_in = obj.transform.parent.GetComponent<Tree> ().stunTime;
+				stunTime_in = obj.transform.parent.GetComponent<Tree_R> ().stunTime;
 					DownLerp_in = 0;
 					bounce = Bouncy.stun;
 
@@ -566,7 +566,7 @@ public class PlayerMove : MonoBehaviour {
 				_anim.SetBool ("StunCheck", true);
 					GetComponent<PlayerController>().moveStopCheck = true;
 					Camera_ingame.GetComponent<GameCamera> ().direction = 0;
-					stunTime_in = obj.transform.parent.GetComponent<Tree> ().stunTime;
+					stunTime_in = obj.transform.parent.GetComponent<Tree_R> ().stunTime;
 					DownLerp_in = 0;
 					bounce = Bouncy.stun;
 
@@ -715,7 +715,7 @@ public class PlayerMove : MonoBehaviour {
 			break;
 		case 8:
 		case 9:
-			AudioSource.PlayClipAtPoint (bumpSound2, SoundBase.transform.position);
+			//AudioSource.PlayClipAtPoint (bumpSound2, SoundBase.transform.position);
 			break;
 		default:
 			break;

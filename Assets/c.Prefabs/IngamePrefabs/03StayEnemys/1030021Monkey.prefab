@@ -197,6 +197,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &169332
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 465400}
+  m_Layer: 0
+  m_Name: monkey_hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &169838
 GameObject:
   m_ObjectHideFlags: 1
@@ -381,7 +396,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.062388465, w: 0.99805194}
   m_LocalPosition: {x: -0.2003727, y: -0.458, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 465400}
   m_Father: {fileID: 410552}
   m_RootOrder: 1
 --- !u!4 &465338
@@ -396,6 +412,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 443646}
   m_RootOrder: 1
+--- !u!4 &465400
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.019, y: -0.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459382}
+  m_RootOrder: 0
 --- !u!4 &467320
 Transform:
   m_ObjectHideFlags: 1
@@ -636,7 +664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c944d23247f043b46a3e68e407b02cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monkey: {fileID: 9550570}
   banana: {fileID: 118544}
+  hand: {fileID: 169332}
   waitTime: 3
   attSpeed: 70
 --- !u!212 &21206604

@@ -4,23 +4,45 @@ using System.Collections;
 public class objColider : MonoBehaviour {
 	public GameObject Camera_ingame;
 
+
+
 	public bool reset;
 	public float standhp;
 	public float angryhp;
-	public GameObject crocStand;
+
+	public Animator croc_ani;
 	public GameObject crocAngry;
 	public AudioClip crocSound;
+
+
+
+	public Animator yeon_ani;
+	public GameObject yeon_collider;
+	public AudioClip yeonSound;
+
+
 	public GameObject yeon1;
 	public GameObject yeon2;
 	public GameObject yeon3;
 	public GameObject yeonCollider;
+
 	public GameObject plantDeadPoint;
 	public GameObject plantModel;
+
 	// Use this for initialization
 	void Awake () {
 		
 		standhp = transform.parent.GetComponent<objMovement> ().standHp;
 		angryhp = transform.parent.GetComponent<objMovement> ().angryHp;
+		switch (transform.parent.name.Substring (0, 7)) {
+		case "1010021": //yeon
+			yeon_ani.SetInteger("hp",(int)standhp);
+			break;
+		case "1040021": //croc
+			croc_ani.SetInteger("hp",(int)standhp);
+			break;
+		
+		}
 
 		if (Application.loadedLevelName == "Edit") {
 			StartCoroutine ("editCollider");
@@ -43,14 +65,16 @@ public class objColider : MonoBehaviour {
 				case "1001":
 					break;
 				case "1010021":
-					yeon1.SetActive (true);
+					yeon_ani.SetInteger("hp",(int)standhp);
+					yeon_ani.SetTrigger("reset");
 					GetComponent<BoxCollider> ().enabled = true;
 					break;
 				case "2000":
 					break;
-				case "1040021":
+				case "1040021": //croc
+					croc_ani.SetInteger("hp",(int)standhp);
+					croc_ani.SetTrigger("reset");
 					crocAngry.SetActive (false);
-					crocStand.SetActive (true);
 					break;
 				}
 				standhp = transform.parent.GetComponent<objMovement> ().standHp;
@@ -249,24 +273,27 @@ public class objColider : MonoBehaviour {
 	void croco(){
 		if (standhp > 0) {
 			standhp--;
-		} else {
-			if (angryhp > 0) {
-				angryhp--;
-				if (angryhp <= 0) {
-					AudioSource.PlayClipAtPoint (crocSound, Camera_ingame.transform.position);
-					crocStand.SetActive (false);
-					crocAngry.SetActive (true);
-				}
+			croc_ani.SetInteger ("hp", (int)standhp);
+			if (standhp <= 0) {
+				AudioSource.PlayClipAtPoint (crocSound, Camera_ingame.transform.position);
+				croc_ani.SetTrigger ("attack");
+				crocAngry.SetActive (true);
 			}
+			/*
+		} else {
+			AudioSource.PlayClipAtPoint (crocSound, Camera_ingame.transform.position);
+			croc_ani.SetTrigger ("attack");
+			crocAngry.SetActive (true);
+
+		}*/
 		}
 	}
 
 	void yeon() {
 		if (standhp > 0) {
 			standhp--;
+			yeon_ani.SetInteger ("hp", (int)standhp);
 			if (standhp <= 0) {
-				Debug.Log ("??????");
-				yeon1.SetActive (false);
 				GetComponent<BoxCollider> ().enabled = false;
 			}
 		}
@@ -277,6 +304,7 @@ public class objColider : MonoBehaviour {
 			standhp--;
 			if (standhp <= 0) {
 				Debug.Log ("??????");
+
 				plantModel.SetActive (false);
 				plantDeadPoint.GetComponent<BoxCollider> ().enabled = false;
 				GetComponent<BoxCollider> ().enabled = false;

@@ -93,6 +93,9 @@ public class objMovement : MonoBehaviour {
 		case "1030011":
 			StartCoroutine ("enemyM_reset");
 			break;
+		case "1030012":
+			StartCoroutine ("enemyM_reset");
+			break;
 		case "1030021":
 			break;
 		case "1030031":

@@ -242,7 +242,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 499894}
   - 212: {fileID: 21211098}
-  - 111: {fileID: 11179228}
   - 95: {fileID: 9508794}
   m_Layer: 0
   m_Name: ob_spider_8
@@ -618,20 +617,6 @@ Animation:
   m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!111 &11179228
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 190768}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 4e5f7e33e91e8014eaa240d0bde4cece, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1

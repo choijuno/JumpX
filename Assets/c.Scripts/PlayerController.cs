@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour {
 
 	// status use
 	public PlayerCC hiveCC = PlayerCC.not;
+	public GameObject hive_bees;
 	public float hiveTime;
 	float hiveTime_in;
 	public float hiveHp;
 	float hiveHp_in;
+
 	public float poisonTime;
 	float poisonTime_in;
 	bool poisonCheck;
@@ -150,6 +152,7 @@ public class PlayerController : MonoBehaviour {
 					}
 
 					if (hiveHp_in <= 0) {
+						hive_bees.SetActive (false);
 						StopCoroutine ("hive");
 					}
 				}
@@ -193,6 +196,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (obj.CompareTag ("hive")) {
 			hiveCC = PlayerCC.bug;
+			hive_bees.SetActive (true);
 			Destroy (obj.transform.parent.gameObject);
 			StartCoroutine ("hive");
 		}
