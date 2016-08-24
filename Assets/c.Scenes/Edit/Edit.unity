@@ -1913,7 +1913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461508, guid: a3e8ee2f8c396dd468fa040f27249b31, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 187214, guid: a3e8ee2f8c396dd468fa040f27249b31, type: 2}
       propertyPath: m_Name
@@ -4904,7 +4904,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: db917303e284d31418a56292ce270a5e, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: db917303e284d31418a56292ce270a5e, type: 2}
       propertyPath: looping
@@ -11344,6 +11344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiveCC: 0
+  hive_bees: {fileID: 0}
   hiveTime: 0
   hiveHp: 0
   poisonTime: 0
@@ -11412,7 +11413,7 @@ Transform:
   - {fileID: 1396354665}
   - {fileID: 460457097}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &1264235433 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 135386, guid: b20653d125abe284b877c0045b4f062c, type: 2}
@@ -13753,7 +13754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496418, guid: ce3399ccd4f5dfc4892ce4a212dda9cf, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 178446, guid: ce3399ccd4f5dfc4892ce4a212dda9cf, type: 2}
       propertyPath: m_Name
@@ -15633,7 +15634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441850, guid: 015cafaa157a0294b997aceb7bf45246, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 193606, guid: 015cafaa157a0294b997aceb7bf45246, type: 2}
       propertyPath: m_IsActive

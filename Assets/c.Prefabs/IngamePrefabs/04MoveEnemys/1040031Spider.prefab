@@ -208,7 +208,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 436160}
   - 212: {fileID: 21247874}
-  - 111: {fileID: 11142922}
   - 95: {fileID: 9567410}
   m_Layer: 0
   m_Name: ob_spider_8
@@ -226,7 +225,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 461028}
   - 212: {fileID: 21205702}
-  - 111: {fileID: 11181528}
   - 95: {fileID: 9560082}
   m_Layer: 0
   m_Name: ob_spider_3
@@ -258,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.51, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461570}
@@ -609,34 +607,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!111 &11142922
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182360}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 4e5f7e33e91e8014eaa240d0bde4cece, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!111 &11181528
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 190106}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &11409268
 MonoBehaviour:
   m_ObjectHideFlags: 1
