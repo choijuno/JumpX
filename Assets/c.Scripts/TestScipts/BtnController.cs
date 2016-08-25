@@ -72,4 +72,17 @@ public class BtnController : MonoBehaviour {
 	void justClose() {
 		ClosePanel_1.SetActive (false);
 	}
+
+
+	public void goHome_ingame(){
+		Application.LoadLevel ("SelectScene");
+	}
+
+	public void replay_ingame(){
+		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	public void nextStage_ingame(){
+
+	}
 }

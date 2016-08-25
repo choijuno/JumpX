@@ -4542,7 +4542,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c4a9552529bbb4a8565d33bd83990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameGold_txt: {fileID: 0}
+  resultCheck: 0
+  Money_ingame_txt: {fileID: 0}
+  Record_time_txt: {fileID: 0}
+  Record_help_txt: {fileID: 0}
+  result_Panel: {fileID: 0}
+  result_Panel_Clear: {fileID: 0}
+  Star: []
+  result_Panel_Failed: {fileID: 0}
+  result_gold: {fileID: 0}
+  result_time: {fileID: 0}
+  result_help: {fileID: 0}
+  result_score: {fileID: 0}
   tiltOn: {fileID: 0}
   tiltOff: {fileID: 0}
 --- !u!4 &460096947
@@ -11309,6 +11320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7af4b02c7d230546b453e38c0d5bb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   _anim: {fileID: 0}
   SoundBase: {fileID: 1713064060}
   bumpSound: {fileID: 8300000, guid: d043356377368aa458d14ba140f6107a, type: 3}
@@ -11325,6 +11337,7 @@ MonoBehaviour:
   waterDead: {fileID: 460457093}
   deadBody: {fileID: 282238810}
   bumpEffect: {fileID: 1360253258}
+  waterEffect: {fileID: 460457093}
   MaxHeight: 2.5
   UpKey: 111111110
   UpLerp: 2.5
