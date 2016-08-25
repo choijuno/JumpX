@@ -116,7 +116,6 @@ public class GameManager : MonoBehaviour {
 				Record_time = Record_time + Time.deltaTime;
 				m_record = (int)(Record_time / 60) % 60;
 				s_record = (int)Record_time % 60;
-				Debug.Log (Record_time);
 			}
 			Money_ingame_txt.text = Money_ingame.ToString("n0");
 			Record_time_txt.text = m_record.ToString("00") + " : " + s_record.ToString("00");
