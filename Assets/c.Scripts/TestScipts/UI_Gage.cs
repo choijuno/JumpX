@@ -12,6 +12,10 @@ public class UI_Gage : MonoBehaviour {
 
 	public GameObject playerBody;
 
+	//
+	public GameObject StartPos;
+	//
+
 	public float Pos;
 	public float EndPos;
 
@@ -38,7 +42,6 @@ public class UI_Gage : MonoBehaviour {
 			if (timer <= 0) {
 				
 				foreach (Transform child in loadParent) {
-					Debug.Log (child.name);
 					if (child.name.Substring (0, 7) == "1990021") {
 						EndPos = child.transform.position.x + 6.08f;
 					}
@@ -60,6 +63,6 @@ public class UI_Gage : MonoBehaviour {
 		
 		gage_bar.fillAmount = (playerBody.transform.position.x + 7.58f)  / EndPos;
 		chaPos = gage_bar.fillAmount * chaMax;
-		gage_Character.transform.localPosition = new Vector3 (chaStart.transform.localPosition.x + chaPos -6f , gage_Character.transform.localPosition.y, gage_Character.transform.localPosition.z );
+		gage_Character.transform.localPosition = new Vector3 (StartPos.transform.localPosition.x + chaPos -6f , gage_Character.transform.localPosition.y, gage_Character.transform.localPosition.z );
 	}
 }

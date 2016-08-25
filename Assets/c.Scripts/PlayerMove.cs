@@ -12,6 +12,8 @@ public class PlayerMove : MonoBehaviour {
 	//public Animation _anim;
 	//public AnimationClip Jumping2;
 	//public AnimationClip Jumping3;
+	public int TestSkinNum;
+	public GameObject[] ChaSkin;
 
 	public GameObject gameManager;
 	public Animator _anim;
@@ -79,7 +81,21 @@ public class PlayerMove : MonoBehaviour {
 	void Awake () {
 		Camera_ingame.GetComponent<GameCamera> ().direction = 1;
 		//_anim = deadBody.GetComponent<Animation> ();
-		_anim = deadBody.GetComponent<Animator>();
+
+		switch (TestSkinNum) {
+		case 0:
+			ChaSkin [0].SetActive (true);
+			_anim = ChaSkin[0].GetComponent<Animator>();
+			break;
+		case 1:
+			ChaSkin [1].SetActive (true);
+			_anim = ChaSkin[1].GetComponent<Animator>();
+			break;
+		case 2:
+			ChaSkin [2].SetActive (true);
+			_anim = ChaSkin[2].GetComponent<Animator>();
+			break;
+		}
 
 		transform.position = StartPos.position;
 		bounce = Bouncy.Ready;
