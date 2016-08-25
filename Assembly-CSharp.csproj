@@ -304,6 +304,7 @@
      <Compile Include="Assets\c.Scripts\TestScipts\BtnController.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\TestBtn.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\UI_Gage.cs" />
+     <Compile Include="Assets\c.Scripts\TestScipts\UI_Gage_New.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\clearCollider.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\goldCollider.cs" />
      <Compile Include="Assets\c.Scripts\TestScipts\jumpPointCollider.cs" />
