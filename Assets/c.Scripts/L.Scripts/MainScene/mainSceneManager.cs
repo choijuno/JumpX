@@ -5,54 +5,27 @@ using UnityEngine.UI;
 
 public class mainSceneManager : MonoBehaviour {
 
+    public static int SceneIndex = 0; // 1은 메인에서 넘길때, 2는 셀렉트에서 넘길때, 3은 게임에서 넘길때
     Button startBtn;
     Button faceBookBtn;
-
-    public Canvas Canvas;
-    CanvasGroup canvasGroup;
-    bool fadeIn;
-    bool fadeOut;
+    Button guestLoginBtn;
+    
     void Start ()
     {
-        fadeIn = true;
-        fadeOut = true;
         startBtn = GameObject.Find("startBtn").GetComponent<Button>();
         startBtn.onClick.AddListener(startBtnFunc);
 
-        faceBookBtn = GameObject.Find("facebookBtn").GetComponent<Button>();
+        faceBookBtn = GameObject.Find("googleLogin").GetComponent<Button>();
         faceBookBtn.onClick.AddListener(faceBookBtnFunc);
-        canvasGroup = Canvas.GetComponent<CanvasGroup>();
-        StartCoroutine(FadeIn());
-    }
-    IEnumerator FadeIn()
-    {
-        while(fadeIn)
-        {
-            canvasGroup.alpha += Time.deltaTime * 2;
-            if (canvasGroup.alpha >= 1)
-                fadeIn = false;
-            yield return null;
-        }
-        canvasGroup.interactable = true;
-        yield return null;
-    }
 
-    IEnumerator FadeOut()
-    {
-        while (fadeOut)
-        {
-            canvasGroup.alpha -= Time.deltaTime * 2;
-            if (canvasGroup.alpha <= 0)
-                fadeOut = false;
-            yield return null;
-        }
-        canvasGroup.interactable = false;
-        SceneManager.LoadScene(1);
-        yield return null;
+        guestLoginBtn = GameObject.Find("guestLogin").GetComponent<Button>();
+        guestLoginBtn.onClick.AddListener(guestLoginFunc);
+        
     }
 	void startBtnFunc()
     {
-        StartCoroutine(FadeOut());
+        SceneIndex = 1;
+        SceneManager.LoadScene(1);
     }
     void faceBookBtnFunc()
     {
@@ -60,5 +33,9 @@ public class mainSceneManager : MonoBehaviour {
 
         if(!Social.localUser.authenticated)
             GoogleManager.GetInstance.LoginGPGS();
+    }
+    void guestLoginFunc() //게스트 로그인
+    {
+        SceneManager.LoadScene(1);
     }
 }

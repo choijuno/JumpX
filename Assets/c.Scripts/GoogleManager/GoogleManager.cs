@@ -317,13 +317,19 @@ public class GoogleManager : GoogleSingleton<GoogleManager> {
     }
     public void ShowLeaderboard() //리더보드 보여주기
     {
+        if (!Social.localUser.authenticated)
+            LoginGPGS();
+
         if (Social.localUser.authenticated)
         {
             Social.ShowLeaderboardUI();
         }
     }
-    public void ShowAchievement() //리더보드 보여주기
+    public void ShowAchievement() //업적 보여주기
     {
+        if (!Social.localUser.authenticated)
+            LoginGPGS();
+
         if (Social.localUser.authenticated)
         {
             Social.ShowAchievementsUI();

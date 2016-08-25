@@ -121,20 +121,6 @@ public class selectManager : MonoBehaviour {
         loadStar(); //별 로드
         loadNoneStage();
     }
-    IEnumerator FadeOut()
-    {
-        fadingCanvas.gameObject.SetActive(true);
-        while (fadeOut)
-        {
-            canvasGroup.alpha -= Time.deltaTime * 2;
-            if (canvasGroup.alpha <= 0)
-                fadeOut = false;
-            yield return null;
-        }
-        canvasGroup.interactable = false;
-        SceneManager.LoadScene(3);
-        yield return null;
-    }
 
     void loadStar()
     {
@@ -168,7 +154,8 @@ public class selectManager : MonoBehaviour {
     void SceneGo(string name) //게임씬으로 넘기자
     {
         GameManager.TestNum = System.Convert.ToInt32(name);
-        StartCoroutine(FadeOut());
+        mainSceneManager.SceneIndex = 2;
+        SceneManager.LoadScene(1);
     }
     void shopBtnFunc() //상점 버튼 눌렀을때.
     {
