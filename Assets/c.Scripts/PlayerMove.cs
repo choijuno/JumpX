@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour {
 	//public AnimationClip Jumping2;
 	//public AnimationClip Jumping3;
 
-
+	public GameObject gameManager;
 	public Animator _anim;
 
 	public GameObject SoundBase;
@@ -39,6 +39,7 @@ public class PlayerMove : MonoBehaviour {
 	public GameObject deadBody;
 
 	public GameObject bumpEffect;
+	public GameObject waterEffect;
 
 
 	//MaxHeight
@@ -153,6 +154,7 @@ public class PlayerMove : MonoBehaviour {
 
 				if (transform.position.y >= MaxHeight_in) {
 					bumpEffect.SetActive (false);
+					waterEffect.SetActive (false);
 					DownLerp_in = 0;
 					bounce = Bouncy.Down;
 					transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
@@ -301,6 +303,7 @@ public class PlayerMove : MonoBehaviour {
 
 			if (transform.position.y >= MaxHeight_in) {
 				bumpEffect.SetActive (false);
+				waterEffect.SetActive (false);
 				DownLerp_in = 0;
 				bounce = Bouncy.Down;
 				transform.position = new Vector3 (transform.position.x, MaxHeight_in, transform.position.z);
@@ -329,7 +332,7 @@ public class PlayerMove : MonoBehaviour {
 
 			case Bouncy.Down:
 				if (obj.CompareTag ("gold")) {
-				GameManager.gameGold += 10;
+				GameManager.Money_ingame += 10;
 				AudioSource.PlayClipAtPoint(goldSound, SoundBase.transform.position);
 				}
 
@@ -460,7 +463,8 @@ public class PlayerMove : MonoBehaviour {
                 if (obj.name == "water")
                 {
                     AudioSource.PlayClipAtPoint(deadSound, SoundBase.transform.position);
-                    waterDead.SetActive(true);
+					waterbumped ();
+				//waterDead.SetActive(true);
 
                 }
 
@@ -491,6 +495,8 @@ public class PlayerMove : MonoBehaviour {
 
                 if (obj.CompareTag("clear"))
                 {
+
+				GameManager.gameSet = 1;
                     //게임클리어.
                     /*if (GameManager.TestNum == 001)
                     {
@@ -506,16 +512,16 @@ public class PlayerMove : MonoBehaviour {
 				DataSave._instance.saveData (GameManager.TestNum, 3, 3.01f);
 
                     //gameclear.SetActive (true);
-                    Invoke("resetgame", 2f);
+                    //Invoke("resetgame", 2f);
                     bounce = Bouncy.Not;
 				//_anim.SetTrigger ("BumpJump");
-				_anim.SetBool ("DropCheck", false);
+					_anim.SetBool ("DropCheck", false);
 					_anim.SetTrigger ("GameSet");
                 }
                 break;
             case Bouncy.Up:
 				if (obj.CompareTag ("gold")) {
-				GameManager.gameGold += 10;
+				GameManager.Money_ingame += 10;
 				AudioSource.PlayClipAtPoint(goldSound, SoundBase.transform.position);
 				Debug.Log ("Upgold");
 				}
@@ -595,7 +601,7 @@ public class PlayerMove : MonoBehaviour {
                 break;
 			case Bouncy.stun:
 				if (obj.CompareTag ("gold")) {
-				GameManager.gameGold += 10;
+				GameManager.Money_ingame += 10;
 				AudioSource.PlayClipAtPoint(goldSound, SoundBase.transform.position);
 				}
 
@@ -722,6 +728,13 @@ public class PlayerMove : MonoBehaviour {
 		}
 	}
 
+	void waterbumped() {
+
+		waterEffect.transform.position = this.transform.position;
+		waterEffect.SetActive (true);
+
+	}
+
 
 	//resetGame
 	public void resetgame(){
@@ -729,8 +742,8 @@ public class PlayerMove : MonoBehaviour {
 
 
 		if (Application.loadedLevelName != "Edit") {
-			
-			Application.LoadLevel (Application.loadedLevel);
+
+			GameManager.gameSet = 2;
 
 		} else {
 			GetComponent<PlayerController> ().moveStopCheck = false;
