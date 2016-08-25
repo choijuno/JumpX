@@ -46,11 +46,18 @@ public class GameManager : MonoBehaviour {
 	public static bool tiltCheck;
 	public GameObject tiltOn;
 	public GameObject tiltOff;
-    
+
+
+    //Json
+
+    JsonParsing JsonGo;
+    int starCount = 0;
 	void Start()
     {
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
-	}
+        JsonGo = GameObject.Find("Json").GetComponent<JsonParsing>();
+
+    }
 
 	void Awake () {
 		if (Application.loadedLevelName == "TestGame") {
@@ -123,9 +130,9 @@ public class GameManager : MonoBehaviour {
 			yield return new WaitForSeconds (0.006f);
 			result_Panel.SetActive (true);
 			result_Panel_Clear.SetActive (true);
-			result ();
-			ScoreCheck ();
-			StarCheck ();
+			result (); //골드, 시간, 동물구함.
+			ScoreCheck (); //점수체크.
+			StarCheck (); //별체크.
 			StopCoroutine ("gameResult_Clear");
 		}
 	}
@@ -143,6 +150,8 @@ public class GameManager : MonoBehaviour {
 
 	void result() {
 		result_gold.text = Money_ingame.ToString("n0");
+        DataSave._instance.setMoney_Game(Money_ingame);
+
 		result_time.text = m_record.ToString("00") + ":" + s_record.ToString("00");
 		result_help.text = Record_help +"/" +Record_help_Max;
 	}
@@ -155,19 +164,27 @@ public class GameManager : MonoBehaviour {
 			Score_ingame = 0;
 		}
 		result_score.text = Score_ingame.ToString ("n0");
-
+        
 	}
 
 	void StarCheck() {
-		if (Score_ingame >= 7000) {
-			Star [0].SetActive (true);
-			Star [1].SetActive (true);
-			Star [2].SetActive (true);
-		} else if (Score_ingame >= 4000) {
-			Star [0].SetActive (true);
-			Star [1].SetActive (true);
-		} else {
-			Star [0].SetActive (true);
-		}
-	}
+        starCount = JsonGo.starJsonData(TestNum, Score_ingame);
+        switch (starCount)
+        {
+            case 1:
+                Star[0].SetActive(true);
+                break;
+            case 2:
+                Star[0].SetActive(true);
+                Star[1].SetActive(true);
+                break;
+            case 3:
+                Star[0].SetActive(true);
+                Star[1].SetActive(true);
+                Star[2].SetActive(true);
+                break;
+        }
+        DataSave._instance.saveData(GameManager.TestNum, starCount, Score_ingame);
+        
+    }
 }
