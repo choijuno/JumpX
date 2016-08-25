@@ -5,16 +5,43 @@ public class DataSave : MonoBehaviour {
 
     public static DataSave _instance;
 
-    public void setMoney_Game(float game_Money)
+    public void setMoney_Game(float game_Money) //돈저장
     {
         if(ES2.Exists("Money_Game"))
             ES2.Save<float>(ES2.Load<float>("Money_Game") + game_Money, "Money_Game");
         else
             ES2.Save<float>(game_Money, "Money_Game");
     }
+
+    public void setMoney_GameMinus(float game_Money) //돈저장
+    {
+        if (ES2.Exists("Money_Game"))
+            ES2.Save<float>(ES2.Load<float>("Money_Game") - game_Money, "Money_Game");
+        else
+            ES2.Save<float>(game_Money, "Money_Game");
+    }
+
     public float getMoney_Game()
     {
         return ES2.Load<float>("Money_Game");
+    }
+
+    public void setStar_Count(int star_Count) //별 저장
+    {
+        if (ES2.Exists("Star_Count"))
+            ES2.Save<int>(ES2.Load<int>("Star_Count") + star_Count, "Star_Count");
+        else
+            ES2.Save<int>(star_Count, "Star_Count");
+
+        GoogleManager.GetInstance.ReportScoreLeaderBoard(ES2.Load<int>("Star_Count"));
+    }
+
+    public float getStar_Count()
+    {
+        if (ES2.Exists("Star_Count"))
+            return ES2.Load<int>("Star_Count");
+        else
+            return -1;
     }
 
     struct stageData

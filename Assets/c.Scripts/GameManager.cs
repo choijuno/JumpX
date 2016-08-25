@@ -184,7 +184,8 @@ public class GameManager : MonoBehaviour {
                 Star[2].SetActive(true);
                 break;
         }
+
         DataSave._instance.saveData(GameManager.TestNum, starCount, Score_ingame);
-        
+        DataSave._instance.setStar_Count(starCount);
     }
 }

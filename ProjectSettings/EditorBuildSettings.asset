@@ -19,6 +19,8 @@ EditorBuildSettings:
     path: Assets/c.Scenes/TestScene/TestGame.unity
   - enabled: 1
     path: Assets/c.Scenes/TestScene/TestMain.unity
+  - enabled: 1
+    path: Assets/c.Scenes/CreateUnitScene.unity
   - enabled: 0
     path: Assets/c.Scenes/TestScene/TestBuyItem.unity
   - enabled: 0

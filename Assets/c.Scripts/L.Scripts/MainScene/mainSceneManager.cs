@@ -9,7 +9,8 @@ public class mainSceneManager : MonoBehaviour {
     Button startBtn;
     Button faceBookBtn;
     Button guestLoginBtn;
-    
+
+    public Image Panel;
     void Start ()
     {
         startBtn = GameObject.Find("startBtn").GetComponent<Button>();
@@ -20,12 +21,19 @@ public class mainSceneManager : MonoBehaviour {
 
         guestLoginBtn = GameObject.Find("guestLogin").GetComponent<Button>();
         guestLoginBtn.onClick.AddListener(guestLoginFunc);
-        
+
+        Panel.gameObject.SetActive(false);
     }
 	void startBtnFunc()
     {
         SceneIndex = 1;
-        SceneManager.LoadScene(1);
+        Panel.gameObject.SetActive(true);
+        StartCoroutine(waitLoad());
+    }
+    IEnumerator waitLoad()
+    {
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene(2);
     }
     void faceBookBtnFunc()
     {
@@ -36,6 +44,6 @@ public class mainSceneManager : MonoBehaviour {
     }
     void guestLoginFunc() //게스트 로그인
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

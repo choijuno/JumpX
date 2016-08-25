@@ -39,9 +39,20 @@ public class selectManager : MonoBehaviour {
     GameObject store;
     Button storeRoomExit;
 
+    Button greenBoxBtn;
+    Button redBoxBtn;
+    Button blueBoxBtn;
+
     EventSystem eventSystem;
 
     Text gameMoney;
+
+    //마이룸.
+    GameObject cha_selectUi;
+    GameObject cha_btnAll;
+    GameObject empty_panel;
+    GameObject cha_scrollpanel;
+    List<Button> chaBtn = new List<Button>();
 
 	void Start ()
     {
@@ -70,8 +81,26 @@ public class selectManager : MonoBehaviour {
         storeAndRoom = UiCanvas.gameObject.transform.FindChild("StoreAndRoom").gameObject;
         ui_back_large = storeAndRoom.gameObject.transform.FindChild("ui_back_large").gameObject;
         storeAndRoom.SetActive(false);
+
         myRoom = ui_back_large.transform.FindChild("MyRoom").gameObject;
+        cha_selectUi = myRoom.transform.FindChild("cha_selectUi").gameObject;
+        empty_panel = cha_selectUi.transform.GetChild(0).gameObject;
+        cha_scrollpanel = empty_panel.transform.GetChild(0).gameObject;
+        cha_btnAll = cha_scrollpanel.transform.FindChild("cha_btnAll").gameObject;
+        for(int i = 0; i< cha_btnAll.transform.childCount; i++)
+        {
+            Button chaBtn_a = cha_btnAll.transform.GetChild(i).GetComponent<Button>();
+            chaBtn_a.onClick.AddListener(() => chaFunc(chaBtn_a.name));
+        }
+
         store = ui_back_large.transform.FindChild("Store").gameObject;
+
+        greenBoxBtn = store.transform.FindChild("greenBoxBtn").GetComponent<Button>();
+        greenBoxBtn.onClick.AddListener(greenBoxBtnFunc);
+        redBoxBtn = store.transform.FindChild("redBoxBtn").GetComponent<Button>();
+        redBoxBtn.onClick.AddListener(redBoxBtnFunc);
+        blueBoxBtn = store.transform.FindChild("blueBoxBtn").GetComponent<Button>();
+        blueBoxBtn.onClick.AddListener(blueBoxBtnFunc);
 
         storeRoomExit = ui_back_large.transform.FindChild("StoreRoomExit").GetComponent<Button>();
         storeRoomExit.onClick.AddListener(storeRoomExitFunc);
@@ -111,7 +140,8 @@ public class selectManager : MonoBehaviour {
 				}
                
 
-				for (int j = 0; j < 3; j++) {
+				for (int j = 0; j < 3; j++)
+                {
 					stageBtn.transform.GetChild (j).gameObject.SetActive (false);
 				}
 				stageBtn.onClick.AddListener (() => SceneGo (stageBtn.name));
@@ -192,5 +222,30 @@ public class selectManager : MonoBehaviour {
     void storeRoomExitFunc() //상점 닫기
     {
         storeAndRoom.SetActive(false);
+    }
+    void greenBoxBtnFunc() //그린박스
+    {
+        float gameMoney = DataSave._instance.getMoney_Game();
+        if (gameMoney < 1000)
+            Debug.Log("돈이 부족합니다.");
+        else
+        {
+            DataSave._instance.setMoney_GameMinus(1000);
+            SceneManager.LoadScene(5);
+        }
+    }
+
+    void blueBoxBtnFunc() //파란박스
+    {
+
+    }
+
+    void redBoxBtnFunc() //레드박스
+    {
+
+    }
+    void chaFunc(string cha_index)
+    {
+
     }
 }
