@@ -7,7 +7,10 @@ public class DataSave : MonoBehaviour {
 
     public void setMoney_Game(float game_Money)
     {
-        ES2.Save<float>(ES2.Load<float>("Money_Game") + game_Money, "Money_Game");
+        if(ES2.Exists("Money_Game"))
+            ES2.Save<float>(ES2.Load<float>("Money_Game") + game_Money, "Money_Game");
+        else
+            ES2.Save<float>(game_Money, "Money_Game");
     }
     public float getMoney_Game()
     {

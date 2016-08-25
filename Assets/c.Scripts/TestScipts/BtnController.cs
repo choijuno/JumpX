@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BtnController : MonoBehaviour {
 
@@ -34,7 +35,10 @@ public class BtnController : MonoBehaviour {
 	public void pauseHome(){
 		Time.timeScale = 1f;
 		GameManager.pauseCheck = false;
-		Application.LoadLevel ("SelectScene");
+        //Application.LoadLevel ("SelectScene");
+        mainSceneManager.SceneIndex = 3;
+        SceneManager.LoadScene(1);
+
 	}
 
 	public void Bgm_OnOff(){
