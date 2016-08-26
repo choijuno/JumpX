@@ -72,7 +72,7 @@ public class selectManager : MonoBehaviour {
         else
         {
             gameMoney.text = 1000.ToString("#,##0");
-            DataSave._instance.setMoney_Game(1000);
+            DataSave._instance.setMoney_Game(5000);
         }
            
 
