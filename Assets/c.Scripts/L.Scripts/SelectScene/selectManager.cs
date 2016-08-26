@@ -55,6 +55,9 @@ public class selectManager : MonoBehaviour {
     public Button[] chaBtnArray = new Button[10];
     public GameObject[] cha_Array = new GameObject[3];
 
+    //설정
+    GameObject setup;
+    Button setupExit;
 	void Start ()
     {
         selectInit();
@@ -86,6 +89,13 @@ public class selectManager : MonoBehaviour {
         ui_back_large = storeAndRoom.gameObject.transform.FindChild("ui_back_large").gameObject;
         storeAndRoom.SetActive(false);
 
+
+        //설정
+        setup = UiCanvas.gameObject.transform.FindChild("setup").gameObject;
+        setupExit = setup.transform.FindChild("setupExit").GetComponent<Button>();
+        setupExit.onClick.AddListener(setupExitBtnFunc);
+        setup.SetActive(false);
+    
         myRoom = ui_back_large.transform.FindChild("MyRoom").gameObject;
         cha_selectUi = myRoom.transform.FindChild("cha_selectUi").gameObject;
         empty_panel = cha_selectUi.transform.GetChild(0).gameObject;
@@ -246,7 +256,11 @@ public class selectManager : MonoBehaviour {
     }
     void setupBtnFunc() //설정 버튼 눌렀을때.
     {
-        
+        setup.SetActive(true);
+    }
+    void setupExitBtnFunc()
+    {
+        setup.SetActive(false);
     }
     void storeRoomExitFunc() //상점 닫기
     {
