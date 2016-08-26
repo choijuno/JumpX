@@ -16,9 +16,7 @@ public class UI_Gage : MonoBehaviour {
 	public GameObject StartPos;
 	//
 
-	public float mapPos_S;
-	public float mapPos_E;
-
+	public float Pos;
 	public float EndPos;
 
 	float chaPos;
@@ -48,16 +46,6 @@ public class UI_Gage : MonoBehaviour {
 						EndPos = child.transform.position.x + 6.08f;
 					}
 
-					//start
-					if (child.name.Substring (0, 7) == "1990051") {
-						mapPos_S = child.transform.position.x;
-					}
-					//end
-					if (child.name.Substring (0, 7) == "1990052") {
-						mapPos_E = child.transform.position.x;
-					}
-
-
 				}
 
 				StopCoroutine ("posSet");
@@ -73,7 +61,7 @@ public class UI_Gage : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		gage_bar.fillAmount = (playerBody.transform.position.x)  / mapPos_E;
+		gage_bar.fillAmount = (playerBody.transform.position.x + 7.58f)  / EndPos;
 		chaPos = gage_bar.fillAmount * chaMax;
 		gage_Character.transform.localPosition = new Vector3 (StartPos.transform.localPosition.x + chaPos -6f , gage_Character.transform.localPosition.y, gage_Character.transform.localPosition.z );
 	}
