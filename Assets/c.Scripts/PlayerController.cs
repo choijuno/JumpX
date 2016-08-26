@@ -84,31 +84,32 @@ public class PlayerController : MonoBehaviour {
 
 
 		// status equal change speed
-		
-		switch (playerState) {
-		case MovePosition.Stay:
-			movespeed = 0;
-			break;
-		case MovePosition.Left:
-			if (GameManager.gameSet == 0) {
-				transform.rotation = new Quaternion (0, 180, 0, 0);
-				if (!moveStopCheck) {
-					movespeed = -MoveSpeed;
-				} else {
-					movespeed = 0;
+		if (!GameManager.pauseCheck) {
+			switch (playerState) {
+			case MovePosition.Stay:
+				movespeed = 0;
+				break;
+			case MovePosition.Left:
+				if (GameManager.gameSet == 0) {
+					transform.rotation = new Quaternion (0, 180, 0, 0);
+					if (!moveStopCheck) {
+						movespeed = -MoveSpeed;
+					} else {
+						movespeed = 0;
+					}
 				}
-			}
-			break;
-		case MovePosition.Right:
-			if (GameManager.gameSet == 0) {
-				transform.rotation = new Quaternion (0, 0, 0, 0);
-				if (!moveStopCheck) {
-					movespeed = Mathf.Abs (MoveSpeed);
-				} else {
-					movespeed = 0;
+				break;
+			case MovePosition.Right:
+				if (GameManager.gameSet == 0) {
+					transform.rotation = new Quaternion (0, 0, 0, 0);
+					if (!moveStopCheck) {
+						movespeed = Mathf.Abs (MoveSpeed);
+					} else {
+						movespeed = 0;
+					}
 				}
+				break;
 			}
-			break;
 		}
 
 		// only run playing
@@ -125,35 +126,37 @@ public class PlayerController : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (0.006f);
 			//Debug.Log (hiveHp_in);
-			if (Input.GetMouseButtonUp(0)) {
+			if (Input.GetMouseButtonUp (0)) {
 				RaycastHit hit;
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-				if (Physics.Raycast (ray, out hit)) {
+				if (!GameManager.pauseCheck) {
+					if (Physics.Raycast (ray, out hit)) {
 
-					if (hit.collider.gameObject.CompareTag ("left")) {
-						if (hiveState == MovePosition.Stay) {
-							hiveState = MovePosition.Left;
-							hiveHp_in--;
+						if (hit.collider.gameObject.CompareTag ("left")) {
+							if (hiveState == MovePosition.Stay) {
+								hiveState = MovePosition.Left;
+								hiveHp_in--;
+							}
+							if (hiveState == MovePosition.Right) {
+								hiveState = MovePosition.Left;
+								hiveHp_in--;
+							}
 						}
-						if (hiveState == MovePosition.Right) {
-							hiveState = MovePosition.Left;
-							hiveHp_in--;
+						if (hit.collider.gameObject.CompareTag ("right")) {
+							if (hiveState == MovePosition.Stay) {
+								hiveState = MovePosition.Right;
+								hiveHp_in--;
+							}
+							if (hiveState == MovePosition.Left) {
+								hiveState = MovePosition.Right;
+								hiveHp_in--;
+							}
 						}
-					}
-					if (hit.collider.gameObject.CompareTag ("right")) {
-						if (hiveState == MovePosition.Stay) {
-							hiveState = MovePosition.Right;
-							hiveHp_in--;
-						}
-						if (hiveState == MovePosition.Left) {
-							hiveState = MovePosition.Right;
-							hiveHp_in--;
-						}
-					}
 
-					if (hiveHp_in <= 0) {
-						hive_bees.SetActive (false);
-						StopCoroutine ("hive");
+						if (hiveHp_in <= 0) {
+							hive_bees.SetActive (false);
+							StopCoroutine ("hive");
+						}
 					}
 				}
 			}
