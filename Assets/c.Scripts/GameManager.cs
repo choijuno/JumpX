@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour {
 	int Score_ingame;
 
 
+	public GameObject pauseMenu;
+	public GameObject Controller;
+
+
 
 	// end game Check
 	public static int gameSet; //0:play 1:win 2:lose 3:wait
@@ -61,7 +65,13 @@ public class GameManager : MonoBehaviour {
 
 	void Awake () {
 		if (Application.loadedLevelName == "TestGame") {
-			
+
+			if (ES2.Exists ("tilt")) {
+				tiltCheck = ES2.Load<bool> ("tilt");
+			} else {
+
+			}
+
 			Money_ingame = 0;
 			Record_time = 0;
 			Record_help = 0;
@@ -80,6 +90,11 @@ public class GameManager : MonoBehaviour {
 		if(Input.GetKeyUp(KeyCode.Escape)){
 			if (Application.loadedLevelName != "TestGame") {
 				Application.Quit ();
+			} else {
+				Time.timeScale = 1f;
+				pauseCheck = false;
+				pauseMenu.SetActive (true);
+				Controller.SetActive (false);
 			}
 
 		}

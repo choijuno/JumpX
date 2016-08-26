@@ -10,13 +10,21 @@ public class BtnController : MonoBehaviour {
 	public GameObject ClosePanel_1;
 	public GameObject ClosePanel_2;
 
-
+	//pause
+	public GameObject tiltOn;
+	public GameObject tiltOff;
 
 	public void pauseBtn() {
 		Time.timeScale = 0.0001f;
 		GameManager.pauseCheck = true;
 		justOpen ();
 		justClose ();
+		if (GameManager.tiltCheck) {
+			tiltOn.SetActive (true);
+		} else {
+			tiltOff.SetActive (true);
+
+		}
 	}
 
 	public void pauseClose(){
@@ -60,6 +68,21 @@ public class BtnController : MonoBehaviour {
 			openClose ();
 			break;
 		case "Off":
+			openClose ();
+			break;
+		}
+	}
+
+	public void Tilt_OnOff(){
+		switch (this.name) {
+		case "On":
+			GameManager.tiltCheck = false;
+			ES2.Save<bool> (GameManager.tiltCheck, "tiltCheck");
+			openClose ();
+			break;
+		case "Off":
+			GameManager.tiltCheck = true;
+			ES2.Save<bool> (GameManager.tiltCheck, "tiltCheck");
 			openClose ();
 			break;
 		}

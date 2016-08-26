@@ -32106,6 +32106,60 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1664858289}
+--- !u!1 &1666215207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1666215209}
+  - 114: {fileID: 1666215208}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1666215208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666215207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c4a9552529bbb4a8565d33bd83990c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resultCheck: 0
+  Money_ingame_txt: {fileID: 0}
+  Record_time_txt: {fileID: 0}
+  Record_help_Max_txt: {fileID: 0}
+  Record_help_txt: {fileID: 0}
+  result_Panel: {fileID: 0}
+  result_Panel_Clear: {fileID: 0}
+  Star: []
+  result_Panel_Failed: {fileID: 0}
+  result_gold: {fileID: 0}
+  result_time: {fileID: 0}
+  result_help: {fileID: 0}
+  result_score: {fileID: 0}
+  tiltOn: {fileID: 0}
+  tiltOff: {fileID: 0}
+--- !u!4 &1666215209
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666215207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.477325, y: -1.3534268, z: -168.96875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &1671386385
 GameObject:
   m_ObjectHideFlags: 0
