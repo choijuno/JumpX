@@ -23,6 +23,11 @@ public class mainSceneManager : MonoBehaviour {
         guestLoginBtn.onClick.AddListener(guestLoginFunc);
 
         Panel.gameObject.SetActive(false);
+
+        GoogleManager.GetInstance.InitializeGPGS();
+
+        if (!Social.localUser.authenticated)
+            GoogleManager.GetInstance.LoginGPGS();
     }
 	void startBtnFunc()
     {
@@ -35,7 +40,7 @@ public class mainSceneManager : MonoBehaviour {
         yield return new WaitForSeconds(0.6f);
         SceneManager.LoadScene(2);
     }
-    void faceBookBtnFunc()
+    void faceBookBtnFunc() //구글
     {
         GoogleManager.GetInstance.InitializeGPGS();
 
