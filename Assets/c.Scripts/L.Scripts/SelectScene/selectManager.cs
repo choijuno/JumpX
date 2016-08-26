@@ -21,9 +21,6 @@ public class selectManager : MonoBehaviour {
     public Sprite noneMyRoomBtn;
 
     public Canvas UiCanvas;
-    public Canvas fadingCanvas;
-    CanvasGroup canvasGroup;
-    bool fadeOut;
 
     Button shopBtn;
     Button MyBtn;
@@ -52,7 +49,11 @@ public class selectManager : MonoBehaviour {
     GameObject cha_btnAll;
     GameObject empty_panel;
     GameObject cha_scrollpanel;
-    List<Button> chaBtn = new List<Button>();
+    public Image[] chaArray = new Image[10];
+    public Sprite[] nonImg = new Sprite[10];
+    public Sprite[] okImg = new Sprite[10];
+    public Button[] chaBtnArray = new Button[10];
+    public GameObject[] cha_Array = new GameObject[3];
 
 	void Start ()
     {
@@ -60,18 +61,21 @@ public class selectManager : MonoBehaviour {
     }
     void selectInit()
     {
-        fadingCanvas.gameObject.SetActive(false);
+        chaSetFalse();
         gameMoney = GameObject.Find("gameMoney").GetComponent<Text>();
 
         if(ES2.Exists("Money_Game"))
             gameMoney.text = DataSave._instance.getMoney_Game().ToString(); //돈 출력
+        else
+        {
+            gameMoney.text = 1000.ToString("#,##0");
+            DataSave._instance.setMoney_Game(1000);
+        }
+           
 
         eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         eventSystem.pixelDragThreshold = (int)(0.5f * Screen.dpi / 2.54f);
-
-        canvasGroup = UiCanvas.GetComponent<CanvasGroup>();
-
-        fadeOut = true;
+        
         shopBtn = allBtnPanel.transform.FindChild("shopBtn").GetComponent<Button>();
         MyBtn = allBtnPanel.transform.FindChild("MyBtn").GetComponent<Button>();
         rangkingBtn = allBtnPanel.transform.FindChild("rangkingBtn").GetComponent<Button>();
@@ -87,6 +91,7 @@ public class selectManager : MonoBehaviour {
         empty_panel = cha_selectUi.transform.GetChild(0).gameObject;
         cha_scrollpanel = empty_panel.transform.GetChild(0).gameObject;
         cha_btnAll = cha_scrollpanel.transform.FindChild("cha_btnAll").gameObject;
+
         for(int i = 0; i< cha_btnAll.transform.childCount; i++)
         {
             Button chaBtn_a = cha_btnAll.transform.GetChild(i).GetComponent<Button>();
@@ -206,6 +211,30 @@ public class selectManager : MonoBehaviour {
         storeAndRoom.SetActive(true);
         store.SetActive(false);
         myRoom.SetActive(true);
+        for(int i = 0; i < 10; i++)
+        {
+            if(ES2.Exists("character" + i.ToString()))
+            {
+                chaArray[i].sprite = okImg[i];
+                chaBtnArray[i].interactable = true;
+            }
+            else
+            {
+                chaArray[i].sprite = nonImg[i];
+                chaBtnArray[i].interactable = false;
+            }
+        }
+        if (ES2.Exists("rabbit"))
+        {
+            chaSetFalse();
+            cha_Array[ES2.Load<int>("rabbit")].SetActive(true);
+        }
+        else
+        {
+            chaSetFalse();
+            cha_Array[0].SetActive(true);
+        }
+           
     }
     void rangkingBtnFunc() //랭킹 버튼 눌렀을때.
     {
@@ -226,7 +255,7 @@ public class selectManager : MonoBehaviour {
     void greenBoxBtnFunc() //그린박스
     {
         float gameMoney = DataSave._instance.getMoney_Game();
-        if (gameMoney < 1000)
+        if (gameMoney < 0)
             Debug.Log("돈이 부족합니다.");
         else
         {
@@ -246,6 +275,32 @@ public class selectManager : MonoBehaviour {
     }
     void chaFunc(string cha_index)
     {
+        int cha_test = int.Parse(cha_index);
 
+        switch (cha_test)
+        {
+            case 0:
+                chaSetFalse();
+                cha_Array[0].SetActive(true);
+                ES2.Save<int>(0, "rabbit");
+                break;
+            case 1:
+                chaSetFalse();
+                cha_Array[1].SetActive(true);
+                ES2.Save<int>(1, "rabbit");
+                break;
+            case 2:
+                chaSetFalse();
+                cha_Array[2].SetActive(true);
+                ES2.Save<int>(2, "rabbit");
+                break;
+        }
+    }
+    void chaSetFalse()
+    {
+        for(int i = 0; i < cha_Array.Length; i++)
+        {
+            cha_Array[i].SetActive(false);
+        }
     }
 }

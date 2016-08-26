@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 32833176}
   - 114: {fileID: 32833175}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: createUnitManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,6 +115,9 @@ MonoBehaviour:
   fireWorkParticle: {fileID: 193092, guid: 9107745edec73cf4cafa307d4d6c7bee, type: 2}
   mude: {fileID: 782622542}
   CreateOk: {fileID: 1130644669}
+  unit:
+  - {fileID: 160862, guid: 7f0849b687adfd84491a4a247711d742, type: 2}
+  - {fileID: 163494, guid: ae1449e524ef48840b82545f9247108d, type: 2}
 --- !u!4 &32833176
 Transform:
   m_ObjectHideFlags: 0
@@ -228,15 +231,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 464256, guid: 4fabeddd366fe6f48b34a1ed3880cd20, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.4
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 464256, guid: 4fabeddd366fe6f48b34a1ed3880cd20, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -9.6
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 464256, guid: 4fabeddd366fe6f48b34a1ed3880cd20, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 58
+      value: 54.8
       objectReference: {fileID: 0}
     - target: {fileID: 464256, guid: 4fabeddd366fe6f48b34a1ed3880cd20, type: 2}
       propertyPath: m_LocalRotation.x
@@ -801,7 +804,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB3CC\uC544\uAC00\uAE30"
+  m_Text: "\uD68D\uB4DD\uD558\uAE30"
 --- !u!222 &1338321289
 CanvasRenderer:
   m_ObjectHideFlags: 0
