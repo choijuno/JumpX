@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ChaSelectClass : MonoBehaviour {
     
+
+
 	void Start ()
     {
 	
