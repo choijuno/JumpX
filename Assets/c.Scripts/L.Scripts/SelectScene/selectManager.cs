@@ -58,6 +58,25 @@ public class selectManager : MonoBehaviour {
     //설정
     GameObject setup;
     Button setupExit;
+
+    //골드 보석 상점
+    GameObject goldBosuk;
+    GameObject goldStore;
+    GameObject bosukStore;
+    Button goldbosukExitBtn;
+    Button goldBtn;
+    Button bosukBtn;
+
+    Button bosukRealBtn;
+    Button goldRealBtn;
+
+    public Sprite nonGoldSprite;
+    public Sprite GoldSprite;
+    public Sprite nonBosukSprite;
+    public Sprite BosukSprite;
+
+
+
 	void Start ()
     {
         selectInit();
@@ -95,7 +114,26 @@ public class selectManager : MonoBehaviour {
         setupExit = setup.transform.FindChild("setupExit").GetComponent<Button>();
         setupExit.onClick.AddListener(setupExitBtnFunc);
         setup.SetActive(false);
-    
+
+        //골드 보석 상점
+        goldBosuk = UiCanvas.gameObject.transform.FindChild("goldBosuk").gameObject;
+        goldStore = goldBosuk.transform.FindChild("goldStore").gameObject;
+        bosukStore = goldBosuk.transform.FindChild("bosukStore").gameObject;
+
+        bosukRealBtn = allBtnPanel.transform.FindChild("bosukBtn").GetComponent<Button>();
+        bosukRealBtn.onClick.AddListener(bosukRealBtnFunc);
+        goldRealBtn = allBtnPanel.transform.FindChild("goldBtn").GetComponent<Button>();
+        goldRealBtn.onClick.AddListener(goldRealBtnFunc);
+        bosukBtn = goldBosuk.transform.FindChild("bosukBtn").GetComponent<Button>();
+        bosukBtn.onClick.AddListener(bosukBtnFunc);
+        goldBtn = goldBosuk.transform.FindChild("goldBtn").GetComponent<Button>();
+        goldBtn.onClick.AddListener(goldBtnFunc);
+        goldbosukExitBtn = goldBosuk.transform.FindChild("goldbosukExitBtn").GetComponent<Button>();
+        goldbosukExitBtn.onClick.AddListener(goldbosukExitBtnFunc);
+        goldBosuk.SetActive(false);
+
+
+
         myRoom = ui_back_large.transform.FindChild("MyRoom").gameObject;
         cha_selectUi = myRoom.transform.FindChild("cha_selectUi").gameObject;
         empty_panel = cha_selectUi.transform.GetChild(0).gameObject;
@@ -323,5 +361,41 @@ public class selectManager : MonoBehaviour {
         {
             cha_Array[i].SetActive(false);
         }
+    }
+    void bosukBtnFunc()
+    {
+        goldBosuk.SetActive(true);
+        goldBtn.image.sprite = GoldSprite;
+        bosukBtn.image.sprite = nonBosukSprite;
+
+        goldBtn.image.SetNativeSize();
+        bosukBtn.image.SetNativeSize();
+
+        goldStore.SetActive(false);
+        bosukStore.SetActive(true);
+    }
+    void goldBtnFunc()
+    {
+        goldBosuk.SetActive(true);
+        goldBtn.image.sprite = nonGoldSprite;
+        bosukBtn.image.sprite = BosukSprite;
+
+        goldBtn.image.SetNativeSize();
+        bosukBtn.image.SetNativeSize();
+
+        goldStore.SetActive(true);
+        bosukStore.SetActive(false);
+    }
+    void goldbosukExitBtnFunc()
+    {
+        goldBosuk.SetActive(false);
+    }
+    void bosukRealBtnFunc()
+    {
+        bosukBtnFunc();
+    }
+    void goldRealBtnFunc()
+    {
+        goldBtnFunc();
     }
 }
