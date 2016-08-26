@@ -38,10 +38,6 @@ D:\CJO\TEST1\obj\Debug\Assembly-CSharp-Editor.dll
 D:\CJO\TEST1\obj\Debug\Assembly-CSharp-Editor.pdb
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-Editor.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\ES2.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\ES2Editor.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\JMOAssets.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\MoodkieSecurity.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\nunit.framework.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEditor.Advertisements.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
@@ -78,15 +74,8 @@ D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.csprojRe
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.dll
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp-Editor.pdb
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\JarResolverLib.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.pdb
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Apple.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Common.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Editor.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Security.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Stores.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Analytics.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Purchasing.dll
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\winrt.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Analytics.xml
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Purchasing.xml
