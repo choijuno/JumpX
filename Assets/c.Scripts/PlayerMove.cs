@@ -81,7 +81,6 @@ public class PlayerMove : MonoBehaviour {
 	void Awake () {
 		Camera_ingame.GetComponent<GameCamera> ().direction = 1;
 		//_anim = deadBody.GetComponent<Animation> ();
-
 		switch (TestSkinNum) {
 		case 0:
 			ChaSkin [0].SetActive (true);
