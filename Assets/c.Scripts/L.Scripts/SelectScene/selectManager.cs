@@ -250,12 +250,13 @@ public class selectManager : MonoBehaviour {
     }
     void storeRoomExitFunc() //상점 닫기
     {
+        chaSetFalse();
         storeAndRoom.SetActive(false);
     }
     void greenBoxBtnFunc() //그린박스
     {
         float gameMoney = DataSave._instance.getMoney_Game();
-        if (gameMoney < 0)
+        if (gameMoney < 1000)
             Debug.Log("돈이 부족합니다.");
         else
         {
