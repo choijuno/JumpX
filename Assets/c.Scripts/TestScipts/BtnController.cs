@@ -87,6 +87,7 @@ public class BtnController : MonoBehaviour {
 	}
 
 	public void nextStage_ingame(){
-
+		GameManager.TestNum += 1;
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }
