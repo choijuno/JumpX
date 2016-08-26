@@ -204,6 +204,7 @@ public class selectManager : MonoBehaviour {
     }
     void shopBtnFunc() //상점 버튼 눌렀을때.
     {
+        chaSetFalse();
         storeBtn.GetComponent<Image>().sprite = storeBtnClick;
         storeBtn.GetComponent<Image>().SetNativeSize();
         myRoomBtn.GetComponent<Image>().sprite = noneMyRoomBtn;
@@ -214,6 +215,7 @@ public class selectManager : MonoBehaviour {
     }
     void MyBtnFunc() //인벤토리 버튼 눌렀을때.
     {
+        chaSetFalse();
         myRoomBtn.GetComponent<Image>().sprite = myRoomBtnClick;
         myRoomBtn.GetComponent<Image>().SetNativeSize();
         storeBtn.GetComponent<Image>().sprite = noneStoreBtn;
@@ -248,18 +250,22 @@ public class selectManager : MonoBehaviour {
     }
     void rangkingBtnFunc() //랭킹 버튼 눌렀을때.
     {
+        chaSetFalse();
         GoogleManager.GetInstance.ShowLeaderboard();
     }
     void tropyBtnFunc() //업적 버튼 눌렀을때.
     {
+        chaSetFalse();
         GoogleManager.GetInstance.ShowAchievement();
     }
     void setupBtnFunc() //설정 버튼 눌렀을때.
     {
+        chaSetFalse();
         setup.SetActive(true);
     }
     void setupExitBtnFunc()
     {
+        chaSetFalse();
         setup.SetActive(false);
     }
     void storeRoomExitFunc() //상점 닫기
