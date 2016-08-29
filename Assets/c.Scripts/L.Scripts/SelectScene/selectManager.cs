@@ -43,6 +43,7 @@ public class selectManager : MonoBehaviour {
     EventSystem eventSystem;
 
     Text gameMoney;
+    Text bosukMoney;
 
     //마이룸.
     GameObject cha_selectUi;
@@ -89,15 +90,19 @@ public class selectManager : MonoBehaviour {
     {
         chaSetFalse();
         gameMoney = GameObject.Find("gameMoney").GetComponent<Text>();
-
-        if(ES2.Exists("Money_Game"))
+        bosukMoney = GameObject.Find("bosukMoney").GetComponent<Text>();
+        if (ES2.Exists("Money_Game"))
             gameMoney.text = DataSave._instance.getMoney_Game().ToString(); //돈 출력
         else
         {
-            gameMoney.text = 1000.ToString("#,##0");
+            gameMoney.text = 5000.ToString("#,##0"); 
             DataSave._instance.setMoney_Game(5000);
         }
-           
+
+        if (ES2.Exists("bosuk_Game"))
+            bosukMoney.text = DataSave._instance.getBosuk_Game().ToString(); //돈 출력
+        else
+            bosukMoney.text = 0.ToString("#,##0");
 
         eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         eventSystem.pixelDragThreshold = (int)(0.5f * Screen.dpi / 2.54f);
