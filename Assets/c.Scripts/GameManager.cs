@@ -77,8 +77,9 @@ public class GameManager : MonoBehaviour {
 			Record_help = 0;
 			Record_help_Max = 0;
 			gameSet = 3;
-
-			StartCoroutine ("UICheck");
+			if (Application.loadedLevelName == "TestGame") {
+				StartCoroutine ("UICheck");
+			}
 
 			if (tiltCheck) {
 				tiltOn.SetActive (true);

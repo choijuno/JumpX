@@ -4555,6 +4555,8 @@ MonoBehaviour:
   result_time: {fileID: 0}
   result_help: {fileID: 0}
   result_score: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  Controller: {fileID: 0}
   tiltOn: {fileID: 0}
   tiltOff: {fileID: 0}
 --- !u!4 &460096947
@@ -10511,6 +10513,14 @@ Prefab:
       propertyPath: loadManager
       value: 
       objectReference: {fileID: 468541976}
+    - target: {fileID: 11411624, guid: 245da86279ac2b949b3ae5a717023f4b, type: 2}
+      propertyPath: backGround_basePos
+      value: 
+      objectReference: {fileID: 149531958}
+    - target: {fileID: 11411624, guid: 245da86279ac2b949b3ae5a717023f4b, type: 2}
+      propertyPath: backGround_inCamera
+      value: 
+      objectReference: {fileID: 1104618708}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 245da86279ac2b949b3ae5a717023f4b, type: 2}
   m_IsPrefabParent: 0

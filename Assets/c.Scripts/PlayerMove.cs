@@ -532,7 +532,9 @@ public class PlayerMove : MonoBehaviour {
 
 				
                     //gameclear.SetActive (true);
-                    //Invoke("resetgame", 2f);
+				if (Application.loadedLevelName == "Edit") {
+                    Invoke("resetgame", 2f);
+				}
                     bounce = Bouncy.Not;
 				//_anim.SetTrigger ("BumpJump");
 					_anim.SetBool ("DropCheck", false);
