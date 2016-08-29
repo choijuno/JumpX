@@ -81,8 +81,11 @@ public class PlayerMove : MonoBehaviour {
 	void Awake () {
 		Camera_ingame.GetComponent<GameCamera> ().direction = 1;
 		//_anim = deadBody.GetComponent<Animation> ();
-
-		TestSkinNum = ES2.Load<int> ("rabbit");
+		if (ES2.Exists ("rabbit")) {
+			TestSkinNum = ES2.Load<int> ("rabbit");
+		} else {
+			TestSkinNum = 0;
+		}
 			
 		switch (TestSkinNum) {
 		case 0:
@@ -529,7 +532,9 @@ public class PlayerMove : MonoBehaviour {
 
 				
                     //gameclear.SetActive (true);
-                    //Invoke("resetgame", 2f);
+				if (Application.loadedLevelName == "Edit") {
+                    Invoke("resetgame", 2f);
+				}
                     bounce = Bouncy.Not;
 				//_anim.SetTrigger ("BumpJump");
 					_anim.SetBool ("DropCheck", false);
@@ -654,6 +659,11 @@ public class PlayerMove : MonoBehaviour {
 
                 break;
             case Bouncy.ride:
+				
+				if (obj.CompareTag ("gold")) {
+					GameManager.Money_ingame += 10;
+					AudioSource.PlayClipAtPoint(goldSound, SoundBase.transform.position);
+				}
 
                 if (obj.CompareTag("rain"))
                 {
