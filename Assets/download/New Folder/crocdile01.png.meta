@@ -12,7 +12,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -22,7 +22,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -42,16 +42,22 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
     sprites:
     - name: crocdile01_0
@@ -62,8 +68,24 @@ TextureImporter:
         width: 253
         height: 90
       alignment: 9
-      pivot: {x: .486750871, y: .803279817}
+      pivot: {x: 0.48675087, y: 0.8032798}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47.852028, y: -69.29518}
+        - {x: 47.852028, y: -72.29518}
+        - {x: 54.852028, y: -72.29518}
+        - {x: 54.852028, y: -71.29518}
+        - {x: 50.852028, y: -67.29518}
+        - {x: 49.852028, y: -67.29518}
+      - - {x: -43.147972, y: 17.704819}
+        - {x: -121.14797, y: 2.7048187}
+        - {x: -123.14797, y: -7.2951813}
+        - {x: -123.14797, y: -34.29518}
+        - {x: -70.14797, y: -62.29518}
+        - {x: 104.85203, y: -62.29518}
+        - {x: 129.85202, y: -55.29518}
+        - {x: 129.85202, y: -5.2951813}
+        - {x: 111.85203, y: 17.704819}
     - name: crocdile01_1
       rect:
         serializedVersion: 2
@@ -72,8 +94,14 @@ TextureImporter:
         width: 51
         height: 38
       alignment: 9
-      pivot: {x: .345073789, y: .850877643}
+      pivot: {x: 0.3450738, y: 0.85087764}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.598763, y: 5.666649}
+        - {x: -17.598763, y: -32.33335}
+        - {x: 33.401237, y: -32.33335}
+        - {x: 33.401237, y: -0.33335114}
+        - {x: 16.401237, y: 5.666649}
     - name: crocdile01_2
       rect:
         serializedVersion: 2
@@ -82,8 +110,16 @@ TextureImporter:
         width: 38
         height: 43
       alignment: 9
-      pivot: {x: .5, y: .82156229}
+      pivot: {x: 0.5, y: 0.8215623}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 7.672821}
+        - {x: -19, y: 6.672821}
+        - {x: -19, y: -24.327179}
+        - {x: -10, y: -35.32718}
+        - {x: 17, y: -35.32718}
+        - {x: 19, y: -31.327179}
+        - {x: 19, y: 7.672821}
     - name: crocdile01_3
       rect:
         serializedVersion: 2
@@ -92,8 +128,9 @@ TextureImporter:
         width: 126
         height: 29
       alignment: 9
-      pivot: {x: .049284678, y: .380800694}
+      pivot: {x: 0.049284678, y: 0.3808007}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: crocdile01_4
       rect:
         serializedVersion: 2
@@ -102,8 +139,10 @@ TextureImporter:
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

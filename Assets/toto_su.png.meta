@@ -17,7 +17,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -57,7 +57,12 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
     sprites:
     - name: toto_su_0
@@ -202,15 +207,15 @@ TextureImporter:
       pivot: {x: 0.41282833, y: 0.8875788}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 10.963837, y: 7.3073807}
+      - - {x: 11.963837, y: 7.3073807}
         - {x: -9.036163, y: 7.3073807}
-        - {x: -12.036163, y: -2.6926193}
-        - {x: -14.036163, y: -18.69262}
+        - {x: -13.036163, y: -2.6926193}
+        - {x: -14.036163, y: -15.692619}
         - {x: -14.036163, y: -56.69262}
         - {x: -12.036163, y: -57.69262}
         - {x: 19.963837, y: -57.69262}
-        - {x: 19.963837, y: -21.69262}
-        - {x: 18.963837, y: 4.3073807}
+        - {x: 19.963837, y: -34.69262}
+        - {x: 16.963837, y: 5.3073807}
     - name: toto_su_9
       rect:
         serializedVersion: 2

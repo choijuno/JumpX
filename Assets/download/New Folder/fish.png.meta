@@ -11,7 +11,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -21,7 +21,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -41,16 +41,22 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
     sprites:
     - name: fish_0
@@ -61,8 +67,17 @@ TextureImporter:
         width: 87
         height: 77
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 38.5}
+        - {x: -43.5, y: 29.5}
+        - {x: -43.5, y: -7.5}
+        - {x: -30.5, y: -36.5}
+        - {x: -21.5, y: -38.5}
+        - {x: 43.5, y: -38.5}
+        - {x: 43.5, y: 9.5}
+        - {x: 22.5, y: 38.5}
     - name: fish_1
       rect:
         serializedVersion: 2
@@ -71,8 +86,16 @@ TextureImporter:
         width: 56
         height: 44
       alignment: 9
-      pivot: {x: .40319851, y: .253596216}
+      pivot: {x: 0.4031985, y: 0.25359622}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.579117, y: 32.841766}
+        - {x: -22.579117, y: 18.841766}
+        - {x: -22.579117, y: 0.84176636}
+        - {x: -14.579117, y: -11.158234}
+        - {x: 33.420883, y: -11.158234}
+        - {x: 33.420883, y: 24.841766}
+        - {x: 20.420883, y: 32.841766}
     - name: fish_2
       rect:
         serializedVersion: 2
@@ -81,8 +104,15 @@ TextureImporter:
         width: 50
         height: 41
       alignment: 9
-      pivot: {x: .825252533, y: .345747322}
+      pivot: {x: 0.82525253, y: 0.34574732}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.262627, y: 26.82436}
+        - {x: -41.262627, y: -14.17564}
+        - {x: 7.7373734, y: -14.17564}
+        - {x: 8.737373, y: -12.17564}
+        - {x: 8.737373, y: 9.82436}
+        - {x: -23.262627, y: 26.82436}
     - name: fish_3
       rect:
         serializedVersion: 2
@@ -91,8 +121,10 @@ TextureImporter:
         width: 25
         height: 39
       alignment: 9
-      pivot: {x: .138608098, y: .569498181}
+      pivot: {x: 0.1386081, y: 0.5694982}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
