@@ -40,7 +40,6 @@ D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEditor.xml
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.UI.xml
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Networking.xml
 D:\최준오\programing\projects\JumpX\obj\Debug\Assembly-CSharp.pdb
-D:\최준오\programing\projects\JumpX\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Analytics.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Purchasing.dll
 D:\최준오\programing\projects\JumpX\Temp\bin\Debug\UnityEngine.Analytics.xml
