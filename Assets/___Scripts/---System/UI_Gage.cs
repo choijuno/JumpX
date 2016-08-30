@@ -4,15 +4,23 @@ using System.Collections;
 
 public class UI_Gage : MonoBehaviour {
 
+	//fillamount
 	public Image gage_bar;
 
-	public GameObject gage_Character;
 
+
+	//Gage_Objects
+	public GameObject gage_Character;
+	public GameObject finish_ground;
+
+	//Objects in
 	public Transform loadParent;
 
+
+	//inGame_Player
 	public GameObject playerBody;
 
-	//
+	//GageStart
 	public GameObject StartPos;
 	//
 
@@ -23,7 +31,11 @@ public class UI_Gage : MonoBehaviour {
 	float chaMax = 564f;
 
 	public GameObject chaStart;
+	float chaStartPos;
 	public GameObject chaEnd;
+	float chaEndPos;
+
+
 
 	// Use this for initialization
 	void Start () {

@@ -5,6 +5,7 @@ public class Monkey : MonoBehaviour {
 
 	public Animator monkey;
 	public GameObject banana;
+	public GameObject banana_image;
 	public GameObject hand;
 	public float waitTime;
 	float waitTime_in;
@@ -42,6 +43,8 @@ public class Monkey : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (0.006f);
 			banana.transform.position = new Vector3 (banana.transform.position.x - attSpeed_in, banana.transform.position.y - attSpeed_in, banana.transform.position.z);
+			banana_image.transform.Rotate (0, 0, turnSpeed_in);
+
 		}
 	}
 
@@ -50,7 +53,5 @@ public class Monkey : MonoBehaviour {
 		banana.transform.position = hand.transform.position;
 	}
 
-	void Update(){
-		banana.transform.Rotate (0, 0, turnSpeed_in);
-	}
+
 }
