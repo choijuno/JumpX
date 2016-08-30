@@ -15,8 +15,9 @@ public class InappManager : MonoBehaviour, IStoreListener
     private static IStoreController m_StoreController;          // The Unity Purchasing system.
     private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
 
-    public static string Product_50G = "gold50";
-    public static string Product_100G ="gold100";
+    public static string Product_20000Bosuk = "gold20000";
+    public static string Product_30000Bosuk ="gold30000";
+    public static string Product_100000Bosuk = "gold100000";
     
     private void Awake()
     {
@@ -37,9 +38,9 @@ public class InappManager : MonoBehaviour, IStoreListener
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
         
        
-        builder.AddProduct(Product_100G, ProductType.Consumable);
-        builder.AddProduct(Product_50G, ProductType.Consumable);
-        builder.AddProduct(Product_50G, ProductType.NonConsumable);
+        builder.AddProduct(Product_100000Bosuk, ProductType.Consumable);
+        builder.AddProduct(Product_30000Bosuk, ProductType.Consumable);
+        builder.AddProduct(Product_20000Bosuk, ProductType.Consumable);
 
         UnityPurchasing.Initialize(this, builder);
     }
@@ -51,13 +52,17 @@ public class InappManager : MonoBehaviour, IStoreListener
     }
 
 
-    public void Buy50Gold()
+    public void Buy20000Bosuk()
     {
-        BuyProductID(Product_50G);
+        BuyProductID(Product_20000Bosuk);
     }
-    public void Buy100Gold()
+    public void Buy30000Bosuk()
     {
-        BuyProductID(Product_100G);
+        BuyProductID(Product_30000Bosuk);
+    }
+    public void Buy100000Bosuk()
+    {
+        BuyProductID(Product_100000Bosuk);
     }
     /*
     public void BuyNonConsumable()
@@ -66,7 +71,7 @@ public class InappManager : MonoBehaviour, IStoreListener
         // through ProcessPurchase or OnPurchaseFailed asynchronously.
         BuyProductID(kProductIDNonConsumable);
     }*/
-    
+
     /*
     public void BuySubscription()
     {
@@ -151,13 +156,20 @@ public class InappManager : MonoBehaviour, IStoreListener
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
-        if (String.Equals(args.purchasedProduct.definition.id, Product_50G, StringComparison.Ordinal))
+        if (String.Equals(args.purchasedProduct.definition.id, Product_20000Bosuk, StringComparison.Ordinal))
         {
-            Debug.Log("you 50골드!"); //돈이 올라가는곳
+            Debug.Log("you 20000 보석!"); //돈이 올라가는곳
+            DataSave._instance.setBosuk_Game(20000);
         }
-        else if (String.Equals(args.purchasedProduct.definition.id, Product_100G, StringComparison.Ordinal))
+        else if (String.Equals(args.purchasedProduct.definition.id, Product_30000Bosuk, StringComparison.Ordinal))
         {
-            Debug.Log("100골드!!");
+            Debug.Log("you 30000 보석");
+            DataSave._instance.setBosuk_Game(30000);
+        }
+        else if (String.Equals(args.purchasedProduct.definition.id, Product_100000Bosuk, StringComparison.Ordinal))
+        {
+            Debug.Log("you 100000 보석");
+            DataSave._instance.setBosuk_Game(100000);
         }
         /*else if (String.Equals(args.purchasedProduct.definition.id, kProductIDSubscription, StringComparison.Ordinal))
         {

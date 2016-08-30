@@ -29,13 +29,13 @@ public class JsonParsing : MonoBehaviour {
         {
             if(stageIndex == N[i][0].AsFloat)
             {
-                if(gameRecord > N[i][3].AsFloat)
+                if(gameRecord >= N[i][3].AsFloat)
                 {
                     starCount = 3;
-                }else if(gameRecord > N[i][2].AsFloat)
+                }else if(gameRecord >= N[i][2].AsFloat)
                 {
                     starCount = 2;
-                }else if(gameRecord > N[i][1].AsFloat)
+                }else if(gameRecord >= N[i][1].AsFloat)
                 {
                     starCount = 1;
                 }

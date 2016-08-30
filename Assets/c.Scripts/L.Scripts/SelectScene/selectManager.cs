@@ -43,6 +43,7 @@ public class selectManager : MonoBehaviour {
     EventSystem eventSystem;
 
     Text gameMoney;
+    Text bosukMoney;
 
     //마이룸.
     GameObject cha_selectUi;
@@ -70,6 +71,10 @@ public class selectManager : MonoBehaviour {
     Button bosukRealBtn;
     Button goldRealBtn;
 
+    Button bosuk1000won;
+    Button bosuk2500won;
+    Button bosuk32500won;
+
     public Sprite nonGoldSprite;
     public Sprite GoldSprite;
     public Sprite nonBosukSprite;
@@ -85,15 +90,19 @@ public class selectManager : MonoBehaviour {
     {
         chaSetFalse();
         gameMoney = GameObject.Find("gameMoney").GetComponent<Text>();
-
-        if(ES2.Exists("Money_Game"))
+        bosukMoney = GameObject.Find("bosukMoney").GetComponent<Text>();
+        if (ES2.Exists("Money_Game"))
             gameMoney.text = DataSave._instance.getMoney_Game().ToString(); //돈 출력
         else
         {
-            gameMoney.text = 1000.ToString("#,##0");
+            gameMoney.text = 5000.ToString("#,##0"); 
             DataSave._instance.setMoney_Game(5000);
         }
-           
+
+        if (ES2.Exists("bosuk_Game"))
+            bosukMoney.text = DataSave._instance.getBosuk_Game().ToString(); //돈 출력
+        else
+            bosukMoney.text = 0.ToString("#,##0");
 
         eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         eventSystem.pixelDragThreshold = (int)(0.5f * Screen.dpi / 2.54f);
@@ -120,6 +129,7 @@ public class selectManager : MonoBehaviour {
         goldStore = goldBosuk.transform.FindChild("goldStore").gameObject;
         bosukStore = goldBosuk.transform.FindChild("bosukStore").gameObject;
 
+
         bosukRealBtn = allBtnPanel.transform.FindChild("bosukBtn").GetComponent<Button>();
         bosukRealBtn.onClick.AddListener(bosukRealBtnFunc);
         goldRealBtn = allBtnPanel.transform.FindChild("goldBtn").GetComponent<Button>();
@@ -130,6 +140,14 @@ public class selectManager : MonoBehaviour {
         goldBtn.onClick.AddListener(goldBtnFunc);
         goldbosukExitBtn = goldBosuk.transform.FindChild("goldbosukExitBtn").GetComponent<Button>();
         goldbosukExitBtn.onClick.AddListener(goldbosukExitBtnFunc);
+
+        bosuk1000won = bosukStore.transform.FindChild("1000won").GetComponent<Button>();
+        bosuk1000won.onClick.AddListener(() => bosukBuy(1000));
+        bosuk2500won = bosukStore.transform.FindChild("2500won").GetComponent<Button>();
+        bosuk2500won.onClick.AddListener(() => bosukBuy(2500));
+        bosuk32500won = bosukStore.transform.FindChild("32500won").GetComponent<Button>();
+        bosuk32500won.onClick.AddListener(() => bosukBuy(32500));
+
         goldBosuk.SetActive(false);
 
 
@@ -314,7 +332,7 @@ public class selectManager : MonoBehaviour {
     void greenBoxBtnFunc() //그린박스
     {
         float gameMoney = DataSave._instance.getMoney_Game();
-        if (gameMoney < 1000)
+        if (gameMoney < -10000)
             Debug.Log("돈이 부족합니다.");
         else
         {
@@ -397,5 +415,20 @@ public class selectManager : MonoBehaviour {
     void goldRealBtnFunc()
     {
         goldBtnFunc();
+    }
+    void bosukBuy(int won)
+    {
+        switch (won)
+        {
+            case 1000:
+                InappManager.Instance.Buy20000Bosuk();
+                break;
+            case 2500:
+                InappManager.Instance.Buy30000Bosuk();
+                break;
+            case 32500:
+                InappManager.Instance.Buy100000Bosuk();
+                break;
+        }
     }
 }

@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 public class DataSave : MonoBehaviour {
 
     public static DataSave _instance;
+
+    public Text Bosuk_Game;
 
     public void setMoney_Game(float game_Money) //돈저장
     {
@@ -19,6 +23,37 @@ public class DataSave : MonoBehaviour {
             ES2.Save<float>(ES2.Load<float>("Money_Game") - game_Money, "Money_Game");
         else
             ES2.Save<float>(game_Money, "Money_Game");
+    }
+    public void setBosuk_Game(float bosuk_Money) //보석저장.
+    {
+        if (ES2.Exists("bosuk_Game"))
+        {
+            ES2.Save<float>(ES2.Load<float>("bosuk_Game") + bosuk_Money, "bosuk_Game");
+            Bosuk_Game.text = ES2.Load<float>("bosuk_Game").ToString();
+        }
+        else
+        {
+            ES2.Save<float>(bosuk_Money, "bosuk_Game");
+            Bosuk_Game.text = ES2.Load<float>("bosuk_Game").ToString();
+        }
+            
+    }
+    public void setBosuk_GameMinus(float bosuk_Money) //보석저장.
+    {
+        if (ES2.Exists("bosuk_Game"))
+        {
+            ES2.Save<float>(ES2.Load<float>("bosuk_Game") - bosuk_Money, "bosuk_Game");
+            Bosuk_Game.text = ES2.Load<float>("bosuk_Game").ToString();
+        }
+        else
+        {
+            ES2.Save<float>(bosuk_Money, "bosuk_Game");
+            Bosuk_Game.text = ES2.Load<float>("bosuk_Game").ToString();
+        }
+    }
+    public float getBosuk_Game()
+    {
+        return ES2.Load<float>("bosuk_Game");
     }
 
     public float getMoney_Game()

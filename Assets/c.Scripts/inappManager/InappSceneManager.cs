@@ -21,11 +21,11 @@ public class InappSceneManager : MonoBehaviour {
     }
     void gold100func()
     {
-        InappManager.Instance.Buy100Gold();
+        //InappManager.Instance.Buy100Gold();
     }
     void gold50func()
     {
-        InappManager.Instance.Buy50Gold();
+        //InappManager.Instance.Buy50Gold();
     }
     void backfunc()
     {
