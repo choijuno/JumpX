@@ -3,11 +3,7 @@ using System.Collections;
 
 public class Tree_R : MonoBehaviour {
 
-
 	public GameObject fruit;
-	public GameObject fruit_image;
-
-	public bool attackCheck;
 	public float waitTime;
 	float waitTime_in;
 	public float attSpeed;
@@ -27,10 +23,8 @@ public class Tree_R : MonoBehaviour {
 		attSpeed_in = Random.Range (60, 100);
 		turnSpeed_in = attSpeed_in / 4;
 		attSpeed_in = attSpeed_in * 0.001f;
-		if (attackCheck) {
-			StartCoroutine ("wait");
-			StartCoroutine ("att");
-		}
+		StartCoroutine ("wait");
+		StartCoroutine ("att");
 	}
 
 	// Update is called once per frame
@@ -54,9 +48,11 @@ public class Tree_R : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (0.006f);
 			fruit.transform.position = new Vector3 (fruit.transform.position.x, fruit.transform.position.y - attSpeed_in, 0);
-			fruit_image.transform.Rotate (0, 0, turnSpeed_in);
-
 		}
+	}
+
+	void Update(){
+		fruit.transform.Rotate (0, 0, turnSpeed_in);
 	}
 
 }
