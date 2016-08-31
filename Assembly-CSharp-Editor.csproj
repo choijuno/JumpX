@@ -45,43 +45,43 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_ETC\GoogleMobileAds\Editor\CocoaPodHelper.cs" />
-     <Compile Include="Assets\_ETC\GoogleMobileAds\Editor\PostProcessor.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\CocoaPodHelper.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSAndroidSetupUI.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSDependencies.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSDocsUI.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSIOSSetupUI.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSInstructionWindow.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSPostBuild.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSProjectSettings.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSStrings.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSUpgrader.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\GPGSUtil.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\NearbyConnectionUI.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\PlistBuddyHelper.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\Elements.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\Lexer.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\Objects.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\PBXProject.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\Parser.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\Sections.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\Serializer.cs" />
-     <Compile Include="Assets\_ETC\GooglePlayGames\Editor\xcode\Utils.cs" />
-     <Compile Include="Assets\_ETC\PlayMaker\Editor\AssetGUIDs.cs" />
-     <Compile Include="Assets\_ETC\PlayMaker\Editor\EditorStartupPrefs.cs" />
-     <Compile Include="Assets\_ETC\PlayMaker\Editor\PlayMakerEditorStartup.cs" />
-     <Compile Include="Assets\_ETC\PlayMaker\Editor\PlayMakerWelcomeWindow.cs" />
-     <Compile Include="Assets\_ETC\PlayMaker\Editor\PreUpdateChecker.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\AdMobDependencies.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\DefaultResolver.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\IResolver.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\PlayServicesResolver.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\ResolverVer1_1.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\ResolverVer1_2.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\SampleDependencies.cs" />
-     <Compile Include="Assets\_ETC\PlayServicesResolver\Editor\SettingsDialog.cs" />
-     <Compile Include="Assets\_ETC\Reporter\Editor\ReporterEditor.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Editor\CocoaPodHelper.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Editor\PostProcessor.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\CocoaPodHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSAndroidSetupUI.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSDependencies.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSDocsUI.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSIOSSetupUI.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSInstructionWindow.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSPostBuild.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSProjectSettings.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSStrings.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSUpgrader.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\GPGSUtil.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\NearbyConnectionUI.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\PlistBuddyHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\Elements.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\Lexer.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\Objects.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\PBXProject.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\Parser.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\Sections.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\Serializer.cs" />
+     <Compile Include="Assets\GooglePlayGames\Editor\xcode\Utils.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\AssetGUIDs.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\EditorStartupPrefs.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerEditorStartup.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerWelcomeWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PreUpdateChecker.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\AdMobDependencies.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\DefaultResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\IResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\PlayServicesResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_1.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_2.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\SampleDependencies.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\SettingsDialog.cs" />
+     <Compile Include="Assets\Reporter\Editor\ReporterEditor.cs" />
      <Compile Include="Assets\_ETC\Standard Assets\Editor\UnityAds\Scripts\UnityAdsPackageGenerator.cs" />
      <Compile Include="Assets\_ETC\Standard Assets\Editor\UnityAds\Scripts\UnityAdsPostprocessor.cs" />
      <Compile Include="Assets\_ETC\Standard Assets\Editor\UnityAds\XCodeEditor\PBXBuildFile.cs" />
@@ -103,48 +103,48 @@
      <Compile Include="Assets\_ETC\effect\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
      <Compile Include="Assets\_ETC\effect\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
      <Compile Include="Assets\_ETC\effect\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
-     <None Include="Assets\_ETC\GooglePlayGames\Editor\Podfile.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\proguard-project.txt" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\Podfile.txt" />
+     <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\_ETC\effect\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\build.xml" />
+     <None Include="Assets\Plugins\Android\unityads\build.xml" />
      <None Include="Assets\_ETC\effect\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\layout\unityads_button_audio_toggle.xml" />
-     <None Include="Assets\_ETC\GooglePlayGames\Editor\template-GameInfo.txt" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_audio_toggle.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\Easy Save 2\changelog.txt" />
      <None Include="Assets\StreamingAssets\build_info.txt" />
      <None Include="Assets\Resources\stage\stage9\_obj_Component.txt" />
-     <None Include="Assets\_ETC\GooglePlayGames\Editor\template-AndroidManifest.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\MainLibProj\AndroidManifest.xml" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
+     <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
      <None Include="Assets\Easy Save 2\readme.txt" />
      <None Include="Assets\_ETC\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
      <None Include="Assets\Resources\stage\stage1\_obj_Component.txt" />
      <None Include="Assets\Resources\stage\stage1\_obj.txt" />
      <None Include="Assets\_ETC\StreamingAssets\build_info.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_triangle.xml" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\values\strings.xml" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_waves.xml" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_base.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_triangle.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_waves.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_base.xml" />
      <None Include="Assets\Resources\stage\stage5\_obj_Component.txt" />
      <None Include="Assets\Resources\stage\stage10\_obj.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
      <None Include="Assets\Resources\stage\stage4\_obj_Component.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\drawable\unityads_icon_play.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_play.xml" />
      <None Include="Assets\link.xml" />
-     <None Include="Assets\_ETC\GooglePlayGames\Editor\template-Constants.txt" />
+     <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
      <None Include="Assets\Resources\stage\stage2\_obj_Component.txt" />
      <None Include="Assets\Resources\stage\stage9\_obj.txt" />
-     <None Include="Assets\_ETC\PlayMaker\Editor\Install\readme.txt" />
+     <None Include="Assets\PlayMaker\Editor\Install\readme.txt" />
      <None Include="Assets\Resources\stage\stage6\_obj_Component.txt" />
      <None Include="Assets\Resources\stage\stage4\_obj.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\layout\unityads_button_pause.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_pause.xml" />
      <None Include="Assets\Resources\stage\stage6\_obj.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\res\layout\unityads_view_video_paused.xml" />
+     <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_paused.xml" />
      <None Include="Assets\Resources\stage\stage5\_obj.txt" />
      <None Include="Assets\Resources\stage\stage2\_obj.txt" />
      <None Include="Assets\Resources\stage\stage10\_obj_Component.txt" />
-     <None Include="Assets\_ETC\Plugins\Android\unityads\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -175,6 +175,9 @@
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
+ <Reference Include="JMOAssets">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/effect/JMO Assets/Editor/JMOAssets.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -184,41 +187,40 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="JMOAssets">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/effect/JMO Assets/Editor/JMOAssets.dll</HintPath>
- </Reference>
  <Reference Include="JarResolverLib">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
- </Reference>
- <Reference Include="Stores">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
  <Reference Include="ES2Editor">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/Editor/ES2Editor.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/Editor/ES2Editor.dll</HintPath>
  </Reference>
  <Reference Include="ES2">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/ES2.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/ES2.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
  </Reference>
  <Reference Include="Editor">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
  </Reference>
  <Reference Include="winrt">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
  </Reference>
  <Reference Include="Apple">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
  </Reference>
  <Reference Include="Common">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
- </Reference>
- <Reference Include="MoodkieSecurity">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/MoodkieSecurity.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
  </Reference>
  <Reference Include="Security">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ </Reference>
+ <Reference Include="MoodkieSecurity">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/MoodkieSecurity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D3FFB2E6-9A55-483B-574E-8D841036B706}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{A71406A9-79E4-C771-EFFD-76BD79EA36EB}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
