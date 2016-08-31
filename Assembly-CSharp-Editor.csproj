@@ -175,6 +175,36 @@
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
+ <Reference Include="JarResolverLib">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ </Reference>
+ <Reference Include="ES2">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/ES2.dll</HintPath>
+ </Reference>
+ <Reference Include="MoodkieSecurity">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/MoodkieSecurity.dll</HintPath>
+ </Reference>
+ <Reference Include="ES2Editor">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/Editor/ES2Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Common">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
+ </Reference>
+ <Reference Include="Editor">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Security">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ </Reference>
+ <Reference Include="Apple">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ </Reference>
+ <Reference Include="winrt">
+ <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
+ </Reference>
  <Reference Include="JMOAssets">
  <HintPath>D:/최준오/programing/projects/JumpX/Assets/_ETC/effect/JMO Assets/Editor/JMOAssets.dll</HintPath>
  </Reference>
@@ -186,36 +216,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="JarResolverLib">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
- </Reference>
- <Reference Include="ES2Editor">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/Editor/ES2Editor.dll</HintPath>
- </Reference>
- <Reference Include="ES2">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/ES2.dll</HintPath>
- </Reference>
- <Reference Include="Stores">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
- </Reference>
- <Reference Include="Editor">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
- </Reference>
- <Reference Include="winrt">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
- </Reference>
- <Reference Include="Apple">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
- </Reference>
- <Reference Include="Common">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
- </Reference>
- <Reference Include="Security">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
- </Reference>
- <Reference Include="MoodkieSecurity">
- <HintPath>D:/최준오/programing/projects/JumpX/Assets/Plugins/MoodkieSecurity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
